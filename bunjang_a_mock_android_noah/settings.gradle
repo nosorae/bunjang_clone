@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "bunjang_a_mock_android_noah"
