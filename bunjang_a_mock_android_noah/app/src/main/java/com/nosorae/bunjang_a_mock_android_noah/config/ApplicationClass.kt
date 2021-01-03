@@ -3,6 +3,7 @@ package com.nosorae.bunjang_a_mock_android_noah.config
 import android.app.Application
 import android.content.SharedPreferences
 import android.util.Log
+import com.kakao.sdk.common.KakaoSdk
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -38,6 +39,8 @@ class ApplicationClass : Application() {
             applicationContext.getSharedPreferences("SOFTSQUARED_TEMPLATE_APP", MODE_PRIVATE)
         // 레트로핏 인스턴스 생성
         initRetrofitInstance()
+        // Kakao SDK 초기화
+        KakaoSdk.init(this, "3d81bd53b0ed2371312ccff47725aea2")
     }
 
     // 레트로핏 인스턴스를 생성하고, 레트로핏에 각종 설정값들을 지정해줍니다.
