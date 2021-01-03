@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SoftSquared Android Kotlin Template</string>
+    <string name="app_name">번개장터</string>
 
     <!-- Naming Rules -->
     <!-- 도메인명_컴포넌트함축어_용도(=목적) -->
@@ -19,8 +19,21 @@
     <string name="home_et_id">아이디를 입력하세요.</string>
     <string name="home_et_pw">비밀번호를 입력하세요.</string>
 
-    <!-- MyPage -->
-    <string name="my_page_tv_counter">%1d 번 눌렀습니다.</string>
-    <string name="my_page_btn_counting_number">숫자 세기</string>
 
+
+    <string name="my_shop_request">상정문의</string>
+    <string name="my_shop_like">찜</string>
+    <string name="my_shop_review">후기</string>
+    <string name="my_shop_follower">팔로워</string>
+    <string name="my_shop_following">팔로잉</string>
+    <string name="my_shop_seller_center">판매자센터</string>
+    <string name="my_shop_transaction_list">거래내역</string>
+    <string name="my_shop_delivery">택배관리</string>
+    <string name="my_shop_customer_center">고객센터</string>
+    <string name="my_shop_selling">판매중</string>
+    <string name="my_shop_booking">예약중</string>
+    <string name="my_shop_selled">판매완료</string>
+    <string name="my_shop_selling_no">판매중인 상품이 없습니다.</string>
+    <string name="my_shop_booking_no">예약중 상품이 없습니다.</string>
+    <string name="my_shop_selled_no">판매완료된 상품이 없습니다.</string>
 </resources>

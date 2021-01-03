@@ -7,10 +7,19 @@
     <!-- 기본 -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+
     <color name="transparent">#00FFFFFF</color>
 
     <color name="whiteForBackground">#FFFFFF</color>
     <color name="blackForText">#4a4a4a</color>
     <color name="redForText">#d9534f</color>
+
+    <color name="bottomNavUnselected">#CDCBD5</color>
+    <color name="bottomNavSelected">#302C24</color>
+    <color name="statusBar">#FFFFFF</color>
+    <color name="myShopButtonShopQuest">#7B7888</color>
+    <color name="myShopTextEvent">#FF5962</color>
+    <color name="myShopTextBackground">#F4F4FA</color>
+
 
 </resources>
