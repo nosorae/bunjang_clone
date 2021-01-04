@@ -5,6 +5,10 @@
     <dimen name="my_shop_table_margin_text">8dp</dimen>
     <dimen name="my_shop_table_margin_table">16dp</dimen>
     <dimen name="my_shop_table_text">18sp</dimen>
+    <dimen name="my_shop_configuration_category_text">18sp</dimen>
+    <dimen name="my_shop_configuration_item_text">15sp</dimen>
+    <dimen name="my_shop_configuration_margin_vertical">10dp</dimen>
+    <dimen name="my_shop_configuration_margin_horizontal">8dp</dimen>
 
     <dimen name="log_in_button_vertical">55dp</dimen>
     <dimen name="log_in_button_horizontal">310dp</dimen>

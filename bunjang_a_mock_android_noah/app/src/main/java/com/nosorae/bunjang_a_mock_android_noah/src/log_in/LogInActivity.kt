@@ -25,8 +25,7 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(ActivityLogInBinding::i
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
+
         binding.imageButtonLogInKakao.setOnClickListener {
             // 카카오톡으로 로그인
             val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
@@ -69,6 +68,11 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(ActivityLogInBinding::i
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
         }.attach()
+
+        binding.textViewLogInOtherWay.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
 
 
     }

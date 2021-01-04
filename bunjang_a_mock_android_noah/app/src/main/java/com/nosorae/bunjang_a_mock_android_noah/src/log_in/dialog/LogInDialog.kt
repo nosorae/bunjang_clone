@@ -35,6 +35,7 @@ class LogInDialog(context : Context) : Dialog(context)  {
 
 
         val closeButton = findViewById<ImageButton>(R.id.image_button_close)
+
         closeButton.setOnClickListener {
             dismiss()
         }

@@ -34,7 +34,7 @@
         app:srcCompat="@drawable/log_in_naver" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/image_button_self"
         android:layout_width="@dimen/log_in_button_horizontal"
         android:layout_height="@dimen/log_in_button_vertical"
         android:layout_marginTop="14dp"

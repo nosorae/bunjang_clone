@@ -112,7 +112,7 @@
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/image_view_profile_image"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="@+id/image_view_profile_image" />
 
                     <RatingBar
                         android:id="@+id/rating_bar"
