@@ -1,4 +1,4 @@
-package com.nosorae.bunjang_a_mock_android_noah.src.log_in
+package com.nosorae.bunjang_a_mock_android_noah.src.log_in.dialog
 
 import android.app.Dialog
 import android.content.Context

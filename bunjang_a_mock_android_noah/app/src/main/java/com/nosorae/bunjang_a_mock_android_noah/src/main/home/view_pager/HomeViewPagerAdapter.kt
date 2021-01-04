@@ -1,27 +1,22 @@
-package com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager
+package com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager
 
-import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.nosorae.bunjang_a_mock_android_noah.R
 
-class LogInViewPagerAdapter(private val context: Context,
-                            private var pageList: ArrayList<LogInViewPagerItem>)
-    : RecyclerView.Adapter<LogInViewPagerViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogInViewPagerViewHolder {
-        return LogInViewPagerViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.view_pager_log_in, parent, false
-            )
-        )
+class HomeViewPagerAdapter(private var pageList: ArrayList<HomeViewPagerItem>)
+    : RecyclerView.Adapter<HomeViewPagerViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewPagerViewHolder {
+        return HomeViewPagerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_pager_item_home, parent, false))
     }
 
     override fun getItemCount(): Int {
         return pageList.size
     }
 
-    override fun onBindViewHolder(holder: LogInViewPagerViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HomeViewPagerViewHolder, position: Int) {
         holder.bindView(pageList[position])
     }
 }

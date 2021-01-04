@@ -1,17 +1,17 @@
-package com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager
+package com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager
 
 import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.nosorae.bunjang_a_mock_android_noah.R
-import com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager.LogInViewPagerItem
 
-class LogInViewPagerViewHolder(itemView: View)
+
+class HomeViewPagerViewHolder(itemView: View)
     : RecyclerView.ViewHolder(itemView) {
 
-    private val itemImage : ImageView = itemView.findViewById(R.id.view_pager_log_in_item)
+    private val itemImage : ImageView = itemView.findViewById(R.id.view_pager_item_home)
 
-    fun bindView(pageItem: LogInViewPagerItem){
+    fun bindView(pageItem: HomeViewPagerItem){
         itemImage.setImageResource(pageItem.imageSrc)
     }
 }

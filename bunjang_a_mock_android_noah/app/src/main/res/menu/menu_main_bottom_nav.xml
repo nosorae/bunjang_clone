@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/menu_main_btm_nav_home"
-        android:icon="@drawable/bottom_nav_home"
+        android:icon="@drawable/main_bottom_nav_home"
         app:showAsAction="always"
         android:enabled="true"
         android:checkable="true"
@@ -12,28 +12,28 @@
 
     <item
         android:id="@+id/menu_main_btm_nav_following"
-        android:icon="@drawable/bottom_nav_following"
+        android:icon="@drawable/main_bottom_nav_following"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/main_btm_nav_following_title" />
 
     <item
         android:id="@+id/menu_main_btm_nav_add_item"
-        android:icon="@drawable/bottom_nav_add_item"
+        android:icon="@drawable/main_bottom_nav_add_item"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/main_btm_nav_add_item_title" />
 
     <item
         android:id="@+id/menu_main_btm_nav_bungae_talk"
-        android:icon="@drawable/bottom_nav_bungae_talk"
+        android:icon="@drawable/main_bottom_nav_bungae_talk"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/main_btm_nav_bungae_talk_title" />
 
     <item
         android:id="@+id/menu_main_btm_nav_my_shop"
-        android:icon="@drawable/bottom_nav_my_shop"
+        android:icon="@drawable/main_bottom_nav_my_shop"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/main_btm_nav_my_shop_title" />

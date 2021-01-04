@@ -1,7 +1,6 @@
-package com.nosorae.bunjang_a_mock_android_noah.src.log_in
+package com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager
 
 import android.content.Context
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,8 +10,11 @@ class LogInViewPagerAdapter(private val context: Context,
                             private var pageList: ArrayList<LogInViewPagerItem>)
     : RecyclerView.Adapter<LogInViewPagerViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogInViewPagerViewHolder {
-        return LogInViewPagerViewHolder(LayoutInflater.from(parent.context).inflate(
-            R.layout.view_pager_log_in, parent, false))
+        return LogInViewPagerViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_pager_item_log_in, parent, false
+            )
+        )
     }
 
     override fun getItemCount(): Int {

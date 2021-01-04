@@ -88,18 +88,18 @@
 
                     <ImageView
                         android:id="@+id/image_view_profile_image"
-                        android:layout_width="65dp"
-                        android:layout_height="65dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:elevation="10dp"
-                        android:src="@drawable/metwo"
-                        android:scaleType="center"
+                        android:foreground="@drawable/my_shop_profile_image"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/sample_image"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        />
+                        app:layout_constraintTop_toTopOf="parent" />
 
 
                     <TextView
@@ -107,22 +107,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
-                        android:layout_marginTop="@dimen/default_margin"
                         android:text="상점이름"
                         android:textColor="#000000"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/image_view_profile_image"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <RatingBar
                         android:id="@+id/rating_bar"
-                        style="@android:style/Widget.Holo.RatingBar.Small"
+                        style="@android:style/Widget.Holo.Light.RatingBar.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
-                        android:layout_marginTop="@dimen/default_margin"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="24dp"
                         android:numStars="5"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/image_view_profile_image"
@@ -133,6 +132,7 @@
                         android:layout_width="@dimen/top_icon"
                         android:layout_height="18dp"
                         android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginTop="3dp"
                         android:scaleType="fitStart"
                         android:src="@drawable/my_shop_myself"
                         app:layout_constraintBottom_toBottomOf="@+id/rating_bar"
@@ -144,10 +144,12 @@
                         android:layout_width="65dp"
                         android:layout_height="27dp"
                         android:layout_marginStart="@dimen/default_margin"
+                        android:layout_marginBottom="4dp"
                         android:background="@drawable/my_shop_button_shop_quest"
                         android:text="상점문의"
                         android:textColor="#303030"
                         android:textColorHighlight="#424242"
+                        android:textSize="10sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/image_view_myself"
                         app:layout_constraintStart_toEndOf="@+id/image_view_myself"
@@ -156,7 +158,7 @@
                     <ImageView
                         android:id="@+id/image_view_next"
                         android:layout_width="30dp"
-                        android:layout_height="25dp"
+                        android:layout_height="20dp"
                         android:layout_marginEnd="8dp"
                         android:src="@drawable/my_shop_next"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -188,7 +190,7 @@
                             android:gravity="center"
                             android:text="이벤트"
                             android:textColor="@color/myShopTextEvent"
-                            android:textSize="16sp"
+                            android:textSize="12sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -201,7 +203,7 @@
                             android:layout_marginStart="8dp"
                             android:text="이벤트 내용"
                             android:textColor="#101010"
-                            android:textSize="16sp"
+                            android:textSize="12sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/text_view_event_category"
@@ -210,7 +212,7 @@
                         <ImageView
                             android:id="@+id/imageView3"
                             android:layout_width="25dp"
-                            android:layout_height="17dp"
+                            android:layout_height="15sp"
                             android:src="@drawable/my_shop_next"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/text_view_event_content"
@@ -237,8 +239,10 @@
                             android:id="@+id/textView6"
                             android:layout_width="wrap_content"
                             android:layout_height="19dp"
-                            android:layout_marginEnd="16dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="18dp"
                             android:text="+"
+                            android:textSize="10sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -247,8 +251,9 @@
                             android:id="@+id/textView7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="26dp"
+                            android:layout_marginEnd="30dp"
                             android:text="/ 4"
+                            android:textSize="10sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -260,6 +265,7 @@
                             android:layout_marginEnd="48dp"
                             android:text="4"
                             android:textColor="#000000"
+                            android:textSize="10sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -274,7 +280,9 @@
                     android:layout_width="0dp"
 
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
                     android:stretchColumns="0,1,2,3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -374,10 +382,9 @@
                             android:layout_height="@dimen/top_icon"
                             android:layout_marginTop="@dimen/my_shop_table_margin_table"
                             android:gravity="right|center_vertical"
-                            android:paddingTop="5dp"
-                            android:paddingEnd="20dp"
-                            android:paddingRight="5dp"
-                            android:paddingBottom="5dp"
+                            android:paddingTop="7dp"
+                            android:paddingEnd="22dp"
+                            android:paddingBottom="7dp"
                             android:scaleType="fitEnd"
                             android:src="@drawable/my_shop_seller_center" />
 
@@ -387,7 +394,7 @@
                             android:layout_height="@dimen/top_icon"
                             android:layout_marginTop="@dimen/my_shop_table_margin_table"
                             android:gravity="center"
-                            android:padding="8dp"
+                            android:padding="9dp"
                             android:scaleType="centerInside"
                             android:src="@drawable/my_shop_trasation_list" />
 
@@ -397,7 +404,7 @@
                             android:layout_height="@dimen/top_icon"
                             android:layout_marginTop="@dimen/my_shop_table_margin_table"
                             android:gravity="center"
-                            android:padding="10dp"
+                            android:padding="11dp"
                             android:scaleType="centerInside"
                             android:src="@drawable/my_shop_delivery" />
 
@@ -407,7 +414,7 @@
                             android:layout_height="@dimen/top_icon"
                             android:layout_marginTop="@dimen/my_shop_table_margin_table"
                             android:gravity="center"
-                            android:padding="7dp"
+                            android:padding="9dp"
                             android:scaleType="centerInside"
                             android:src="@drawable/my_shop_customer_center" />
                     </TableRow>
@@ -449,18 +456,18 @@
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tableLayout"
                     app:tabGravity="start"
-                    app:tabRippleColor="@color/transparent"
                     app:tabIndicatorColor="@color/bottomNavSelected"
                     app:tabIndicatorFullWidth="false"
                     app:tabIndicatorHeight="5dp"
+                    app:tabRippleColor="@color/transparent"
                     app:tabSelectedTextColor="@color/bottomNavSelected"
                     app:tabTextColor="@color/bottomNavUnselected">
 
@@ -502,8 +509,8 @@
 
                     <ImageView
                         android:id="@+id/imageView8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
                         android:layout_marginTop="24dp"
                         android:background="#00FFFFFF"
                         android:src="@drawable/my_shop_no"

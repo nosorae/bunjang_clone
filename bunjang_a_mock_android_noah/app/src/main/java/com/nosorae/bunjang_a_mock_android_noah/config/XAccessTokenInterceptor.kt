@@ -16,6 +16,10 @@ class XAccessTokenInterceptor : Interceptor {
         if (jwtToken != null) {
             builder.addHeader("X-ACCESS-TOKEN", jwtToken)
         }
+        else{
+            builder.addHeader("X-ACCESS-TOKEN", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjA5NjU2OTgzLCJleHAiOjE2NDExOTI5ODMsInN1YiI6InVzZXJJbmZvIn0.HPwRsAVsblt3BOhkTx5ZtluDyOAC1oUko4vNbpV27Mg")
+
+        }
         return chain.proceed(builder.build())
     }
 }

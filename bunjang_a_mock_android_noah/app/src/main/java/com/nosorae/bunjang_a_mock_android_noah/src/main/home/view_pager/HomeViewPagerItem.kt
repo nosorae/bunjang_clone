@@ -1,3 +1,3 @@
-package com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager
+package com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager
 
-data class LogInViewPagerItem(val imageSrc: Int)
+data class HomeViewPagerItem(val imageSrc: Int)
