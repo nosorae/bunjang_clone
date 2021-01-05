@@ -5,14 +5,19 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.nosorae.bunjang_a_mock_android_noah.R
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseActivity
 import com.nosorae.bunjang_a_mock_android_noah.databinding.ActivityMainBinding
-import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.AddItemFragment
 import com.nosorae.bunjang_a_mock_android_noah.src.main.bungae_talk.BungaeTalkFragment
 import com.nosorae.bunjang_a_mock_android_noah.src.main.following.FollowingFragment
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeFragment
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.MyShopFragment
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.AddItemGalleryActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
-
+    val permissions = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,10 +39,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                         return@OnNavigationItemSelectedListener true
                     }
                     R.id.menu_main_btm_nav_add_item -> {
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frm, AddItemFragment())
-                            .commitAllowingStateLoss()
-                        return@OnNavigationItemSelectedListener true
+                        checkPermission()
                     }
                     R.id.menu_main_btm_nav_bungae_talk -> {
                         supportFragmentManager.beginTransaction()
@@ -55,5 +57,44 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 }
                 false
             })
+    }
+
+    fun checkPermission(){
+        var check = true
+        for(permission in permissions){
+            val isPerm = ContextCompat.checkSelfPermission(this, permission)
+            if(isPerm != PackageManager.PERMISSION_GRANTED){
+                check = false
+            }
+        }
+        if(check){
+            startProcess()
+        }
+        else{
+            requestPermission()
+        }
+    }
+
+    fun requestPermission() {
+        ActivityCompat.requestPermissions(this, permissions, 99)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when(requestCode) {
+            99 -> {
+                for(result in grantResults){
+                    if(result == PackageManager.PERMISSION_GRANTED){
+                        startProcess()
+                    }
+                    else{
+                        //허용하라고 독촉?
+                    }
+                }
+            }
+        }
+    }
+
+    fun startProcess() {
+        startActivity(Intent(this, AddItemGalleryActivity::class.java))
     }
 }

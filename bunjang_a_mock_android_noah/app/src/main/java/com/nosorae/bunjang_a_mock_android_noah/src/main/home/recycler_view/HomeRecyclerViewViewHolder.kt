@@ -17,8 +17,9 @@ class HomeRecyclerViewViewHolder(context: Context, itemView: View)
     val itemFavorite = itemView.findViewById<ImageView>(R.id.home_item_image_favorite)
     val context = context
     fun bindView(item : HomeRecyclerViewItem) {
-        Glide.with(context).load("https://www.juso.go.kr/img/content/know_addr_1.png").into(imageUrl)
+        Glide.with(context).load(item.imageURL).into(imageUrl)
         //imageUrl.setImageResource(R.drawable.home_banner1)
+        //"https://www.juso.go.kr/img/content/know_addr_1.png"
         itemName.text = item.name
         itemPrice.text = item.price.toString()
         if(item.isPick == 1){

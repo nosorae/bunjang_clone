@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import com.kakao.sdk.user.UserApiClient
 import com.nosorae.bunjang_a_mock_android_noah.R
+import com.nosorae.bunjang_a_mock_android_noah.config.ApplicationClass
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseActivity
 import com.nosorae.bunjang_a_mock_android_noah.databinding.ActivityMyShopConfigurationBinding
 import com.nosorae.bunjang_a_mock_android_noah.src.log_in.LogInActivity
@@ -39,6 +40,10 @@ class MyShopConfigurationActivity : BaseActivity<ActivityMyShopConfigurationBind
                     Log.i("kakao", "연결 끊기 성공. SDK에서 토큰 삭제 됨")
                 }
             }
+
+            val editor = ApplicationClass.sSharedPreferences.edit()
+            editor.putString(ApplicationClass.X_ACCESS_TOKEN, null)
+            editor.apply()
 
             startActivity(Intent(this, LogInActivity::class.java))
             finish()

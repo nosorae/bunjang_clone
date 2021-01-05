@@ -160,7 +160,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/home_men_clothes"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -183,7 +184,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/home_fashion"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -204,9 +206,12 @@
                         android:id="@+id/textView9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:ellipsize="end"
                         android:gravity="center"
+                        android:maxLines="1"
                         android:text="@string/home_digital"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -229,7 +234,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/home_my_phone_price"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -252,7 +258,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/home_show_all"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
 

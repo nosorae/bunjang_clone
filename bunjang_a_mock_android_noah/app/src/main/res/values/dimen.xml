@@ -14,4 +14,9 @@
     <dimen name="log_in_button_horizontal">310dp</dimen>
 
     <dimen name="home_view_pager_height">165dp</dimen>
+
+
+    <dimen name="add_item_asterick">25sp</dimen>
+    <dimen name="add_item_text">20sp</dimen>
+    <dimen name="add_item_list_margin">8dp</dimen>
 </resources>

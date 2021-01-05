@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bottomNavUnselected"
+    android:background="@color/gray_background"
     android:orientation="vertical"
     tools:context=".src.main.my_shop.configuration.MyShopConfigurationActivity">
 
@@ -47,7 +47,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_user"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_category_text"
                     android:textStyle="bold" />
@@ -81,7 +81,7 @@
                     android:layout_marginTop="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_marginBottom="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_user1"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_item_text" />
 
@@ -93,10 +93,11 @@
                     android:layout_margin="@dimen/my_shop_configuration_margin_horizontal"
                     app:srcCompat="@drawable/my_shop_next" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected"/>
+                android:background="@color/bottomNavUnselected" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -112,7 +113,7 @@
                     android:layout_marginTop="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_marginBottom="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_user2"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_item_text" />
 
@@ -124,10 +125,11 @@
                     android:layout_margin="@dimen/my_shop_configuration_margin_horizontal"
                     app:srcCompat="@drawable/my_shop_next" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected"/>
+                android:background="@color/bottomNavUnselected" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -143,7 +145,7 @@
                     android:layout_marginTop="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_marginBottom="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_user3"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_item_text" />
 
@@ -155,10 +157,11 @@
                     android:layout_margin="@dimen/my_shop_configuration_margin_horizontal"
                     app:srcCompat="@drawable/my_shop_next" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected"/>
+                android:background="@color/bottomNavUnselected" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -174,7 +177,7 @@
                     android:layout_marginTop="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_marginBottom="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_user4"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_item_text" />
 
@@ -186,10 +189,11 @@
                     android:layout_margin="@dimen/my_shop_configuration_margin_horizontal"
                     app:srcCompat="@drawable/my_shop_next" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected"/>
+                android:background="@color/bottomNavUnselected" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -205,7 +209,7 @@
                     android:layout_marginTop="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_marginBottom="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_user5"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_item_text" />
 
@@ -217,10 +221,11 @@
                     android:layout_margin="@dimen/my_shop_configuration_margin_horizontal"
                     app:srcCompat="@drawable/my_shop_next" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected"/>
+                android:background="@color/bottomNavUnselected" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -236,7 +241,7 @@
                     android:layout_marginTop="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_marginBottom="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_user6"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_item_text" />
 
@@ -263,7 +268,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_service"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_category_text"
                     android:textStyle="bold" />
@@ -284,7 +289,7 @@
                     android:layout_marginTop="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_marginBottom="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_service1"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_item_text" />
 
@@ -296,10 +301,11 @@
                     android:layout_margin="@dimen/my_shop_configuration_margin_horizontal"
                     app:srcCompat="@drawable/my_shop_next" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected"/>
+                android:background="@color/bottomNavUnselected" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -315,7 +321,7 @@
                     android:layout_marginTop="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_marginBottom="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_service2"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_item_text" />
 
@@ -327,10 +333,11 @@
                     android:layout_margin="@dimen/my_shop_configuration_margin_horizontal"
                     app:srcCompat="@drawable/my_shop_next" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected"/>
+                android:background="@color/bottomNavUnselected" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -346,7 +353,7 @@
                     android:layout_marginTop="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_marginBottom="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_service3"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_item_text" />
 
@@ -358,10 +365,11 @@
                     android:layout_margin="@dimen/my_shop_configuration_margin_horizontal"
                     app:srcCompat="@drawable/my_shop_next" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected"/>
+                android:background="@color/bottomNavUnselected" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -377,7 +385,7 @@
                     android:layout_marginTop="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_marginBottom="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_service4"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_item_text" />
 
@@ -389,10 +397,11 @@
                     android:layout_margin="@dimen/my_shop_configuration_margin_horizontal"
                     app:srcCompat="@drawable/my_shop_next" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected"/>
+                android:background="@color/bottomNavUnselected" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -408,7 +417,7 @@
                     android:layout_marginTop="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_marginBottom="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_service5"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_item_text" />
 
@@ -426,6 +435,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="37dp"
+                android:layout_marginBottom="37dp"
                 android:background="#FFFFFF"
                 android:clickable="true"
                 android:orientation="horizontal">
@@ -438,7 +448,7 @@
                     android:layout_marginTop="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_marginBottom="@dimen/my_shop_configuration_margin_vertical"
                     android:layout_weight="1"
-                    android:text="TextView"
+                    android:text="@string/my_shop_configuration_log_out"
                     android:textColor="#000000"
                     android:textSize="@dimen/my_shop_configuration_item_text" />
 
@@ -452,13 +462,8 @@
             </LinearLayout>
 
 
-
-
-
-
         </LinearLayout>
     </ScrollView>
-
 
 
 </LinearLayout>

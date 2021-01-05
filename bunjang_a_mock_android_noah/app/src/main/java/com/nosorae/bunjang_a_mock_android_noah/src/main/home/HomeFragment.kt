@@ -11,6 +11,7 @@ import com.nosorae.bunjang_a_mock_android_noah.databinding.FragmentHomeBinding
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.GetItemResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewItem
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewSpacing
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager.HomeViewPagerAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager.HomeViewPagerItem
 
@@ -36,7 +37,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
 
-        //리사이클러뷰 아이템
+
         HomeService(this).tryGetUsers()
 
     }
@@ -52,6 +53,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         binding.homeRecyclerView.apply {
             adapter = recyclerAdapter
             layoutManager = GridLayoutManager(context, 2)
+            addItemDecoration(HomeRecyclerViewSpacing(16, 16))
         }
         //recyclerAdapter.notifyDataSetChanged()
     }
