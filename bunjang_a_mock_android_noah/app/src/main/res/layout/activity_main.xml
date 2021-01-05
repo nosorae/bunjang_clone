@@ -17,6 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backgroundTint="@color/white"
+        app:itemIconSize="18dp"
+        app:itemHorizontalTranslationEnabled="false"
         app:itemIconTint="@drawable/main_btm_nav_item_color"
         app:itemRippleColor="@color/redForText"
         app:itemTextColor="@drawable/main_btm_nav_item_color"

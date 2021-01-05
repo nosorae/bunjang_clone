@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".src.main.home.category_activity.AllCategoryActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/image_view_button_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/global_button_close" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:text="@string/item_detail_title"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/logo_frame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                app:tabGravity="start"
+                app:tabIndicatorColor="#FF2020"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorGravity="bottom"
+                app:tabTextColor="#FF2020">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/item_detail_recommend_service" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/category_margin_width"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_recommend_image_1"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_recommend1" />
+
+                    <TextView
+                        android:id="@+id/category_recommend_text_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_recommend_service1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_recommend_image_2"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_recommend2" />
+
+                    <TextView
+                        android:id="@+id/category_recommend_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:text="@string/item_detail_recommend_service2" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/category_margin_width"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_recommend_image_3"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_recommend3" />
+
+                    <TextView
+                        android:id="@+id/category_recommend_text_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_recommend_service3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_recommend_image_4"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_recommend4" />
+
+                    <TextView
+                        android:id="@+id/category_recommend_text_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:text="@string/item_detail_recommend_service4" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/category_margin_width"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_recommend_image_5"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_recommend5" />
+
+                    <TextView
+                        android:id="@+id/category_recommend_text_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_recommend_service5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_recommend_image_6"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_recommend6" />
+
+                    <TextView
+                        android:id="@+id/category_recommend_text_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:text="@string/item_detail_recommend_service6" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                app:tabGravity="start"
+                app:tabIndicatorColor="#FF2020"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorGravity="bottom"
+                app:tabTextColor="#FF2020">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/item_detail_second_transaction" />
+
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/category_margin_width"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_1"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction1" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_2"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction2" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction2" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/category_margin_width"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_3"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction3" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_4"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction4" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction4" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/category_margin_width"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_5"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction5" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_6"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction6" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction6" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/category_margin_width"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_7"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction7" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction7" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_8"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction8" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction8" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/category_margin_width"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_9"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction9" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction9" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_10"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction10" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction10" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/category_margin_width"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_11"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction1" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction11" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_12"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction12" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction12" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/category_margin_width"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_13"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction13" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction13" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_second_transaction_image_14"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_second_transaction14" />
+
+                    <TextView
+                        android:id="@+id/category_second_transaction_text_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_second_transaction14" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                app:tabGravity="start"
+                app:tabIndicatorColor="#FF2020"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorGravity="bottom"
+                app:tabTextColor="#FF2020">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/item_detail_casual_transation" />
+
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/category_margin_width"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_casual_transaction_image_1"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_casual_transaction1" />
+
+                    <TextView
+                        android:id="@+id/category_casual_transaction_text_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_casual_transation1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_casual_transaction_image_2"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_casual_transaction2" />
+
+                    <TextView
+                        android:id="@+id/category_casual_transaction_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_casual_transation2" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/category_margin_width"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="194dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_casual_transaction_image_3"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_casual_transaction3" />
+
+                    <TextView
+                        android:id="@+id/category_casual_transaction_text_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_casual_transation3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/category_casual_transaction_image_4"
+                        android:layout_width="@dimen/categoty_image_width"
+                        android:layout_height="@dimen/categoty_image_width"
+                        android:layout_margin="@dimen/category_margin_width"
+                        app:srcCompat="@drawable/category_casual_transaction4" />
+
+                    <TextView
+                        android:id="@+id/category_casual_transaction_text_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/category_margin_width"
+                        android:gravity="start"
+                        android:text="@string/item_detail_casual_transation4" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <FrameLayout
+        android:id="@+id/logo_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:elevation="1dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView43"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:text="@string/item_detail_plus1"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView44"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="26dp"
+                android:layout_weight="1"
+                android:text="@string/item_detail_plus2"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView40"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="top|end"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:elevation="30dp"
+            app:srcCompat="@drawable/category_logo" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

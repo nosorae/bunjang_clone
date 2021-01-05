@@ -17,8 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".src.main.add_item.add_item_activity.AddItemActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".src.main.home.category_activity.AllCategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".src.main.home.item_detail_activity.ItemDetailActivity" />
+        <activity
+            android:name=".src.main.add_item.add_item_activity.AddItemActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.main.add_item.AddItemGalleryActivity"
             android:theme="@style/AppTheme.NoActionBar" />

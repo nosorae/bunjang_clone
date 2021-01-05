@@ -1,5 +1,6 @@
 package com.nosorae.bunjang_a_mock_android_noah.src.main.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.nosorae.bunjang_a_mock_android_noah.R
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseFragment
 import com.nosorae.bunjang_a_mock_android_noah.databinding.FragmentHomeBinding
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.category_activity.AllCategoryActivity
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.GetItemResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewItem
@@ -37,8 +39,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
 
-
+        //아이템 목록 가져오기
         HomeService(this).tryGetUsers()
+
+        //전체 카테고리 리스너
+        binding.homeImageViewCategoryAll.setOnClickListener {
+            startActivity(Intent(context, AllCategoryActivity::class.java))
+        }
 
     }
 

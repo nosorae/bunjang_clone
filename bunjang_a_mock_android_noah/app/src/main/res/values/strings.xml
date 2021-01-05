@@ -22,6 +22,41 @@
     <string name="home_show_all">전체보기</string>
     <string name="home_today_recommend">오늘의 상품 추천</string>
 
+    <!--Home - Item-Detail -->
+    <string name="item_detail_title">카테고리</string>
+    <string name="item_detail_recommend_service">추천서비스</string>
+    <string name="item_detail_recommend_service1">우리동네</string>
+    <string name="item_detail_recommend_service2">팔로잉</string>
+    <string name="item_detail_recommend_service3">번개유심</string>
+    <string name="item_detail_recommend_service4">혜택/이벤트</string>
+    <string name="item_detail_recommend_service5">친구초대</string>
+    <string name="item_detail_recommend_service6">내폰시세</string>
+    <string name="item_detail_casual_transation">생활거래</string>
+    <string name="item_detail_casual_transation1">지역 서비스</string>
+    <string name="item_detail_casual_transation2">원룸/함께살아요</string>
+    <string name="item_detail_casual_transation3">구인구직</string>
+    <string name="item_detail_casual_transation4">재능</string>
+
+    <string name="item_detail_second_transaction">중고거래</string>
+    <string name="item_detail_second_transaction1">여성의류</string>
+    <string name="item_detail_second_transaction2">남성의류</string>
+    <string name="item_detail_second_transaction3">패션잡화</string>
+    <string name="item_detail_second_transaction4">뷰티/미용</string>
+    <string name="item_detail_second_transaction5">유아동/출산</string>
+    <string name="item_detail_second_transaction6">스포츠/레저</string>
+    <string name="item_detail_second_transaction7">디지털/가전</string>
+    <string name="item_detail_second_transaction8">도서/티켓/애완</string>
+    <string name="item_detail_second_transaction9">문구/가구/식품</string>
+    <string name="item_detail_second_transaction10">차량/오토바이</string>
+    <string name="item_detail_second_transaction11">기타</string>
+    <string name="item_detail_second_transaction12">스타굿즈</string>
+    <string name="item_detail_second_transaction13">구인구직</string>
+    <string name="item_detail_second_transaction14">재능</string>
+    <string name="item_detail_plus1">번개페이 포인트혜택</string>
+    <string name="item_detail_plus2">안전하게 거래하고 혜택 받아요</string>
+
+
+
 
     <!-- MyShop -->
     <string name="my_shop_request">상정문의</string>

@@ -13,10 +13,15 @@
     <dimen name="log_in_button_vertical">55dp</dimen>
     <dimen name="log_in_button_horizontal">310dp</dimen>
 
-    <dimen name="home_view_pager_height">165dp</dimen>
+    <dimen name="home_view_pager_height">180dp</dimen>
 
 
     <dimen name="add_item_asterick">25sp</dimen>
     <dimen name="add_item_text">20sp</dimen>
     <dimen name="add_item_list_margin">8dp</dimen>
+
+
+    <dimen name="category_margin_width">8dp</dimen>
+    <dimen name="category_margin_height">8dp</dimen>
+    <dimen name="categoty_image_width">20dp</dimen>
 </resources>
