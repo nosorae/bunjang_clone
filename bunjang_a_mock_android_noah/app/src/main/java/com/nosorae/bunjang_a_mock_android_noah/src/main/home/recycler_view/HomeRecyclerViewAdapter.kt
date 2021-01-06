@@ -1,13 +1,24 @@
 package com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.nosorae.bunjang_a_mock_android_noah.R
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeFragmentView
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeService
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.collection_dialog.CollectionDialog
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.*
 
-class HomeRecyclerViewAdapter(private val context: Context?, val itemList: ArrayList<HomeRecyclerViewItem>)
-    : RecyclerView.Adapter<HomeRecyclerViewViewHolder>() {
+class HomeRecyclerViewAdapter(private val context: Context?, val itemList: ArrayList<GetItemResult>)
+    : RecyclerView.Adapter<HomeRecyclerViewViewHolder>(), HomeFragmentView {
+
+    var pos = 0
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeRecyclerViewViewHolder {
         return HomeRecyclerViewViewHolder(context!!,
@@ -20,6 +31,57 @@ class HomeRecyclerViewAdapter(private val context: Context?, val itemList: Array
     }
 
     override fun onBindViewHolder(holder: HomeRecyclerViewViewHolder, position: Int) {
+        val container = holder.itemView.findViewById<ImageView>(R.id.home_item_image_favorite)
+        container.setOnClickListener {
+            HomeService(this).tryGetCollection()
+            pos = position
+        }
         holder.bindView(itemList[position])
     }
+
+
+
+    override fun onGetItemSuccess(response: GetItemResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onGetItemFailure(message: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPostFavoriteSuccess(response: PostFavoriteResponse) {
+        Log.d("favorite", response.message)
+        if(itemList[pos].isPick == 1){
+            itemList[pos].isPick = 0
+        } else {
+            itemList[pos].isPick = 1
+        }
+        notifyDataSetChanged()
+    }
+
+    override fun onPostFavoriteFailure(message: String) {
+        Log.d("favorite", message)
+    }
+
+
+    override fun onGetCollectionSuccess(response: GetCollectionResponse) {
+
+        val result = response.result
+       if(result.size != 0){
+           val temp = ArrayList<Result>()
+           temp.addAll(result)
+           CollectionDialog(context!!).showCollectionDialog(temp)
+       } else {
+           val temp = ArrayList<Result>()
+           CollectionDialog(context!!).showCollectionDialog(temp)
+           //HomeService(this).tryPostFavorite(PostFavoriteRequest(null))
+
+       }
+    }
+
+    override fun onGetCollectionFailure(message: String) {
+
+    }
+
+
 }

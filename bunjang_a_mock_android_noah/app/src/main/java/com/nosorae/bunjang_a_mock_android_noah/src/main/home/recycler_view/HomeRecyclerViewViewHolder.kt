@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nosorae.bunjang_a_mock_android_noah.R
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.GetItemResult
 
 class HomeRecyclerViewViewHolder(context: Context, itemView: View)
     : RecyclerView.ViewHolder(itemView) {
@@ -16,11 +17,11 @@ class HomeRecyclerViewViewHolder(context: Context, itemView: View)
     val itemPrice = itemView.findViewById<TextView>(R.id.home_item_text_view_price)
     val itemFavorite = itemView.findViewById<ImageView>(R.id.home_item_image_favorite)
     val context = context
-    fun bindView(item : HomeRecyclerViewItem) {
-        Glide.with(context).load(item.imageURL).into(imageUrl)
+    fun bindView(item : GetItemResult) {
+        Glide.with(context).load(item.productImgUrl).into(imageUrl)
         //imageUrl.setImageResource(R.drawable.home_banner1)
         //"https://www.juso.go.kr/img/content/know_addr_1.png"
-        itemName.text = item.name
+        itemName.text = item.productName
         itemPrice.text = item.price.toString()
         if(item.isPick == 1){
             itemFavorite.setImageResource(R.drawable.home_favorite_selected)

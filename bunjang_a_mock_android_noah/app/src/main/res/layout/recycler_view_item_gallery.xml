@@ -9,6 +9,8 @@
         android:id="@+id/recycler_view_item_gallery_image"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/gray_background"
     android:orientation="vertical"
-    tools:context=".src.main.my_shop.configuration.MyShopConfigurationActivity">
+    tools:context=".src.main.my_shop.configuration_activity.MyShopConfigurationActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:background="#FFFFFF">
 
         <ImageView
-            android:id="@+id/image_view_button_back"
+            android:id="@+id/my_shop_configuration_button_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -34,10 +34,10 @@
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/image_view_button_back"
+            app:layout_constraintBottom_toBottomOf="@+id/add_item_button_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/image_view_button_back" />
+            app:layout_constraintTop_toTopOf="@+id/add_item_button_back" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
@@ -52,7 +52,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -96,8 +96,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected" />
+                android:layout_height="1dp"
+                android:background="@color/gray_background" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -128,8 +128,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected" />
+                android:layout_height="1dp"
+                android:background="@color/gray_background" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -160,8 +160,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected" />
+                android:layout_height="1dp"
+                android:background="@color/gray_background" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -192,8 +192,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected" />
+                android:layout_height="1dp"
+                android:background="@color/gray_background" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -224,8 +224,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected" />
+                android:layout_height="1dp"
+                android:background="@color/gray_background" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -259,7 +259,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -304,8 +304,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected" />
+                android:layout_height="1dp"
+                android:background="@color/gray_background" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -336,8 +336,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected" />
+                android:layout_height="1dp"
+                android:background="@color/gray_background" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -368,8 +368,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected" />
+                android:layout_height="1dp"
+                android:background="@color/gray_background" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -400,8 +400,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/bottomNavUnselected" />
+                android:layout_height="1dp"
+                android:background="@color/gray_background" />
 
             <LinearLayout
                 android:layout_width="match_parent"

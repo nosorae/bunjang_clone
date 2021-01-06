@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/image_view_button_back"
+            android:id="@+id/add_item_button_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -138,8 +138,8 @@
 
                 <ImageView
                     android:id="@+id/imageView26"
-                    android:layout_width="30dp"
-                    android:layout_height="20dp"
+                    android:layout_width="20dp"
+                    android:layout_height="10dp"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/my_shop_next" />
 
@@ -184,8 +184,8 @@
 
                 <ImageView
                     android:id="@+id/imageView28"
-                    android:layout_width="30dp"
-                    android:layout_height="20dp"
+                    android:layout_width="20dp"
+                    android:layout_height="10dp"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/my_shop_next" />
 
@@ -229,8 +229,8 @@
 
                 <ImageView
                     android:id="@+id/imageView29"
-                    android:layout_width="30dp"
-                    android:layout_height="20dp"
+                    android:layout_width="20dp"
+                    android:layout_height="10dp"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/my_shop_next" />
 

@@ -17,9 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".src.main.home.category_activity.AllCategoryActivity"
+        <activity android:name=".src.main.item_detail_activity.ItemDetailActivity"/>
+        <activity android:name=".src.main.my_shop.favorite_item_activity.FavoriteItemActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".src.main.home.item_detail_activity.ItemDetailActivity" />
+        <activity android:name=".src.main.home.category_activity.OneCategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".src.main.home.category_activity.AllCategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".src.main.add_item.add_item_activity.AddItemActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -27,7 +33,7 @@
             android:name=".src.main.add_item.AddItemGalleryActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".src.main.my_shop.configuration.MyShopConfigurationActivity"
+            android:name=".src.main.my_shop.configuration_activity.MyShopConfigurationActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.splash.SplashActivity"

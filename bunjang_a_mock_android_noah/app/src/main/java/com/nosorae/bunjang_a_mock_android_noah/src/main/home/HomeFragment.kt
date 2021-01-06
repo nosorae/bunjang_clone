@@ -9,8 +9,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.nosorae.bunjang_a_mock_android_noah.R
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseFragment
 import com.nosorae.bunjang_a_mock_android_noah.databinding.FragmentHomeBinding
+import com.nosorae.bunjang_a_mock_android_noah.src.log_in.model.KakaoSignUpResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.category_activity.AllCategoryActivity
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.GetCollectionResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.GetItemResponse
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.GetItemResult
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.PostFavoriteResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewItem
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewSpacing
@@ -18,9 +22,9 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager.HomeView
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager.HomeViewPagerItem
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
-        HomeFragmentView {
+        HomeFragmentView  {
     private var pageItemList = ArrayList<HomeViewPagerItem>()
-    private var recyclerItemList = ArrayList<HomeRecyclerViewItem>()
+    private var recyclerItemList = ArrayList<GetItemResult>()
     private lateinit var pageAdapter : HomeViewPagerAdapter
     private lateinit var recyclerAdapter : HomeRecyclerViewAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,28 +51,44 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             startActivity(Intent(context, AllCategoryActivity::class.java))
         }
 
+
+        //좋아요 클릭
+
+
     }
 
     override fun onGetItemSuccess( response: GetItemResponse) {
 
-        Log.d("api", "onGetItemSuccess도착")
+        Log.d("api", response.message)
        for(item in response.result){
-           recyclerItemList.add(HomeRecyclerViewItem(item.productImgUrl,
-                    item.productName, item.price, item.isPick))
+           recyclerItemList.add(item)
        }
         recyclerAdapter = HomeRecyclerViewAdapter(context, recyclerItemList)
         binding.homeRecyclerView.apply {
             adapter = recyclerAdapter
             layoutManager = GridLayoutManager(context, 2)
-            addItemDecoration(HomeRecyclerViewSpacing(16, 16))
+            //addItemDecoration(HomeRecyclerViewSpacing(16, 16))
         }
         //recyclerAdapter.notifyDataSetChanged()
     }
 
     override fun onGetItemFailure(message: String) {
+        Log.d("api", message)
+    }
 
-        Log.d("api", "onGetItemFailure도착")
+    override fun onPostFavoriteSuccess(response: PostFavoriteResponse) {
+        Log.d("favorite", response.message)
+    }
 
+    override fun onPostFavoriteFailure(message: String) {
+        Log.d("favorite", message)
+    }
 
+    override fun onGetCollectionSuccess(response: GetCollectionResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onGetCollectionFailure(message: String) {
+        TODO("Not yet implemented")
     }
 }

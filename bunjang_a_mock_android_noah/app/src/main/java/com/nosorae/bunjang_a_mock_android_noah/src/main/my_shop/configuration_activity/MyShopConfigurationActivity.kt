@@ -1,11 +1,10 @@
-package com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.configuration
+package com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.configuration_activity
 
 import android.content.Intent
 
 import android.os.Bundle
 import android.util.Log
 import com.kakao.sdk.user.UserApiClient
-import com.nosorae.bunjang_a_mock_android_noah.R
 import com.nosorae.bunjang_a_mock_android_noah.config.ApplicationClass
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseActivity
 import com.nosorae.bunjang_a_mock_android_noah.databinding.ActivityMyShopConfigurationBinding
@@ -16,7 +15,7 @@ class MyShopConfigurationActivity : BaseActivity<ActivityMyShopConfigurationBind
         super.onCreate(savedInstanceState)
 
 
-        binding.imageViewButtonBack.setOnClickListener {
+        binding.myShopConfigurationButtonBack.setOnClickListener {
             finish()
         }
         binding.configureLayoutLogOut.setOnClickListener {

@@ -56,8 +56,6 @@
     <string name="item_detail_plus2">안전하게 거래하고 혜택 받아요</string>
 
 
-
-
     <!-- MyShop -->
     <string name="my_shop_request">상정문의</string>
     <string name="my_shop_like">찜</string>
@@ -74,7 +72,6 @@
     <string name="my_shop_selling_no">판매중인 상품이 없습니다.</string>
     <string name="my_shop_booking_no">예약중 상품이 없습니다.</string>
     <string name="my_shop_selled_no">판매완료된 상품이 없습니다.</string>
-
     <string name="my_shop_configuration_title">설정</string>
     <string name="my_shop_configuration_user">사용자 설정</string>
     <string name="my_shop_configuration_user1">계정 설정</string>
@@ -90,6 +87,13 @@
     <string name="my_shop_configuration_service4">오픈소스 라이선스</string>
     <string name="my_shop_configuration_service5">버전정보</string>
     <string name="my_shop_configuration_log_out">로그아웃(상점명)</string>
+
+    <string name="my_shop_favorite_item_title">관심상품</string>
+    <string name="my_shop_favorite_item_tab_favorite">찜</string>
+    <string name="my_shop_favorite_item_tab_recently_view">최근 본 상품</string>
+    <string name="my_shop_favorite_item_favorite_text">내 컬렉션</string>
+    <string name="my_shop_favorite_item_recently_view_text">최근 본 상품</string>
+
 
     <!-- AddItem -->
     <string name="add_item_gallery_title">사진추가</string>
@@ -126,6 +130,8 @@
 
     <!-- LogIn -->
     <string name="log_in_another_way">다른 방법으로 로그인</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

@@ -21,11 +21,10 @@ class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(Activ
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.imageViewButtonBack.setOnClickListener {
-            finish()
-        }
-        binding.imageViewButtonCheck.setOnClickListener {
+
+        binding.addItemButtonBack.setOnClickListener {
             startActivity(Intent(this, AddItemActivity::class.java))
+            finish()
         }
 
         parseAllImages()
@@ -65,7 +64,7 @@ class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(Activ
                 binding.galleryRecyclerView.apply {
                     adapter = recyclerAdapter
                     layoutManager = GridLayoutManager(context, 3)
-                    addItemDecoration(GalleryRecyclerViewSpacing(16, 16))
+                    addItemDecoration(GalleryRecyclerViewSpacing(4, 4))
                 }
 
             }

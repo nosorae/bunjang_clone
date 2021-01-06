@@ -94,7 +94,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:elevation="10dp"
-                        android:foreground="@drawable/my_shop_profile_image"
+                        android:foreground="@drawable/my_shop_profile_image_background"
                         android:scaleType="centerCrop"
                         android:src="@drawable/sample_image"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -211,12 +211,12 @@
 
                         <ImageView
                             android:id="@+id/imageView3"
-                            android:layout_width="25dp"
-                            android:layout_height="15sp"
-                            android:src="@drawable/my_shop_next"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_width="16dp"
+                            android:layout_height="13dp"
+                            android:src="@drawable/my_page_next"
+                            app:layout_constraintBottom_toBottomOf="@+id/text_view_event_content"
                             app:layout_constraintStart_toEndOf="@+id/text_view_event_content"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="@+id/text_view_event_content" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
