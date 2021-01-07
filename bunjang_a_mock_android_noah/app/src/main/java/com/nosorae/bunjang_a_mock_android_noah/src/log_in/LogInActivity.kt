@@ -81,9 +81,9 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(ActivityLogInBinding::i
         }.attach()
 
         binding.textViewLogInOtherWay.setOnClickListener {
-            //LogInDialog(this).showLogInDialog()
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+            LogInDialog(this).showLogInDialog()
+            //startActivity(Intent(this, MainActivity::class.java))
+            //finish()
         }
 
 

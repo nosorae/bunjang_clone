@@ -16,9 +16,11 @@
     <dimen name="home_view_pager_height">180dp</dimen>
 
 
-    <dimen name="add_item_asterick">16sp</dimen>
-    <dimen name="add_item_text">12sp</dimen>
+    <dimen name="add_item_asterick">14sp</dimen>
+    <dimen name="add_item_text">14sp</dimen>
     <dimen name="add_item_list_margin">12dp</dimen>
+    <dimen name="add_item_list_height_margin">16dp</dimen>
+    <dimen name="add_item_list_height_margin_top">20dp</dimen>
 
 
     <dimen name="category_margin_width">8dp</dimen>

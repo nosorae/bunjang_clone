@@ -14,7 +14,7 @@ class CollectionRecyclerViewViewHolder (val context: Context, itemView: View)
 
     val imageUrl = itemView.findViewById<ImageView>(R.id.collection_list_image)
     val itemName = itemView.findViewById<TextView>(R.id.collection_list_text_view_name)
-    val itemNum = itemView.findViewById<TextView>(R.id.collection_list_text_view_name)
+    val itemNum = itemView.findViewById<TextView>(R.id.collection_list_text_view_num)
 
 
 
@@ -22,7 +22,6 @@ class CollectionRecyclerViewViewHolder (val context: Context, itemView: View)
         Glide.with(context).load(item.lastPickImg).into(imageUrl)
         itemName.text = item.collectionName
         itemNum.text =item.pickCount.toString()
-
 
     }
 }

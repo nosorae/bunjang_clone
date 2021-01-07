@@ -12,8 +12,8 @@ interface HomeRetrofitInterface {
     @GET("products")
     fun getItem(@Query("page") page : Int, @Query("size") size : Int) : Call<GetItemResponse>
 
-    @POST("product/:productId/pick")
-    fun postItem(@Body param: PostFavoriteRequest) : Call<PostFavoriteResponse>
+    @POST("product/{productId}/pick")
+    fun postItem(@Path("productId") productIt: Int, @Body param: PostFavoriteRequest) : Call<PostFavoriteResponse>
 
     @GET("collections")
     fun getCollection() : Call<GetCollectionResponse>

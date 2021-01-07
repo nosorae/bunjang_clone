@@ -8,6 +8,7 @@ import com.nosorae.bunjang_a_mock_android_noah.config.BaseFragment
 import com.nosorae.bunjang_a_mock_android_noah.databinding.FragmentMyShopBinding
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.configuration_activity.MyShopConfigurationActivity
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_item_activity.FavoriteItemActivity
+import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.my_shop_dialog.MyShopDialog
 
 class MyShopFragment :
     BaseFragment<FragmentMyShopBinding>(FragmentMyShopBinding::bind, R.layout.fragment_my_shop) {
@@ -19,6 +20,9 @@ class MyShopFragment :
         }
         binding.textViewLike.setOnClickListener {
             startActivity(Intent(context, FavoriteItemActivity::class.java))
+        }
+        binding.myShopProfileContainer.setOnClickListener {
+            MyShopDialog(context!!).showLogInDialog()
         }
 
 

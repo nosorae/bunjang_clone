@@ -14,8 +14,8 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeService
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.collection_dialog.CollectionDialog
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.*
 
-class HomeRecyclerViewAdapter(private val context: Context?, val itemList: ArrayList<GetItemResult>)
-    : RecyclerView.Adapter<HomeRecyclerViewViewHolder>(), HomeFragmentView {
+class HomeRecyclerViewAdapter(private val context: Context?, var itemList: ArrayList<GetItemResult>)
+    : RecyclerView.Adapter<HomeRecyclerViewViewHolder>(), HomeFragmentView, CustomCallBack {
 
     var pos = 0
 
@@ -41,6 +41,7 @@ class HomeRecyclerViewAdapter(private val context: Context?, val itemList: Array
 
 
 
+
     override fun onGetItemSuccess(response: GetItemResponse) {
         TODO("Not yet implemented")
     }
@@ -51,12 +52,7 @@ class HomeRecyclerViewAdapter(private val context: Context?, val itemList: Array
 
     override fun onPostFavoriteSuccess(response: PostFavoriteResponse) {
         Log.d("favorite", response.message)
-        if(itemList[pos].isPick == 1){
-            itemList[pos].isPick = 0
-        } else {
-            itemList[pos].isPick = 1
-        }
-        notifyDataSetChanged()
+
     }
 
     override fun onPostFavoriteFailure(message: String) {
@@ -70,12 +66,10 @@ class HomeRecyclerViewAdapter(private val context: Context?, val itemList: Array
        if(result.size != 0){
            val temp = ArrayList<Result>()
            temp.addAll(result)
-           CollectionDialog(context!!).showCollectionDialog(temp)
+           CollectionDialog(context!!, this).showCollectionDialog(temp, itemList[pos].productId)
        } else {
            val temp = ArrayList<Result>()
-           CollectionDialog(context!!).showCollectionDialog(temp)
-           //HomeService(this).tryPostFavorite(PostFavoriteRequest(null))
-
+           CollectionDialog(context!!, this).showCollectionDialog(temp, itemList[pos].productId)
        }
     }
 
@@ -83,5 +77,16 @@ class HomeRecyclerViewAdapter(private val context: Context?, val itemList: Array
 
     }
 
+    override fun onFavoriteSuccess() {
+        if(itemList[pos].isPick == 1) {
+            itemList[pos].isPick = 0
+        }else{
+            itemList[pos].isPick = 1
+        }
+        notifyDataSetChanged()
+    }
 
+    override fun onFavoriteFailure(message: String) {
+        TODO("Not yet implemented")
+    }
 }

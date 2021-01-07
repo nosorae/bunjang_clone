@@ -37,7 +37,7 @@
             android:gravity="center"
             android:text="@string/add_item_title"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,16 +72,16 @@
 
 
                     <FrameLayout
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
                         android:layout_gravity="center"
-                        android:layout_margin="8dp"
+                        android:layout_margin="10dp"
                         android:background="@drawable/add_item_button_camera_background">
 
                         <ImageView
                             android:id="@+id/imageView10"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="25dp"
+                            android:layout_height="30dp"
                             android:layout_gravity="center"
                             android:src="@drawable/add_item_gallery_camera" />
 
@@ -90,6 +90,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom|start"
+                            android:layout_margin="8dp"
                             android:text="0/12"
                             android:textSize="10sp" />
                     </FrameLayout>
@@ -110,15 +111,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/add_item_list_margin"
+                android:layout_marginLeft="@dimen/add_item_list_margin"
+                android:layout_marginRight="@dimen/add_item_list_margin"
+                android:layout_marginTop="@dimen/add_item_list_height_margin_top"
+                android:layout_marginBottom="@dimen/add_item_list_height_margin"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView23"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="bottom"
                     android:text="*"
+                    android:gravity="center"
+                    android:layout_marginBottom="2dp"
                     android:textColor="#FF2020"
                     android:textSize="@dimen/add_item_asterick"
                     android:textStyle="bold" />
@@ -156,15 +162,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/add_item_list_margin"
+                android:layout_marginLeft="@dimen/add_item_list_margin"
+                android:layout_marginRight="@dimen/add_item_list_margin"
+                android:layout_marginTop="@dimen/add_item_list_height_margin_top"
+                android:layout_marginBottom="@dimen/add_item_list_height_margin"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView28"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="bottom"
                     android:text="*"
+                    android:gravity="center"
+                    android:layout_marginBottom="2dp"
                     android:textColor="#FF2020"
                     android:textSize="@dimen/add_item_asterick"
                     android:textStyle="bold" />
@@ -201,7 +212,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/add_item_list_margin"
+                android:layout_marginLeft="@dimen/add_item_list_margin"
+                android:layout_marginRight="@dimen/add_item_list_margin"
+                android:layout_marginTop="@dimen/add_item_list_height_margin_top"
+                android:layout_marginBottom="@dimen/add_item_list_height_margin"
                 android:orientation="horizontal">
 
                 <TextView
@@ -246,7 +260,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/add_item_list_margin"
+                android:layout_marginLeft="@dimen/add_item_list_margin"
+                android:layout_marginRight="@dimen/add_item_list_margin"
+                android:layout_marginTop="@dimen/add_item_list_height_margin_top"
+                android:layout_marginBottom="@dimen/add_item_list_height_margin"
                 android:orientation="horizontal">
 
                 <TextView
@@ -291,7 +308,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/add_item_list_margin"
+                android:layout_marginStart="@dimen/add_item_list_margin"
+                android:layout_marginTop="@dimen/add_item_list_margin"
+                android:layout_marginEnd="@dimen/add_item_list_margin"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -299,6 +319,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginTop="7dp"
+                    android:gravity="bottom"
                     android:text="*"
                     android:textColor="#FF2020"
                     android:textSize="@dimen/add_item_asterick"
@@ -308,67 +330,82 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_margin="4dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="4dp"
                     android:text="₩"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/add_item_asterick" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/add_item_edit_text_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_margin="4dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="4dp"
                     android:layout_weight="1"
                     android:background="@color/transparent"
                     android:hint="0"
                     android:inputType="phone"
                     android:textColor="#000000"
                     android:textColorHint="@android:color/darker_gray"
-                    android:textSize="@dimen/add_item_text" />
+                    android:textSize="16sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/add_item_list_margin"
-                    android:gravity="center"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="@dimen/add_item_list_margin"
+                    android:layout_marginTop="@dimen/add_item_list_margin"
+                    android:layout_marginEnd="@dimen/add_item_list_margin"
+                    android:gravity="bottom|center_horizontal"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/add_item_text_view_include_delivery_pay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/add_item_include_delivery_pay" />
+                        android:text="@string/add_item_include_delivery_pay"
+                        android:textSize="12sp" />
 
                     <ImageView
                         android:id="@+id/imageView31"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/add_item_global_check" />
                 </LinearLayout>
 
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/add_item_list_margin"
                     android:background="@color/gray_background" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/add_item_list_margin"
-                    android:gravity="center"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="@dimen/add_item_list_margin"
+                    android:layout_marginTop="@dimen/add_item_list_margin"
+                    android:layout_marginRight="@dimen/add_item_list_margin"
+                    android:gravity="bottom|center_horizontal"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/add_item_text_view_negotiation_possible"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/add_item_negotiation_possible" />
+                        android:text="@string/add_item_negotiation_possible"
+                        android:textSize="12sp" />
 
                     <ImageView
                         android:id="@+id/imageView32"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/add_item_global_check" />
 
                 </LinearLayout>
@@ -385,7 +422,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/add_item_list_margin"
+                android:layout_marginLeft="@dimen/add_item_list_margin"
+                android:layout_marginRight="@dimen/add_item_list_margin"
+                android:layout_marginBottom="@dimen/add_item_list_margin"
+                android:layout_marginTop="@dimen/add_item_list_height_margin_top"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -427,7 +467,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/add_item_list_margin"
+                android:layout_marginStart="@dimen/add_item_list_margin"
+                android:layout_marginTop="@dimen/add_item_list_height_margin_top"
+                android:layout_marginEnd="@dimen/add_item_list_margin"
+                android:layout_marginBottom="@dimen/add_item_list_margin"
                 android:orientation="horizontal">
 
                 <TextView
@@ -437,7 +480,7 @@
                     android:layout_gravity="center"
                     android:text="@string/add_item_num"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="13sp" />
 
                 <View
                     android:layout_width="1dp"
@@ -453,7 +496,7 @@
                     android:layout_margin="4dp"
                     android:text="@string/add_item_used"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="13sp" />
 
                 <View
                     android:layout_width="1dp"
@@ -469,7 +512,7 @@
                     android:layout_weight="1"
                     android:text="@string/add_item_change_impossible"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="13sp" />
 
                 <ImageView
                     android:id="@+id/imageView27"
@@ -490,14 +533,15 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
 
                 <ImageView
                     android:id="@+id/imageView35"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:src="@drawable/home_today_recommend_info"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -506,6 +550,7 @@
                     android:id="@+id/textView33"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
                     android:text="@string/add_item_description_title"
                     android:textColor="#000000"
                     android:textStyle="bold"
@@ -516,9 +561,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
                     android:text="@string/add_item_description_detail"
+                    android:textSize="13sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -527,8 +573,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:text="상품등록 시 "
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView35" />
 
@@ -538,6 +585,7 @@
                     android:layout_height="wrap_content"
                     android:text="번개페이가 자동 적용"
                     android:textColor="#000000"
+                    android:textSize="13sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/textView32"
                     app:layout_constraintStart_toEndOf="@+id/textView32"
@@ -548,6 +596,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="됩니다. 거래완료 후"
+                    android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="@+id/textView34"
                     app:layout_constraintStart_toEndOf="@+id/textView34"
                     app:layout_constraintTop_toTopOf="@+id/textView34" />
@@ -556,56 +605,48 @@
                     android:id="@+id/textView36"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginBottom="32dp"
                     android:text="등록된 계좌로 입금되며"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView32" />
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView35"
+                    app:layout_constraintTop_toTopOf="@+id/textView35" />
 
                 <TextView
                     android:id="@+id/textView37"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="정산 확인은 '마이메뉴>구매/"
+                    android:layout_marginTop="1dp"
+                    android:text="정산 확인은 '마이메뉴>구매/판매내역에서"
                     android:textColor="#000000"
+                    android:textSize="13sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView36"
-                    app:layout_constraintStart_toEndOf="@+id/textView36" />
+                    app:layout_constraintStart_toStartOf="@+id/textView32"
+                    app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
-                <TextView
-                    android:id="@+id/textView38"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="판매내역'"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
 
                 <TextView
                     android:id="@+id/textView39"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="에서 가능합니다."
-                    app:layout_constraintBottom_toBottomOf="@+id/textView38"
-                    app:layout_constraintStart_toEndOf="@+id/textView38" />
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView37"
+                    app:layout_constraintStart_toEndOf="@+id/textView37" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
 
                 <TextView
                     android:id="@+id/add_item_description_emergency_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
                     android:text="@string/add_item_description_emergency_title"
                     android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -617,11 +658,12 @@
                     android:id="@+id/textView40"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginEnd="12dp"
                     android:layout_marginBottom="32dp"
                     android:text="@string/add_item_description_emergency_content"
+                    android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

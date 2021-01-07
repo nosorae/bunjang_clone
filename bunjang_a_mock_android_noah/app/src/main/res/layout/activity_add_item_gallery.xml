@@ -87,6 +87,8 @@
         android:layout_height="0dp"
         android:background="@color/gray_background"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
         <TextView
@@ -111,9 +113,9 @@
 
         <ImageView
             android:id="@+id/imageView24"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="36dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toStartOf="@+id/view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -143,8 +145,8 @@
 
         <ImageView
             android:id="@+id/imageView25"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/view"
             app:layout_constraintTop_toTopOf="@+id/imageView24"

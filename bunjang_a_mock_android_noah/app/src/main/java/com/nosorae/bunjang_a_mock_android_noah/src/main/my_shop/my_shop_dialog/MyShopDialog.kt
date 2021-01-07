@@ -1,4 +1,4 @@
-package com.nosorae.bunjang_a_mock_android_noah.src.log_in.dialog
+package com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.my_shop_dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -8,13 +8,16 @@ import android.view.Gravity
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageButton
+import android.widget.ImageView
 import com.nosorae.bunjang_a_mock_android_noah.R
 
-class LogInDialog(context : Context) : Dialog(context)  {
+
+class MyShopDialog(context : Context) : Dialog(context)  {
+
     fun showLogInDialog(){
 
         requestWindowFeature(Window.FEATURE_NO_TITLE)   //타이틀바 제거
-        setContentView(R.layout.dialog_log_in)
+        setContentView(R.layout.dialog_my_shop)
 
         val window: Window? = getWindow()
         if (window != null) {
@@ -34,7 +37,7 @@ class LogInDialog(context : Context) : Dialog(context)  {
 
 
 
-        val closeButton = findViewById<ImageButton>(R.id.image_button_close)
+        val closeButton = findViewById<ImageView>(R.id.dialog_my_shop_button_back)
 
         closeButton.setOnClickListener {
             dismiss()

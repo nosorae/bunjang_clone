@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import kotlin.concurrent.thread
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.nosorae.bunjang_a_mock_android_noah.R
@@ -20,6 +21,7 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeR
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewSpacing
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager.HomeViewPagerAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager.HomeViewPagerItem
+import java.lang.Thread.sleep
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
         HomeFragmentView  {
@@ -29,6 +31,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     private lateinit var recyclerAdapter : HomeRecyclerViewAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.imageButtonBell.setOnClickListener {
+            showLoadingDialog(context!!)
+        }
 
         //뷰페이저 배너
         pageItemList.add(HomeViewPagerItem(R.drawable.home_banner1))
@@ -44,6 +50,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         }
 
         //아이템 목록 가져오기
+        showLoadingDialog(context!!)
         HomeService(this).tryGetUsers()
 
         //전체 카테고리 리스너
@@ -69,10 +76,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             layoutManager = GridLayoutManager(context, 2)
             //addItemDecoration(HomeRecyclerViewSpacing(16, 16))
         }
+        dismissLoadingDialog()
         //recyclerAdapter.notifyDataSetChanged()
     }
 
     override fun onGetItemFailure(message: String) {
+        dismissLoadingDialog()
         Log.d("api", message)
     }
 

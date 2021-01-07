@@ -16,6 +16,7 @@ class HomeRecyclerViewViewHolder(context: Context, itemView: View)
     val itemName = itemView.findViewById<TextView>(R.id.home_item_text_view_name)
     val itemPrice = itemView.findViewById<TextView>(R.id.home_item_text_view_price)
     val itemFavorite = itemView.findViewById<ImageView>(R.id.home_item_image_favorite)
+    val itemNumOfFavorite = itemView.findViewById<TextView>(R.id.home_item_text_num_of_favorites)
     val context = context
     fun bindView(item : GetItemResult) {
         Glide.with(context).load(item.productImgUrl).into(imageUrl)
@@ -29,6 +30,9 @@ class HomeRecyclerViewViewHolder(context: Context, itemView: View)
         else{
             itemFavorite.setImageResource(R.drawable.home_favorite_default)
         }
+
+        itemNumOfFavorite.text = item.pickCount.toString()
+
 
 
 

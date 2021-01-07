@@ -20,7 +20,7 @@ class HomeService(val view: HomeFragmentView) {
 
     fun tryGetUsers(){
         val homeRetrofitInterface = ApplicationClass.sRetrofit.create(HomeRetrofitInterface::class.java)
-        homeRetrofitInterface.getItem(1, 10).enqueue(object : Callback<GetItemResponse> {
+        homeRetrofitInterface.getItem(1, 100).enqueue(object : Callback<GetItemResponse> {
             override fun onResponse(call: Call<GetItemResponse>, response: Response<GetItemResponse>) {
                 Log.d("api", "onResponse 도착 ${response.isSuccessful}")
                 if(response.body() != null){
@@ -35,9 +35,9 @@ class HomeService(val view: HomeFragmentView) {
         })
     }
 
-    fun tryPostFavorite(body: PostFavoriteRequest){
+    fun tryPostFavorite(productId: Int, body: PostFavoriteRequest){
         val homeRetrofitInterface = ApplicationClass.sRetrofit.create(HomeRetrofitInterface::class.java)
-        homeRetrofitInterface.postItem(body).enqueue(object :
+        homeRetrofitInterface.postItem(productId, body).enqueue(object :
                 Callback<PostFavoriteResponse> {
             override fun onResponse(call: Call<PostFavoriteResponse>, response: Response<PostFavoriteResponse>) {
                 Log.d("favorite", "Success : "+response.message())

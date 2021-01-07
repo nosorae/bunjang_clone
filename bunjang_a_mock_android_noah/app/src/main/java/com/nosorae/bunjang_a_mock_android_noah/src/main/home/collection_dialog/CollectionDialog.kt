@@ -8,17 +8,15 @@ import android.view.Gravity
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nosorae.bunjang_a_mock_android_noah.R
-import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.GetItemResult
-import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.Result
-import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewAdapter
-import com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager.HomeViewPagerAdapter
-import com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager.HomeViewPagerItem
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeFragmentView
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.*
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.CustomCallBack
 
-class CollectionDialog(context : Context) : Dialog(context)  {
+
+class CollectionDialog(context : Context, var customCallBack: CustomCallBack) : Dialog(context) {
 
 
 
@@ -26,7 +24,7 @@ class CollectionDialog(context : Context) : Dialog(context)  {
     private lateinit var recyclerAdapter : CollectionRecyclerViewAdapter
 
 
-    fun showCollectionDialog(result: ArrayList<Result>) {
+    fun showCollectionDialog(result: ArrayList<Result>, productId: Int) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)   //타이틀바 제거
         setContentView(R.layout.dialog_home_favorite_collections)
 
@@ -51,20 +49,26 @@ class CollectionDialog(context : Context) : Dialog(context)  {
        recyclerItemList = result
 
 
-        recyclerAdapter= CollectionRecyclerViewAdapter(context, recyclerItemList)
+        recyclerAdapter= CollectionRecyclerViewAdapter(context, recyclerItemList, this, productId, customCallBack)
         val closeButton = findViewById<ImageView>(R.id.dialog_home_favorite_collection_button_back)
         val recyclerView = findViewById<RecyclerView>(R.id.dialog_home_favorite_collection_recycler_view)
         recyclerView.apply {
             adapter = recyclerAdapter
             layoutManager = LinearLayoutManager(context)
-
-
         }
+
+
+
+
+
+
 
         closeButton.setOnClickListener {
             dismiss()
         }
         show()
     }
+
+
 
 }
