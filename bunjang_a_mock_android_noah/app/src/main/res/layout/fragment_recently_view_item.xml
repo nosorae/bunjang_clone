@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.main.my_shop.favorite_item_activity.recently_view_item_fragment.RecentlyViewItemFragment" >
+    tools:context=".src.main.my_shop.favorite_collectin_activity.recently_view_item_fragment.RecentlyViewItemFragment" >
 
 
     <ScrollView

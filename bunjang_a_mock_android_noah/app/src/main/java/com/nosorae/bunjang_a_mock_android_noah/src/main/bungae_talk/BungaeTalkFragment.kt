@@ -8,8 +8,6 @@ import com.nosorae.bunjang_a_mock_android_noah.config.BaseFragment
 import com.nosorae.bunjang_a_mock_android_noah.databinding.FragmentBungaeTalkBinding
 import com.nosorae.bunjang_a_mock_android_noah.src.main.bungae_talk.recycler_view.BungaeTalkRecyclerViewAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.bungae_talk.recycler_view.BungaeTalkRecyclerViewItem
-import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_item_activity.collection_activity.model.FavoriteCollectionResult
-import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_item_activity.collection_activity.recycler_view.FavoriteCollectionRecyclerViewAdapter
 
 
 class BungaeTalkFragment :

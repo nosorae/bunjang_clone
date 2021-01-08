@@ -32,8 +32,14 @@ class HomeRecyclerViewAdapter(private val context: Context?, var itemList: Array
 
     override fun onBindViewHolder(holder: HomeRecyclerViewViewHolder, position: Int) {
         val container = holder.itemView.findViewById<ImageView>(R.id.home_item_image_favorite)
+
         container.setOnClickListener {
-            HomeService(this).tryGetCollection()
+            if(itemList[position].isPick == 0) {
+                HomeService(this).tryGetCollection()
+            } else {
+                HomeService(this).tryPostFavorite(itemList[position].productId, PostFavoriteRequest(null))
+            }
+
             pos = position
         }
         holder.bindView(itemList[position])
@@ -52,6 +58,8 @@ class HomeRecyclerViewAdapter(private val context: Context?, var itemList: Array
 
     override fun onPostFavoriteSuccess(response: PostFavoriteResponse) {
         Log.d("favorite", response.message)
+        itemList[pos].isPick = 0
+        notifyDataSetChanged()
 
     }
 

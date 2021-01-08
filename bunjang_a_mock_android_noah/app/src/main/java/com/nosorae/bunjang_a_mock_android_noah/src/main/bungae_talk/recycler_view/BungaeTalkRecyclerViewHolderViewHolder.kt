@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nosorae.bunjang_a_mock_android_noah.R
-import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_item_activity.collection_activity.model.FavoriteCollectionResult
 
 
 class BungaeTalkRecyclerViewHolderViewHolder(context: Context, itemView: View)

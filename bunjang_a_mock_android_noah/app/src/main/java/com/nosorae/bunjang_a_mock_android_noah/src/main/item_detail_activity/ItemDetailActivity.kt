@@ -10,6 +10,10 @@ class ItemDetailActivity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding.activityItemDetailScrollView.setOnScrollChangeListener { view, i, i2, i3, i4 ->
+
+        }
+
 
 
     }

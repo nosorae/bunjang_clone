@@ -11,7 +11,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nosorae.bunjang_a_mock_android_noah.R
-import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeFragmentView
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.collection_dialog.recycler_view.CollectionRecyclerViewAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.*
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.CustomCallBack
 

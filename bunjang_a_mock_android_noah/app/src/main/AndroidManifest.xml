@@ -17,13 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".src.main.my_shop.favorite_item_activity.collection_activity.FavoriteCollectionActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".src.main.my_shop.favorite_collectin_activity.collection_activity.FavoriteCollectionActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".src.main.item_detail_activity.ItemDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".src.main.my_shop.favorite_item_activity.FavoriteItemActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".src.main.my_shop.favorite_collectin_activity.FavoriteCollectionActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".src.main.home.category_activity.OneCategoryActivity"
             android:theme="@style/AppTheme.NoActionBar" />
