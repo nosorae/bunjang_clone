@@ -9,7 +9,7 @@ import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.nosorae.bunjang_a_mock_android_noah.R
-import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_collectin_activity.collection_activity.FavoriteCollectionActivity
+import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_collectin_activity.collection_item_activity.FavoriteCollectionItemActivity
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_collectin_activity.favorite_collection_fragment.FavoriteCollectionFragmentView
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_collectin_activity.favorite_collection_fragment.model.*
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_collectin_activity.favorite_collection_fragment.recycler_view.more_dialog.CollectionModifyDlg
@@ -34,8 +34,9 @@ class FavoriteItemRecyclerViewAdapter(private val context: Context?, val itemLis
         val container = holder.itemView.findViewById<ConstraintLayout>(R.id.favorite_collection_container)
         val more = holder.itemView.findViewById<ImageView>(R.id.favorite_item_button_more)
         container.setOnClickListener {
-            val intent = Intent(context, FavoriteCollectionActivity::class.java)
+            val intent = Intent(context, FavoriteCollectionItemActivity::class.java)
             intent.putExtra("title", itemList[position].collectionName)
+            intent.putExtra("collectionId", itemList[position].collectionId)
             context!!.startActivity(intent)
         }
         more.setOnClickListener {

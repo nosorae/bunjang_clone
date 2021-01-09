@@ -26,4 +26,8 @@
     <dimen name="category_margin_width">8dp</dimen>
     <dimen name="category_margin_height">8dp</dimen>
     <dimen name="categoty_image_width">20dp</dimen>
+
+
+    <dimen name="item_detail_link_button">20dp</dimen>
+    <dimen name="item_detail_extra_image">168dp</dimen>
 </resources>

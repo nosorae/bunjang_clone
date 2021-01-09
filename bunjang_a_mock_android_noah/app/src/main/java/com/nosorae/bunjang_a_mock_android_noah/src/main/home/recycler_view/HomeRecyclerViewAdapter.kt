@@ -1,11 +1,13 @@
 package com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.nosorae.bunjang_a_mock_android_noah.R
@@ -13,6 +15,7 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeFragmentView
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeService
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.collection_dialog.CollectionDialog
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.*
+import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.ItemDetailActivity
 
 class HomeRecyclerViewAdapter(private val context: Context?, var itemList: ArrayList<GetItemResult>)
     : RecyclerView.Adapter<HomeRecyclerViewViewHolder>(), HomeFragmentView, CustomCallBack {
@@ -31,9 +34,16 @@ class HomeRecyclerViewAdapter(private val context: Context?, var itemList: Array
     }
 
     override fun onBindViewHolder(holder: HomeRecyclerViewViewHolder, position: Int) {
-        val container = holder.itemView.findViewById<ImageView>(R.id.home_item_image_favorite)
+        val favorite = holder.itemView.findViewById<ImageView>(R.id.home_item_image_favorite)
+        val container = holder.itemView.findViewById<ConstraintLayout>(R.id.home_item_container)
 
         container.setOnClickListener {
+            val intent = Intent(context, ItemDetailActivity::class.java)
+            intent.putExtra("itemId", itemList[position].productId)
+            context!!.startActivity(intent)
+        }
+
+        favorite.setOnClickListener {
             if(itemList[position].isPick == 0) {
                 HomeService(this).tryGetCollection()
             } else {

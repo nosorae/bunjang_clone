@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".src.main.my_shop.favorite_collectin_activity.collection_activity.FavoriteCollectionActivity"
+        <activity android:name=".src.main.my_shop.favorite_collectin_activity.collection_item_activity.FavoriteCollectionItemActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".src.main.item_detail_activity.ItemDetailActivity"

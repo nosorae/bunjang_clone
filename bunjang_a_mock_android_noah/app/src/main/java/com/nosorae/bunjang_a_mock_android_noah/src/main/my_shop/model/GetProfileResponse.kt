@@ -4,5 +4,5 @@ data class GetProfileResponse(
     val code: Int,
     val isSuccess: Boolean,
     val message: String,
-    val getProfileResult: GetProfileResult
+    val result: GetProfileResult
 )

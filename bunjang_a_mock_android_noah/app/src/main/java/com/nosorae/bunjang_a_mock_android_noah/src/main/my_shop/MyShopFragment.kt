@@ -3,6 +3,7 @@ package com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.nosorae.bunjang_a_mock_android_noah.R
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseFragment
@@ -29,25 +30,33 @@ class MyShopFragment :
         }
         binding.myShopProfileContainer.setOnClickListener {
             MyShopDialog(context!!).showLogInDialog()
+
+        }
+        binding.textViewShopName.setOnClickListener {
+            Toast.makeText(context!!, "siodfsdoifjjdij", Toast.LENGTH_LONG).show()
+
         }
 
 
     }
 
     override fun onGetProfileSeccess(response: GetProfileResponse) {
-        /**
-          //  if(response.getProfileResult.storeImgUrl != null){
-               // Glide.with(context!!).load(response.getProfileResult.storeImgUrl).into(binding.imageViewProfileImage)
-          //  }
-            binding.textViewShopName.text = response.getProfileResult.storeName
-            //if(response.getProfileResult.starRatinvAvg != null) {
-                //binding.ratingBar.rating = response.getProfileResult.starRatinvAvg as Float
-          //  }
-            binding.textViewLike.text = response.getProfileResult.pickCount.toString()
-            binding.textViewReview.text = response.getProfileResult.reviewCount.toString()
-            binding.textViewFollower.text = response.getProfileResult.followerCount.toString()
-            binding.textViewFollowing.text = response.getProfileResult.followingCount.toString()
-**/
+
+
+            Glide.with(context!!).load(response.result.storeImgUrl).into(binding.imageViewProfileImage)
+
+
+            binding.textViewShopName.text = response.result.storeName
+            if(response.result.starRatinvAvg != null) {
+                binding.ratingBar.rating = response.result.starRatinvAvg as Float
+            }
+            binding.textViewLike.text = response.result.pickCount.toString()
+            binding.textViewReview.text = response.result.reviewCount.toString()
+            binding.textViewFollower.text = response.result.followerCount.toString()
+            binding.textViewFollowing.text = response.result.followingCount.toString()
+
+        //binding.textViewShopName.text = "sdaifosajdifoj"
+        //binding.textViewShopName.setText(response.getProfileResult.storeName)
     }
 
     override fun onGetProfileFailure(messge: String?) {

@@ -187,7 +187,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left|center_vertical"
-                            android:layout_marginStart="8dp"
+                            android:layout_marginStart="16dp"
                             android:gravity="center"
                             android:text="이벤트"
                             android:textColor="@color/myShopTextEvent"
@@ -213,7 +213,8 @@
                         <ImageView
                             android:id="@+id/imageView3"
                             android:layout_width="13dp"
-                            android:layout_height="10dp"
+                            android:layout_height="8dp"
+                            android:layout_marginStart="2dp"
                             android:src="@drawable/my_page_next"
                             app:layout_constraintBottom_toBottomOf="@+id/text_view_event_content"
                             app:layout_constraintStart_toEndOf="@+id/text_view_event_content"
@@ -383,9 +384,9 @@
                             android:layout_height="@dimen/top_icon"
                             android:layout_marginTop="@dimen/my_shop_table_margin_table"
                             android:gravity="right|center_vertical"
-                            android:paddingTop="7dp"
-                            android:paddingEnd="22dp"
-                            android:paddingBottom="7dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="24dp"
+                            android:paddingBottom="8dp"
                             android:scaleType="fitEnd"
                             android:src="@drawable/my_shop_seller_center" />
 
@@ -395,7 +396,7 @@
                             android:layout_height="@dimen/top_icon"
                             android:layout_marginTop="@dimen/my_shop_table_margin_table"
                             android:gravity="center"
-                            android:padding="9dp"
+                            android:padding="10dp"
                             android:scaleType="centerInside"
                             android:src="@drawable/my_shop_trasation_list" />
 
@@ -405,7 +406,7 @@
                             android:layout_height="@dimen/top_icon"
                             android:layout_marginTop="@dimen/my_shop_table_margin_table"
                             android:gravity="center"
-                            android:padding="11dp"
+                            android:padding="12dp"
                             android:scaleType="centerInside"
                             android:src="@drawable/my_shop_delivery" />
 
@@ -415,7 +416,7 @@
                             android:layout_height="@dimen/top_icon"
                             android:layout_marginTop="@dimen/my_shop_table_margin_table"
                             android:gravity="center"
-                            android:padding="9dp"
+                            android:padding="10dp"
                             android:scaleType="centerInside"
                             android:src="@drawable/my_shop_customer_center" />
                     </TableRow>

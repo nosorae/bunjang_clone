@@ -96,6 +96,7 @@
                 android:layout_height="18dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="1dp"
+                android:foreground="@drawable/my_shop_profile_image_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/collection_item_price"
