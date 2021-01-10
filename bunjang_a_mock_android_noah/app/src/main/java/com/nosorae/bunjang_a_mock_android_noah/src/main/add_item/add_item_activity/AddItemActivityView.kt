@@ -5,6 +5,5 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activi
 
 interface AddItemActivityView {
     fun onPostAddItemSuccess(response: AddItemResponse)
-
     fun onPostAddItemFailure(message: String)
 }

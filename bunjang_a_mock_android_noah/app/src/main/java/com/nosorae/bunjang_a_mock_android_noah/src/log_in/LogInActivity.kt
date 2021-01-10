@@ -18,6 +18,7 @@ import com.nosorae.bunjang_a_mock_android_noah.src.log_in.model.PostKakaoSignUpR
 import com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager.LogInViewPagerAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager.LogInViewPagerItem
 import com.nosorae.bunjang_a_mock_android_noah.src.main.MainActivity
+import com.nosorae.bunjang_a_mock_android_noah.util.LoadingDialog
 
 class LogInActivity : BaseActivity<ActivityLogInBinding>(ActivityLogInBinding::inflate), LogInActivityView {
     private lateinit var dlg : Dialog //부모 액티비티의 context 가 들어감
@@ -64,7 +65,6 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(ActivityLogInBinding::i
 
 
 
-
         //데이터 리스트 준비
         pageItemList.add(LogInViewPagerItem(R.drawable.log_in_view_pager1))
         pageItemList.add(LogInViewPagerItem(R.drawable.log_in_view_pager2))
@@ -82,6 +82,7 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(ActivityLogInBinding::i
 
         binding.textViewLogInOtherWay.setOnClickListener {
             LogInDialog(this).showLogInDialog()
+            //LoadingDialog(this).show()
             //startActivity(Intent(this, MainActivity::class.java))
             //finish()
         }

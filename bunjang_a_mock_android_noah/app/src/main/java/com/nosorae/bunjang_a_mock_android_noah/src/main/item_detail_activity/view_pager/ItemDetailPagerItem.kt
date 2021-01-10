@@ -2,4 +2,4 @@ package com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.vi
 
 
 
-data class ItemDetailPagerItem(val imageSrc: Int)
+data class ItemDetailPagerItem(val imageUrl: String)

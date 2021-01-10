@@ -4,7 +4,7 @@
         android:color="@color/gray_background"
         android:width="2dp"/>
     <solid
-        android:color="@color/white"/>
+        android:color="@color/transparent"/>
 
     <corners
         android:radius="10dp" />

@@ -260,6 +260,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/category_woman"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -283,6 +284,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/category_man"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -313,6 +315,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/category_fashion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -336,6 +339,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/category_beauty"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -366,6 +370,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/category_baby"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -389,6 +394,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/category_sports"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

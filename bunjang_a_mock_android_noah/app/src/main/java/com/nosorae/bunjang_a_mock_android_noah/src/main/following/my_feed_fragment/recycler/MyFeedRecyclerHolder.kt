@@ -35,6 +35,8 @@ class MyFeedRecyclerHolder(context: Context, itemView: View)
 
         if(item.storeImgUrl != null) {
             Glide.with(context).load(item.storeImgUrl).into(sellerImgId)
+        } else {
+            sellerImgId.setImageResource(R.drawable.no_profile_image)
         }
 
         sellerNmaeId.text = item.storeName

@@ -1,29 +1,48 @@
 package com.nosorae.bunjang_a_mock_android_noah.src.main.add_item
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseActivity
 import com.nosorae.bunjang_a_mock_android_noah.databinding.ActivityAddItemGalleryBinding
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.AddItemActivity
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.recycler_view.GalleryRecyclerViewAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.recycler_view.GalleryRecyclerViewItem
-import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.recycler_view.GalleryRecyclerViewSpacing
+import java.lang.reflect.Type
 
 
 class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(ActivityAddItemGalleryBinding::inflate) {
 
     private var recyclerItemList = ArrayList<GalleryRecyclerViewItem>()
     private lateinit var recyclerAdapter : GalleryRecyclerViewAdapter
+    private val isInList = ArrayList<String>()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
         binding.addItemButtonBack.setOnClickListener {
-            startActivity(Intent(this, AddItemActivity::class.java))
+            val intent = Intent(this, AddItemActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        binding.imageViewButtonCheck.setOnClickListener {
+            for(i in isInList){
+                Log.d("isInList", "절대주소: "+i)
+            }
+            saveArrayList(isInList, "isInList")
+            val intent = Intent(this, AddItemActivity::class.java)
+            startActivity(intent)
             finish()
         }
 
@@ -60,11 +79,11 @@ class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(Activ
                 for(item in recyclerItemList){
                     Log.d("e??", "하이 : ${item.imageUri}")
                 }
-                recyclerAdapter = GalleryRecyclerViewAdapter(this, recyclerItemList)
+                recyclerAdapter = GalleryRecyclerViewAdapter(this, recyclerItemList, isInList)
                 binding.galleryRecyclerView.apply {
                     adapter = recyclerAdapter
                     layoutManager = GridLayoutManager(context, 3)
-                    addItemDecoration(GalleryRecyclerViewSpacing(4, 4))
+                    //addItemDecoration(GalleryRecyclerViewSpacing(4, 4))
                 }
 
             }
@@ -72,5 +91,33 @@ class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(Activ
             e.printStackTrace()
         }
     }
+
+
+    fun saveArrayList(list: java.util.ArrayList<String>?, key: String?) {
+        val prefs = getSharedPreferences("myPreference", Activity.MODE_PRIVATE)
+        val editor = prefs.edit()
+        val gson = Gson()
+        val json: String = gson.toJson(list)
+        editor.putString(key, json)
+        editor.apply() // This line is IMPORTANT !!!
+    }
+
+    fun getArrayList(key: String?): java.util.ArrayList<String>? {
+        val prefs = getSharedPreferences("myPreference", Activity.MODE_PRIVATE)
+        val gson = Gson()
+        val json = prefs.getString(key, null)
+        val type: Type = object : TypeToken<java.util.ArrayList<String?>?>() {}.getType()
+        return gson.fromJson(json, type)
+    }
+
+
+
+
+
+
+
+
+
+
 
 }

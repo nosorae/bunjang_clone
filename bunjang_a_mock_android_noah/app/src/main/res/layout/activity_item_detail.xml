@@ -180,7 +180,7 @@
                         android:textSize="11sp" />
 
                     <ImageView
-                        android:id="@+id/imageView44"
+                        android:id="@+id/item_detail_user_favorite2"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
                         android:layout_marginStart="8dp"
@@ -526,10 +526,10 @@
 
                     <ImageView
                         android:id="@+id/item_detail_button_follow"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:layout_marginEnd="8dp"
-                        android:src="@drawable/main_bottom_nav_following"
+                        android:src="@drawable/button_follow_default"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -543,7 +543,6 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginRight="8dp"
-                    android:layout_marginBottom="16dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -598,20 +597,13 @@
 
                 </LinearLayout>
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/item_detail_recycler_all_item"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:orientation="horizontal">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/item_detail_recycler_all_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
+                    android:layout_height="match_parent" />
 
                 <LinearLayout
+                    android:id="@+id/item_detail_review_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -634,7 +626,7 @@
                         android:text="후기" />
 
                     <RatingBar
-                        android:id="@+id/ratingBar2"
+                        android:id="@+id/item_detail_rating_bar2"
                         style="@android:style/Widget.Holo.Light.RatingBar.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -680,7 +672,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="6" />
+                        android:text="0" />
 
                     <View
                         android:layout_width="1dp"
@@ -716,6 +708,7 @@
                     android:background="@color/gray_background" />
 
                 <LinearLayout
+                    android:id="@+id/item_detail_similar_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -1147,10 +1140,10 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/imageView39"
+            android:id="@+id/item_detail_user_favorite"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:padding="12dp"
+            android:padding="15dp"
             android:src="@drawable/global_favorite" />
 
         <View

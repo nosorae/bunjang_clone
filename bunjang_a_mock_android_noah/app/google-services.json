@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "115434288122",
+    "project_id": "bunjang-noah",
+    "storage_bucket": "bunjang-noah.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115434288122:android:8cd4aac6afd6fc3278aa43",
+        "android_client_info": {
+          "package_name": "com.nosorae.bunjang_a_mock_android_noah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115434288122-dnduc1icd3m5i6e75lv2tb38b5safe9m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nosorae.bunjang_a_mock_android_noah",
+            "certificate_hash": "d60b3a7309e71bfa000c91c3728ccbb04dd026ea"
+          }
+        },
+        {
+          "client_id": "115434288122-7cq5egilaruntduk8lt76q7nu0hn1is5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtBbeqk3n_CUM1oNJmB8TatUtSw5lpnOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115434288122-7cq5egilaruntduk8lt76q7nu0hn1is5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

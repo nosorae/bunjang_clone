@@ -14,7 +14,7 @@ class ItemDetailPagerAdapter(private val context: Context,
         return ItemDetailPagerHolder(
                 LayoutInflater.from(parent.context).inflate(
                         R.layout.view_pager_item_item_detail, parent, false
-                )
+                ), context
         )
     }
 

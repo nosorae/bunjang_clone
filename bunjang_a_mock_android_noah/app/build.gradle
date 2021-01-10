@@ -1,7 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+
 }
+
+
+
 
 android {
     compileSdkVersion 30
@@ -14,7 +18,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.softsquared.template.kotlin"
+        applicationId "com.nosorae.bunjang_a_mock_android_noah"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
@@ -49,6 +53,16 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    // Import the BoM for the Firebase platform
+    //implementation platform('com.google.firebase:firebase-bom:26.1.0')
+
+    // Declare the dependency for the Cloud Storage library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-storage'
+    implementation 'com.google.firebase:firebase-storage:19.2.1'
 
 
 
@@ -95,3 +109,5 @@ dependencies {
 
 
 }
+
+apply plugin: 'com.google.gms.google-services'

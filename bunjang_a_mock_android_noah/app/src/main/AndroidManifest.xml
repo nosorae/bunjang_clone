@@ -27,7 +27,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan"/>
         <activity
-            android:name=".src.main.home.category_activity.OneCategoryActivity"
+            android:name=".src.main.home.one_category_activity.OneCategoryActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.main.home.category_activity.AllCategoryActivity"
