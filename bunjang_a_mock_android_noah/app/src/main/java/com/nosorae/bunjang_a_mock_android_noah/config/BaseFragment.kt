@@ -50,4 +50,28 @@ abstract class BaseFragment<B : ViewBinding>(
             mLoadingDialog.dismiss()
         }
     }
+
+    public fun parseToMoney(str: String): String {
+        var len = str.length
+        var arr = str.toCharArray()
+        var sb = StringBuilder()
+        var before = str
+        var cur = str
+        if(len > 0) {
+            var cnt = 1
+            var idx = len-1
+            while(cnt <= len){
+                sb.append(arr[idx])
+                if(cnt%3 == 0 ) {
+                    if(cnt != len) {
+                        sb.append(',')
+                    }
+                }
+                cnt+=1
+                idx-=1
+
+            }
+        }
+        return sb.reverse().toString()
+    }
 }

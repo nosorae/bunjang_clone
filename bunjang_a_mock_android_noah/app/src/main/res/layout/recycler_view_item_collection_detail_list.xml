@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recycler_collection_item_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -21,8 +22,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
-                android:layout_width="175dp"
-                android:layout_height="175dp"
+                android:layout_width="@dimen/global_grid_two_item"
+                android:layout_height="@dimen/global_grid_two_item"
+                android:layout_marginStart="2dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -43,12 +45,12 @@
 
                     <ImageView
                         android:id="@+id/home_item_image_favorite"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:layout_gravity="top|end"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="8dp"
-                        app:srcCompat="@drawable/home_favorite_selected" />
+                        android:layout_marginEnd="16dp"
+                        app:srcCompat="@drawable/global_my_heart_selected" />
                 </FrameLayout>
 
             </androidx.cardview.widget.CardView>
@@ -57,7 +59,7 @@
                 android:id="@+id/collectin_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="1dp"
                 android:ellipsize="end"
                 android:maxLines="1"
@@ -80,7 +82,7 @@
                 android:id="@+id/collection_item_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="1dp"
                 android:maxLines="1"
                 android:text="TextView"
@@ -92,9 +94,9 @@
 
             <ImageView
                 android:id="@+id/collection_item_seller_image"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="8dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="1dp"
                 android:foreground="@drawable/my_shop_profile_image_background"
                 app:layout_constraintBottom_toBottomOf="parent"

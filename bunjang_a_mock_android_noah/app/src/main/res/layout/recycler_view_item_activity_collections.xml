@@ -8,8 +8,9 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="185dp"
-        android:layout_height="185dp"
+        android:layout_width="@dimen/global_grid_two_item"
+        android:layout_height="@dimen/global_grid_two_item"
+        android:layout_marginStart="2dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,6 +31,7 @@
         android:id="@+id/favorite_item_text_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="2dp"
         android:text="이름"
         android:textColor="#000000"
@@ -42,6 +44,7 @@
         android:id="@+id/textView47"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="16dp"
         android:text="찜한상품 "

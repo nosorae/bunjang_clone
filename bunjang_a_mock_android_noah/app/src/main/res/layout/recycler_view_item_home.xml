@@ -22,9 +22,11 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
-                android:layout_width="175dp"
-                android:layout_height="175dp"
-                app:cardCornerRadius="20dp"
+                android:layout_width="@dimen/global_grid_two_item"
+                android:layout_height="@dimen/global_grid_two_item"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="15dp"
                 app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,8 +41,6 @@
                         android:id="@+id/home_item_image_item_image"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
                         android:scaleType="centerCrop"
                         tools:srcCompat="@tools:sample/avatars" />
 
@@ -51,7 +51,7 @@
                         android:layout_height="24dp"
                         android:layout_gravity="top|end"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="8dp"
+                        android:layout_marginEnd="16dp"
                         android:alpha="0.8"
                         app:srcCompat="@drawable/global_my_heart_default" />
                 </FrameLayout>
@@ -65,7 +65,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
                 android:ellipsize="end"
-                android:maxLines="2"
+                android:maxLines="1"
                 android:text="TextView"
                 android:textColor="#000000"
                 app:layout_constraintStart_toStartOf="parent"
@@ -97,8 +97,8 @@
 
             <ImageView
                 android:id="@+id/imageView11"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"

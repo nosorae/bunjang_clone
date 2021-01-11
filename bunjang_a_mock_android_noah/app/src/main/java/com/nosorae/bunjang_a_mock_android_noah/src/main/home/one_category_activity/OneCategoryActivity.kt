@@ -34,6 +34,10 @@ class OneCategoryActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding.oneCategoryButtonBack.setOnClickListener {
+            finish()
+        }
+
         categoryNum = intent.getIntExtra("categoryNum", 1)
 
         when(categoryNum){

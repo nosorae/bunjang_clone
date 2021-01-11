@@ -19,5 +19,6 @@ data class Info(
     val storeImgUrl: Any,
     val storeName: String,
     val time: String,
-    val viewCount: Int
+    val viewCount: Int,
+    val isFollow: Int
 )

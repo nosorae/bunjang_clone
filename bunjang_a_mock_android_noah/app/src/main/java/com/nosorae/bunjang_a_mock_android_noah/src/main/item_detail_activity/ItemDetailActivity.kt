@@ -13,6 +13,15 @@ import com.nosorae.bunjang_a_mock_android_noah.databinding.ActivityItemDetailBin
 import com.nosorae.bunjang_a_mock_android_noah.src.log_in.dialog.LogInDialog
 import com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager.LogInViewPagerAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager.LogInViewPagerItem
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeFragmentView
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeService
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.collection_dialog.CollectionDialog
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.GetCollectionResponse
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.GetItemResponse
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.PostFavoriteRequest
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.PostFavoriteResponse
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.Result
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.CustomCallBack
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.model.GetItemDetailResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.model.PostFollowResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.model.Sale
@@ -24,7 +33,7 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.vie
 
 class ItemDetailActivity
     : BaseActivity<ActivityItemDetailBinding>(ActivityItemDetailBinding::inflate) ,
-      ItemDetailActivityView {
+      ItemDetailActivityView, HomeFragmentView, CustomCallBack {
 
     private var pageItemList = ArrayList<ItemDetailPagerItem>()
     private lateinit var myAdapter : ItemDetailPagerAdapter
@@ -32,6 +41,9 @@ class ItemDetailActivity
     private var recyclerSellingList = ArrayList<Sale>()
     private lateinit var recyclerSellingAdapter  : SellingRecyclerAdapter
     var isFollow = false
+
+    var productId = -1
+    var check = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,9 +54,21 @@ class ItemDetailActivity
         }
 
 
+        binding.itemDetailBack.setOnClickListener {
+            finish()
+        }
+
+
+
+
+
+
+
 
         val itemId = intent.getIntExtra("itemId", 1)
 
+
+        showLoadingDialog(this)
         ItemDetailService(this).tryGetItemDetail(itemId)
 
 
@@ -58,9 +82,13 @@ class ItemDetailActivity
 
     override fun onGetItemDetailSignUpSuccess(response: GetItemDetailResponse) {
 
+        dismissLoadingDialog()
+
+        productId = response.result.info.productId
+
         binding.itemDetailName.text = response.result.info.productName
         if(response.result.info.price.toString() != null){
-            binding.itemDetailPrice.text = response.result.info.price.toString()
+            binding.itemDetailPrice.text = parseToMoney(response.result.info.price.toString())
         }
         binding.itemDetailTime.text = response.result.info.time
         binding.itemDetailNumOfWatch.text = response.result.info.viewCount.toString()
@@ -80,6 +108,8 @@ class ItemDetailActivity
 
         if(response.result.info.storeImgUrl != null){
             Glide.with(this).load(response.result.info.storeImgUrl).into(binding.itemDetailSellerImage)
+        } else {
+            binding.itemDetailSellerImage.setImageResource(R.drawable.no_profile_image)
         }
 
         binding.itemDetailNumOfFollower.text = response.result.info.followerCount.toString()
@@ -89,19 +119,37 @@ class ItemDetailActivity
             binding.itemDetailRatingBar2.rating = response.result.info.starRatingAvg.toFloat()
         }
 
+        //---------------------------------------좋아요---------------------------------------------
+
         if(response.result.info.isPick == 1) {
             binding.itemDetailUserFavorite.setImageResource(R.drawable.home_favorite_selected)
             binding.itemDetailUserFavorite2.setImageResource(R.drawable.home_favorite_selected)
+            check = true
         } else {
             binding.itemDetailUserFavorite.setImageResource(R.drawable.home_favorite_default)
             binding.itemDetailUserFavorite2.setImageResource(R.drawable.global_favorite_black)
+            check = false
         }
+        binding.itemDetailUserFavorite.setOnClickListener {
+            if(check) {
+                binding.itemDetailUserFavorite.setImageResource(R.drawable.home_favorite_default)
+                binding.itemDetailUserFavorite2.setImageResource(R.drawable.global_favorite_black)
+                HomeService(this).tryPostFavorite(productId, PostFavoriteRequest(null))
+                check = false
+            } else {
+                showLoadingDialog(this)
+                HomeService(this).tryGetCollection()
+            }
+        }
+
+        //------------------------------------------------------------------------------------------
 
         binding.itemDetailTotalNumOfSellingItem.text = response.result.info.productCount.toString()
         binding.itemDetailTotalNumOfReview.text = response.result.info.reviewCount.toString()
         if(response.result.info.reviewCount == 0) {
             binding.itemDetailReviewHeader.visibility = View.GONE
             binding.itemDetailSimilarHeader.visibility = View.GONE
+            binding.withSimilar.visibility = View.GONE
         }
 
         pageItemList = ArrayList<ItemDetailPagerItem>()
@@ -113,15 +161,28 @@ class ItemDetailActivity
             adapter = myAdapter
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
+
+
         var tabLayout = binding.itemDetailTabLayout
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
         }.attach()
 
 
+
+
+        //-------------------------------------------------------------------------------------------------
+        if(response.result.info.isFollow == 1) {
+            binding.itemDetailButtonFollow.setImageResource(R.drawable.button_follow_selected)
+        } else {
+            binding.itemDetailButtonFollow.setImageResource(R.drawable.button_follow_default)
+        }
+
         binding.itemDetailButtonFollow.setOnClickListener {
             ItemDetailService(this).tryPostFollow(response.result.info.storeId)
         }
+
+        //------------------------------------------------------------------------------------------
 
         recyclerSellingList = ArrayList<Sale>()
         recyclerSellingList = response.result.saleList as ArrayList<Sale>
@@ -131,6 +192,7 @@ class ItemDetailActivity
             layoutManager = GridLayoutManager(context, 3)
             addItemDecoration(SellingRecyclerSpacing(4, 4))
         }
+
 
 
 
@@ -160,4 +222,57 @@ class ItemDetailActivity
     override fun onPostFollowFailure(message: String) {
         TODO("Not yet implemented")
     }
+
+
+    //--------------------------------------------------------------------------홈프래그먼트뷰
+    override fun onGetItemSuccess(response: GetItemResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onGetItemFailure(message: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onGetCollectionSuccess(response: GetCollectionResponse) {
+        dismissLoadingDialog()
+        val result = response.result
+        if(result.size != 0){
+            val temp = ArrayList<Result>()
+            temp.addAll(result)
+            if(productId != -1){
+                CollectionDialog(this, this).showCollectionDialog(temp, productId)
+            }
+
+        } else {
+            val temp = ArrayList<Result>()
+            CollectionDialog(this, this).showCollectionDialog(temp, productId)
+        }
+    }
+
+    override fun onGetCollectionFailure(message: String) {
+
+    }
+
+    override fun onPostFavoriteSuccess(response: PostFavoriteResponse) {
+
+    }
+
+    override fun onPostFavoriteFailure(message: String) {
+
+    }
+
+    // CustomCallback
+    override fun onFavoriteSuccess() {
+
+        binding.itemDetailUserFavorite.setImageResource(R.drawable.home_favorite_selected)
+        binding.itemDetailUserFavorite2.setImageResource(R.drawable.home_favorite_selected)
+        check = true
+
+    }
+
+    override fun onFavoriteFailure(message: String) {
+
+    }
+
+
 }

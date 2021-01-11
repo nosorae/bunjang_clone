@@ -15,6 +15,8 @@ import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.AddItemGalleryActivity
+import java.lang.Thread.sleep
+import kotlin.concurrent.thread
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
     val permissions = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -22,6 +24,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         super.onCreate(savedInstanceState)
 
         supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment()).commitAllowingStateLoss()
+
+
 
         binding.mainBtmNav.setOnNavigationItemSelectedListener(
             BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -95,6 +99,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
     fun startProcess() {
-        startActivity(Intent(this, AddItemGalleryActivity::class.java))
+
+        showLoadingDialog(this)
+        thread {
+            sleep(3000)
+            runOnUiThread {
+                dismissLoadingDialog()
+            }
+        }
+
+        startActivityForResult(Intent(this, AddItemGalleryActivity::class.java), 1)
     }
+
+
 }

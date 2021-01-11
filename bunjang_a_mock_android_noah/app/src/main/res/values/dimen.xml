@@ -11,7 +11,7 @@
     <dimen name="my_shop_configuration_margin_horizontal">12dp</dimen>
 
     <dimen name="log_in_button_vertical">55dp</dimen>
-    <dimen name="log_in_button_horizontal">310dp</dimen>
+    <dimen name="log_in_button_horizontal">336dp</dimen>
 
     <dimen name="home_view_pager_height">180dp</dimen>
 
@@ -30,4 +30,6 @@
 
     <dimen name="item_detail_link_button">20dp</dimen>
     <dimen name="item_detail_extra_image">168dp</dimen>
+
+    <dimen name="global_grid_two_item">190dp</dimen>
 </resources>

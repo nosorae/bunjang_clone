@@ -28,6 +28,10 @@ class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(Activ
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        showLoadingDialog(this)
+
+
+
 
 
         binding.addItemButtonBack.setOnClickListener {
@@ -48,6 +52,8 @@ class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(Activ
 
         parseAllImages()
 
+        dismissLoadingDialog()
+
     }
 
 
@@ -62,6 +68,8 @@ class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(Activ
                 null,
                 null
             )
+
+            var tempList = ArrayList<GalleryRecyclerViewItem>()
             val size: Int = cursor!!.getCount()
             /*******  If size is 0, there are no images on the SD Card.  */
             if (size == 0) {
@@ -74,11 +82,10 @@ class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(Activ
                     /*****  Used to show image on view in LoadImagesFromSDCard class  */
                     val path: String = cursor.getString(file_ColumnIndex)
 
-                 recyclerItemList.add(GalleryRecyclerViewItem(path))
+                    recyclerItemList.add(GalleryRecyclerViewItem(path))
                 }
-                for(item in recyclerItemList){
-                    Log.d("e??", "하이 : ${item.imageUri}")
-                }
+
+                recyclerItemList.reverse()
                 recyclerAdapter = GalleryRecyclerViewAdapter(this, recyclerItemList, isInList)
                 binding.galleryRecyclerView.apply {
                     adapter = recyclerAdapter

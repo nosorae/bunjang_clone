@@ -22,7 +22,31 @@ class OneItemRecyclerHolder(context: Context, itemView: View)
 
     fun bindView(item : OneCategoryResult) {
         Glide.with(context).load(item.productImgUrl).into(imgId)
-        priceId.text = item.price.toString()
+        priceId.text = parseToMoney(item.price.toString())
         nameId.text = item.productName
+    }
+
+    fun parseToMoney(str: String): String {
+        var len = str.length
+        var arr = str.toCharArray()
+        var sb = StringBuilder()
+        var before = str
+        var cur = str
+        if(len > 0) {
+            var cnt = 1
+            var idx = len-1
+            while(cnt <= len){
+                sb.append(arr[idx])
+                if(cnt%3 == 0 ) {
+                    if(cnt != len) {
+                        sb.append(',')
+                    }
+                }
+                cnt+=1
+                idx-=1
+
+            }
+        }
+        return sb.reverse().toString()
     }
 }

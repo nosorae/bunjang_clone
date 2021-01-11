@@ -42,4 +42,28 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
     fun showCustomToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
+    public fun parseToMoney(str: String): String {
+        var len = str.length
+        var arr = str.toCharArray()
+        var sb = StringBuilder()
+        var before = str
+        var cur = str
+        if(len > 0) {
+            var cnt = 1
+            var idx = len-1
+            while(cnt <= len){
+                sb.append(arr[idx])
+                if(cnt%3 == 0 ) {
+                    if(cnt != len) {
+                        sb.append(',')
+                    }
+                }
+                cnt+=1
+                idx-=1
+
+            }
+        }
+        return sb.reverse().toString()
+    }
 }

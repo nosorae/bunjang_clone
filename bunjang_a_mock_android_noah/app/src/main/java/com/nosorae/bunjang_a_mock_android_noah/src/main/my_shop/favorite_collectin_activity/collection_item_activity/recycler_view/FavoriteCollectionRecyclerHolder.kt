@@ -23,16 +23,45 @@ class FavoriteCollectionRecyclerHolder(context: Context, itemView: View)
     val context = context
 
     fun bindView(item : FavoriteCollectionItemResult) {
-        Glide.with(context).load(item.storeImgUrl).into(sellerImgId)
+        if(item.storeImgUrl != null) {
+            Glide.with(context).load(item.storeImgUrl).into(sellerImgId)
+        } else {
+            sellerImgId.setImageResource(R.drawable.no_profile_image)
+        }
+
         Glide.with(context).load(item.productImgUrl).into(itemImgId)
 
         nameId.text = item.productName
         if(item.price != null) {
-            priceId.text = item.price.toString()
+            priceId.text = parseToMoney(item.price.toString())
         }
 
         sellerNameId.text = item.storeName
         dayId.text = item.time
 
+    }
+
+    fun parseToMoney(str: String): String {
+        var len = str.length
+        var arr = str.toCharArray()
+        var sb = StringBuilder()
+        var before = str
+        var cur = str
+        if(len > 0) {
+            var cnt = 1
+            var idx = len-1
+            while(cnt <= len){
+                sb.append(arr[idx])
+                if(cnt%3 == 0 ) {
+                    if(cnt != len) {
+                        sb.append(',')
+                    }
+                }
+                cnt+=1
+                idx-=1
+
+            }
+        }
+        return sb.reverse().toString()
     }
 }

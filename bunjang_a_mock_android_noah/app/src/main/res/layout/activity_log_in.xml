@@ -6,25 +6,13 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <ImageButton
-        android:id="@+id/image_button_log_in_kakao"
-        android:layout_width="@dimen/log_in_button_horizontal"
-        android:layout_height="@dimen/log_in_button_vertical"
-        android:layout_marginBottom="24dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/text_view_log_in_other_way"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/log_in_kakao" />
-
     <TextView
         android:id="@+id/text_view_log_in_other_way"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="35dp"
         android:text="@string/log_in_another_way"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -36,12 +24,16 @@
         app:layout_constraintBottom_toTopOf="@+id/tab_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+
+    </androidx.viewpager2.widget.ViewPager2>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/image_button_log_in_kakao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +41,35 @@
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp"
         app:tabMaxWidth="16dp" />
+
+    <FrameLayout
+        android:id="@+id/image_button_log_in_kakao"
+        android:layout_width="@dimen/log_in_button_horizontal"
+        android:layout_height="@dimen/log_in_button_vertical"
+        android:layout_marginBottom="27dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_view_log_in_other_way"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/kakao_login_button_background"
+            android:gravity="center"
+            android:text="카카오톡으로 시작하기"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:id="@+id/imageView36"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            app:srcCompat="@drawable/kakao_logo" />
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

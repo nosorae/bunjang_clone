@@ -2,13 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_feed_item_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/recycler_my_feed_item_image"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="134dp"
+        android:layout_height="134dp"
         android:layout_marginTop="16dp"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,8 @@
         android:layout_marginTop="12dp"
         android:text="TextView"
         android:textColor="#0C0C0C"
-        android:textSize="17sp"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recycler_my_feed_item_image" />
 
@@ -35,12 +37,14 @@
         android:textColor="@color/blackForText"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/recycler_my_feed_price"
-        app:layout_constraintStart_toEndOf="@+id/recycler_my_feed_price" />
+        app:layout_constraintStart_toEndOf="@+id/recycler_my_feed_price"
+        app:layout_constraintTop_toTopOf="@+id/recycler_my_feed_price" />
 
     <TextView
         android:id="@+id/recycler_my_feed_seller_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
         android:text="TextView"
         android:textColor="@color/blackForText"
         android:textSize="13sp"
@@ -50,10 +54,10 @@
 
     <ImageView
         android:id="@+id/recycler_my_feed_seller_image"
-        android:layout_width="19dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="1dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="2dp"
         android:foreground="@drawable/my_shop_profile_image_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

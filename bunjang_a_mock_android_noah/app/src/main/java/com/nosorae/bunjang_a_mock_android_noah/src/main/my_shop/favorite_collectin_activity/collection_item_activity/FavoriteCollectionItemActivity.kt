@@ -25,6 +25,8 @@ class FavoriteCollectionItemActivity : BaseActivity<ActivityFavoriteCollectionIt
         val collectionId = intent.getIntExtra("collectionId", 1)
         binding.favoriteCollectionTextViewTitle.text = title
 
+
+        showLoadingDialog(this)
         FavoriteCollectionItemService(this).tryGetCollectionItem(collectionId ,'Y')
 
         binding.favoriteCollectionItemSelling.setOnClickListener {
@@ -51,6 +53,8 @@ class FavoriteCollectionItemActivity : BaseActivity<ActivityFavoriteCollectionIt
 
 
     override fun onGetCollectionItemSuccess(itemResponse: FavoriteCollectionItemResponse) {
+
+        dismissLoadingDialog()
 
         if(itemResponse.result.size > 0) {
             binding.favoriteCollectionItemRecyclerView.visibility = View.VISIBLE

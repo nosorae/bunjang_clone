@@ -29,12 +29,41 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     private var recyclerItemList = ArrayList<GetItemResult>()
     private lateinit var pageAdapter : HomeViewPagerAdapter
     private lateinit var recyclerAdapter : HomeRecyclerViewAdapter
+    var check = true
+    lateinit var myThread : Thread
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.imageButtonBell.setOnClickListener {
             showLoadingDialog(context!!)
         }
+
+
+
+        /**
+        myThread = thread {
+            while(check) {
+                sleep(1500)
+                activity!!.runOnUiThread {
+                    var num = binding.homeViewPagerBanner.currentItem
+                    if(num == 5){
+                        num = 0
+                        binding.homeViewPagerBanner.currentItem = num
+                        binding.textView13.text = (num+1).toString()
+                    } else {
+                        binding.homeViewPagerBanner.currentItem = num+1
+                        binding.textView13.text = (num+1).toString()
+                    }
+
+
+                }
+            }
+
+        }
+        **/
+
+
+
 
         //뷰페이저 배너
         pageItemList.add(HomeViewPagerItem(R.drawable.home_banner1))
@@ -99,5 +128,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
     override fun onGetCollectionFailure(message: String) {
         TODO("Not yet implemented")
+    }
+
+    override fun onStart() {
+        super.onStart()
+       // myThread.start()
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+      // myThread.stop()
     }
 }

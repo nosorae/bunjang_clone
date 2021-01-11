@@ -28,7 +28,7 @@ class MyFeedRecyclerHolder(context: Context, itemView: View)
 
         Glide.with(context).load(item.productImgUrl).into(itemImgId)
         if(item.price != null){
-            priceId.text = item.price.toString()
+            priceId.text = parseToMoney(item.price.toString())
         }
 
         itemNameId.text = item.productName
@@ -46,5 +46,29 @@ class MyFeedRecyclerHolder(context: Context, itemView: View)
 
 
 
+    }
+
+    fun parseToMoney(str: String): String {
+        var len = str.length
+        var arr = str.toCharArray()
+        var sb = StringBuilder()
+        var before = str
+        var cur = str
+        if(len > 0) {
+            var cnt = 1
+            var idx = len-1
+            while(cnt <= len){
+                sb.append(arr[idx])
+                if(cnt%3 == 0 ) {
+                    if(cnt != len) {
+                        sb.append(',')
+                    }
+                }
+                cnt+=1
+                idx-=1
+
+            }
+        }
+        return sb.reverse().toString()
     }
 }

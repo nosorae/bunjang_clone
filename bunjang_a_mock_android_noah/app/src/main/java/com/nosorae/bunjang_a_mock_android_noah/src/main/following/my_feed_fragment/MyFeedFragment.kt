@@ -20,6 +20,8 @@ class MyFeedFragment  :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        showLoadingDialog(context!!)
         MyFeedService(this).tryGetMyFeed()
 
 
@@ -30,6 +32,8 @@ class MyFeedFragment  :
     }
 
     override fun onGetMyFeedSuccess(response: GetMyFeedResponse) {
+
+        dismissLoadingDialog()
         recyclerItemList = response.result as ArrayList<GetMyFeedResult>
         recyclerItemRecyclerAdapter = MyFeedRecyclerAdapter(context, recyclerItemList)
         binding.myFeedRecyclerView.apply {

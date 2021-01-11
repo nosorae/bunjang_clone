@@ -26,6 +26,7 @@ class FavoriteCollectionFragment :
 
 
 
+        showLoadingDialog(context!!)
         FavoriteCollectionService(this).tryGetCollection()
 
 
@@ -44,6 +45,7 @@ class FavoriteCollectionFragment :
 
 
     override fun onGetCollectionSuccess(response: GetFavoriteCollectionResponse) {
+        dismissLoadingDialog()
         recyclerItemList =  response.result as ArrayList<GetFavoriteCollectionResult>
 
         recyclerAdapter = FavoriteItemRecyclerViewAdapter(context, recyclerItemList)
@@ -57,7 +59,7 @@ class FavoriteCollectionFragment :
     }
 
     override fun onGetCollectionFailure(message: String) {
-        TODO("Not yet implemented")
+        dismissLoadingDialog()
     }
 
     override fun onPostCollectionSuccess(response: PostFavoriteCollectionResponse) {
