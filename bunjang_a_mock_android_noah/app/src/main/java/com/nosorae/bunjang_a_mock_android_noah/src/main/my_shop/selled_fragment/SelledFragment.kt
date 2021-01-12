@@ -14,13 +14,15 @@ import com.nosorae.bunjang_a_mock_android_noah.databinding.FragmentSellingBindin
 import com.nosorae.bunjang_a_mock_android_noah.src.main.bungae_talk.recycler_view.BungaeTalkRecyclerViewAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.bungae_talk.recycler_view.BungaeTalkRecyclerViewItem
 import com.nosorae.bunjang_a_mock_android_noah.src.main.following.my_feed_fragment.model.GetMyFeedResponse
+import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.SellingFragmentView
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.model.GetMySellingResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.model.GetMySellingResult
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.recycler_view.MySellingRecyclerAdapter
 
 
 class SelledFragment :
-        BaseFragment<FragmentSelledBinding>(FragmentSelledBinding::bind, R.layout.fragment_selled)
+        BaseFragment<FragmentSelledBinding>(FragmentSelledBinding::bind, R.layout.fragment_selled),
+        SellingFragmentView
          {
 
 
@@ -33,4 +35,19 @@ class SelledFragment :
     }
 
 
-}
+             override fun onGetSellingSeccess(response: GetMySellingResponse) {
+                 TODO("Not yet implemented")
+             }
+
+             override fun onGetSellingFailure(messge: String?) {
+                 TODO("Not yet implemented")
+             }
+
+             override fun onClickCheck(isOn: Int) {
+                 TODO("Not yet implemented")
+             }
+
+             override fun onClickdelete(isInList: ArrayList<GetMySellingResult>) {
+                 TODO("Not yet implemented")
+             }
+         }

@@ -79,6 +79,7 @@
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
                     android:ems="10"
+                    android:maxLength="10"
                     android:gravity="center_vertical"
                     android:hint="컬렉션명 입력"
                     android:inputType="textPersonName"
@@ -103,7 +104,8 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="12dp"
-                android:background="@color/redForText" />
+                android:background="@color/redForText"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/dialog_add_collection_edit_text_error_text"
@@ -115,7 +117,8 @@
                 android:layout_marginBottom="12dp"
                 android:text="컬렉션명을 입력해 주세요"
                 android:textColor="@color/redForText"
-                android:textSize="13sp" />
+                android:textSize="13sp"
+                android:visibility="invisible" />
         </LinearLayout>
 
 

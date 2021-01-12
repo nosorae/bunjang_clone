@@ -4,6 +4,6 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.home.one_category_activi
 
 interface OneCategoryActivityView {
 
-    fun onGetItemSuccess(response: OneCategoryResponse)
-    fun onGetItemFailure(message: String)
+    fun onGetOneCategorySuccess(response: OneCategoryResponse)
+    fun onGetOneCategoryFailure(message: String)
 }

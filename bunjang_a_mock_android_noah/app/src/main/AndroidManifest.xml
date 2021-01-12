@@ -17,8 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".src.main.my_shop.follower_activity.MyFollowerActivity"
+        <activity android:name=".src.main.seller_profile_activity.SellerProfileActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".src.main.my_shop.update_profile_activity.UpdateProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".src.main.my_shop.follower_activity.MyFollowerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.main.my_shop.follow_activity.MyFollowActivity"
             android:theme="@style/AppTheme.NoActionBar" />

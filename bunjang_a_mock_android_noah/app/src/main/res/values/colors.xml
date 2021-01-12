@@ -8,6 +8,7 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="gray_background">#EAEAEA</color>
+    <color name="real_gray">#C8C9CD</color>
 
     <color name="transparent">#00FFFFFF</color>
 
@@ -23,6 +24,8 @@
     <color name="myShopButtonShopQuest">#7B7888</color>
     <color name="myShopTextEvent">#FF5962</color>
     <color name="myShopTextBackground">#F4F4FA</color>
+
+
 
 
 </resources>

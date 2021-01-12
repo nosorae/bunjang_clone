@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nosorae.bunjang_a_mock_android_noah.R
+import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.model.RecentlyViewItem
 
 class RecentlyViewRecyclerHolder(context: Context, itemView: View)
     : RecyclerView.ViewHolder(itemView) {
@@ -19,9 +20,9 @@ class RecentlyViewRecyclerHolder(context: Context, itemView: View)
 
 
     val context = context
-    fun bindView(item : RecentlyViewItemRecyclerViewItem) {
+    fun bindView(item : RecentlyViewItem) {
 
-        Glide.with(context).load(item.imageUrl).into(imageId)
+        Glide.with(context).load(item.imgUrl).into(imageId)
         nameId.text = item.name
         priceId.text = item.price.toString()
 

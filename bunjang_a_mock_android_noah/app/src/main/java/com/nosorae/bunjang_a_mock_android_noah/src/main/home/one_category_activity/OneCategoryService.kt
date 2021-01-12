@@ -12,19 +12,19 @@ import retrofit2.Response
 
 class OneCategoryService(val view: OneCategoryActivityView) {
 
-    fun tryGetUsers(category: Int){
+    fun tryGetOneCategory(category: Int){
         val homeRetrofitInterface = ApplicationClass.sRetrofit.create(OneCategoryRetrofitInterface::class.java)
         homeRetrofitInterface.getItem(1, 100, category).enqueue(object : Callback<OneCategoryResponse> {
             override fun onResponse(call: Call<OneCategoryResponse>, response: Response<OneCategoryResponse>) {
                 Log.d("api", "onResponse 도착 ${response.isSuccessful}")
                 if(response.body() != null){
-                    view.onGetItemSuccess(response.body() as OneCategoryResponse)
+                    view.onGetOneCategorySuccess(response.body() as OneCategoryResponse)
                 }
 
             }
 
             override fun onFailure(call: Call<OneCategoryResponse>, t: Throwable) {
-                view.onGetItemFailure(t.message ?: "통신 오류")
+                view.onGetOneCategoryFailure(t.message ?: "통신 오류")
             }
         })
     }

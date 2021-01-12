@@ -12,6 +12,10 @@ class AllCategoryActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //1: 여성의류, 2: 남성의류, 3: 패션잡화, 4: 뷰티/미용, 5: 유아동/출산, 6: 스포츠/레저
+
+        binding.allCategoryButtonBack.setOnClickListener {
+            finish()
+        }
         binding.categoryWoman.setOnClickListener {
             val intent = Intent(this, OneCategoryActivity::class.java)
             intent.putExtra("categoryNum", 1)

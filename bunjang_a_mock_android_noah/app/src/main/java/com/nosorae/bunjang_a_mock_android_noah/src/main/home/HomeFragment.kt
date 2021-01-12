@@ -21,6 +21,7 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeR
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewSpacing
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager.HomeViewPagerAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager.HomeViewPagerItem
+import com.nosorae.bunjang_a_mock_android_noah.util.GlobalCheckDialog
 import java.lang.Thread.sleep
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
@@ -36,6 +37,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
         binding.imageButtonBell.setOnClickListener {
             showLoadingDialog(context!!)
+           // GlobalCheckDialog(context!!).showLogInDialog("타이틀", "이거 맞나?","아니","예")
         }
 
 

@@ -9,19 +9,33 @@ import com.bumptech.glide.Glide
 import com.nosorae.bunjang_a_mock_android_noah.R
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.model.GetMySellingResult
 
-class MySellingRecyclerHolder(context: Context, itemView: View)
+class MySellingRecyclerHolder(context: Context, itemView: View, val isUpdate: Int)
     : RecyclerView.ViewHolder(itemView) {
 
     val imgId = itemView.findViewById<ImageView>(R.id.recycler_my_selling_product_image)
     val nameId = itemView.findViewById<TextView>(R.id.recycler_my_selling_product_name)
     val priceId = itemView.findViewById<TextView>(R.id.recycler_my_selling_product_price)
 
+    val imgIdU = itemView.findViewById<ImageView>(R.id.recycler_my_selling_product_image_u)
+    val nameIdU = itemView.findViewById<TextView>(R.id.recycler_my_selling_product_name_u)
+    val priceIdU = itemView.findViewById<TextView>(R.id.recycler_my_selling_product_price_u)
+
+
+
+
     val context = context
 
     fun bindView(item : GetMySellingResult) {
-        Glide.with(context).load(item.productImgUrl).into(imgId)
-        nameId.text = item.productName
-        priceId.text = parseToMoney(item.price.toString())
+        if(isUpdate == 0) {
+            Glide.with(context).load(item.productImgUrl).into(imgId)
+            nameId.text = item.productName
+            priceId.text = parseToMoney(item.price.toString())
+        } else {
+            Glide.with(context).load(item.productImgUrl).into(imgIdU)
+            nameIdU.text = item.productName
+            priceIdU.text = parseToMoney(item.price.toString())
+        }
+
     }
 
 

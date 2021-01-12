@@ -4,7 +4,10 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Gravity
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
@@ -20,7 +23,7 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_collect
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_collectin_activity.favorite_collection_fragment.model.PostFavoriteCollectionResponse
 
 
-class AddCollectionDialog(context : Context,
+class AddCollectionDialog(context: Context,
                           val forCallBack: FavoriteCollectionFragmentView,
                           val isModify: Int,
                           val collectionId: Int,
@@ -70,31 +73,55 @@ class AddCollectionDialog(context : Context,
         val addButton = findViewById<Button>(R.id.dialog_add_collection_button)
         val editText = findViewById<EditText>(R.id.dialog_add_collection_edit_text)
         val numOfText = findViewById<TextView>(R.id.dialog_add_collection_num)
+        val errorBar = findViewById<View>(R.id.dialog_add_collection_edit_text_error_bar)
+        val errorText = findViewById<TextView>(R.id.dialog_add_collection_edit_text_error_text)
         if(isModify == 1) {
-            editText.setText(title)
-            numOfText.text ="("+editText.text.toString().length.toString()+"/10)글자"
+            editText.setText(title , TextView.BufferType.EDITABLE)
+            numOfText.text ="("+editText.text.toString().length.toString()+"/ 10)글자"
         }
 
 
-        editText.setOnKeyListener { view, i, keyEvent ->
-            numOfText.text ="("+editText.text.toString().length.toString()+"/10)글자"
-            true
-        }
+
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                val input = editText.text.toString()
+                numOfText.setText("("+input.length.toString() + " / 10 ) 글자")
+                if(input.length != 0){
+                    errorBar.visibility = View.INVISIBLE
+                    errorText.visibility = View.INVISIBLE
+                }
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+        })
 
 
 
 
 
         addButton.setOnClickListener {
-            if(isModify == 0) {
-                forCallBack.onAddCollectionDialog(editText.text.toString())
+            if(editText.text.toString().length == 0) {
+                errorBar.visibility = View.VISIBLE
+                errorText.visibility = View.VISIBLE
             }
             else {
-                FavoriteCollectionService(this).tryPatchCollection(collectionId, editText.text.toString())
+                if(isModify == 0) {
+                    forCallBack.onAddCollectionDialog(editText.text.toString())
+                }
+                else {
+                    FavoriteCollectionService(this).tryPatchCollection(collectionId, editText.text.toString())
 
+                }
+
+                dismiss()
             }
-
-            dismiss()
         }
 
 

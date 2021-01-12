@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/recycler_my_feed_item_image"
-        android:layout_width="134dp"
-        android:layout_height="134dp"
+        android:layout_width="136dp"
+        android:layout_height="136dp"
         android:layout_marginTop="16dp"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"

@@ -48,7 +48,7 @@ class OneCategoryActivity :
             5 -> binding.oneCategoryTitle.text = "유아동/출산"
             else -> binding.oneCategoryTitle.text = "스포츠/레저"
         }
-        OneCategoryService(this).tryGetUsers(categoryNum)
+        OneCategoryService(this).tryGetOneCategory(categoryNum)
 
         category1.add(OneCategoryRecyclerItem("전체보기", "2,133,321"))
         category1.add(OneCategoryRecyclerItem("원피스", "395,187"))
@@ -212,7 +212,7 @@ class OneCategoryActivity :
 
     }
 
-    override fun onGetItemSuccess(response: OneCategoryResponse) {
+    override fun onGetOneCategorySuccess(response: OneCategoryResponse) {
 
         recyclerItemList = response.result as ArrayList<OneCategoryResult>
         recyclerItemAdapter = OneItemRecyclerAdapter(this, recyclerItemList)
@@ -222,7 +222,7 @@ class OneCategoryActivity :
         }
     }
 
-    override fun onGetItemFailure(message: String) {
+    override fun onGetOneCategoryFailure(message: String) {
         TODO("Not yet implemented")
     }
 }

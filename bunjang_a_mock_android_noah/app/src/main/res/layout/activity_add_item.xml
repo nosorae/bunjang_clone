@@ -81,16 +81,15 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="12dp"
-                        android:layout_marginEnd="6dp"
                         android:layout_marginBottom="12dp"
                         android:background="@drawable/add_item_button_camera_background">
 
                         <ImageView
                             android:id="@+id/imageView10"
-                            android:layout_width="25dp"
-                            android:layout_height="30dp"
+                            android:layout_width="32dp"
+                            android:layout_height="34dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/add_item_gallery_camera" />
+                            android:src="@drawable/global_camera" />
 
                         <TextView
                             android:id="@+id/textView41"
@@ -99,7 +98,9 @@
                             android:layout_gravity="bottom|start"
                             android:layout_margin="8dp"
                             android:text="0/12"
-                            android:textSize="10sp" />
+                            android:textColor="@android:color/darker_gray"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
                     </FrameLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -342,9 +343,9 @@
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="4dp"
-                    android:text="₩"
+                    android:text="￦"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:textStyle="bold" />
 
                 <EditText
@@ -361,9 +362,11 @@
                     android:inputType="phone"
                     android:textColor="#000000"
                     android:textColorHint="@android:color/darker_gray"
-                    android:textSize="16sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
+                    android:id="@+id/add_item_include_delivery_fee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -381,7 +384,7 @@
                         android:textSize="12sp" />
 
                     <ImageView
-                        android:id="@+id/imageView31"
+                        android:id="@+id/add_item_text_view_include_delivery_pay_image"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/add_item_global_check" />
@@ -395,6 +398,7 @@
                     android:background="@color/gray_background" />
 
                 <LinearLayout
+                    android:id="@+id/add_item_nego"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -412,7 +416,7 @@
                         android:textSize="12sp" />
 
                     <ImageView
-                        android:id="@+id/imageView32"
+                        android:id="@+id/add_item_text_view_negotiation_possible_image"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/add_item_global_check" />
@@ -491,9 +495,20 @@
                     android:textColor="@color/black"
                     android:textSize="13sp" />
 
+                <TextView
+                    android:id="@+id/add_item_num_of_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="2dp"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_margin="4dp"
                     android:background="@color/gray_background" />
 

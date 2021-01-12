@@ -28,7 +28,9 @@ class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(Activ
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        showLoadingDialog(this)
+        //showLoadingDialog(this)
+        val temp = ArrayList<String>()
+        saveArrayList(temp, "isInList")
 
 
 
@@ -52,7 +54,7 @@ class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(Activ
 
         parseAllImages()
 
-        dismissLoadingDialog()
+       // dismissLoadingDialog()
 
     }
 

@@ -47,6 +47,8 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(ActivityLogInBinding::i
                 else if (token != null) {
                     Log.i("kakao", "로그인 성공 ${token.accessToken}")
                     //showCustomToast("로그인 성공 ${token.accessToken}")
+
+                    showLoadingDialog(this)
                     LogInService(this).tryPostKakaoSignUp(PostKakaoSignUpRequest(token.accessToken))
                 }
             }
@@ -98,6 +100,7 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(ActivityLogInBinding::i
     }
 
     override fun onPostKakaoSignUpSuccess(response: KakaoSignUpResponse) {
+        dismissLoadingDialog()
         Log.d("mykakao", "카카오 성공이요!! jwt : ${response.jwt}")
         val editor = ApplicationClass.sSharedPreferences.edit()
         editor.putString(ApplicationClass.X_ACCESS_TOKEN, response.jwt)
@@ -108,6 +111,7 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(ActivityLogInBinding::i
     }
 
     override fun onPostKakaoSignUpFailure(message: String) {
+        dismissLoadingDialog()
         Log.d("mykakao", "카카오 실패요!! error_message : ${message}")
     }
 }

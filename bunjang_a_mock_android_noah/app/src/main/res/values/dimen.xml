@@ -10,6 +10,13 @@
     <dimen name="my_shop_configuration_margin_vertical">17dp</dimen>
     <dimen name="my_shop_configuration_margin_horizontal">12dp</dimen>
 
+    <dimen name="my_shop_item_more_dialog_sub_title">16sp</dimen>
+    <dimen name="my_shop_item_more_dialog_desc">14sp</dimen>
+    <dimen name="my_shop_item_more_dialog_next_button">23dp</dimen>
+    <dimen name="my_shop_item_more_dialog_horizontal_margin">16dp</dimen>
+    <dimen name="my_shop_item_more_dialog_vertical_margin">32dp</dimen>
+    <dimen name="my_shop_item_more_dialog_between_text">14dp</dimen>
+
     <dimen name="log_in_button_vertical">55dp</dimen>
     <dimen name="log_in_button_horizontal">336dp</dimen>
 
@@ -17,7 +24,7 @@
 
 
     <dimen name="add_item_asterick">14sp</dimen>
-    <dimen name="add_item_text">14sp</dimen>
+    <dimen name="add_item_text">16sp</dimen>
     <dimen name="add_item_list_margin">12dp</dimen>
     <dimen name="add_item_list_height_margin">16dp</dimen>
     <dimen name="add_item_list_height_margin_top">20dp</dimen>
@@ -26,6 +33,8 @@
     <dimen name="category_margin_width">8dp</dimen>
     <dimen name="category_margin_height">8dp</dimen>
     <dimen name="categoty_image_width">20dp</dimen>
+
+    <dimen name="all_category_text_size">16sp</dimen>
 
 
     <dimen name="item_detail_link_button">20dp</dimen>

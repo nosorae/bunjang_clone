@@ -24,6 +24,11 @@ class BungaeTalkRecyclerViewHolderViewHolder(context: Context, itemView: View)
         nameId.text = item.name
         recentTalkId.text = item.recent
         timeId.text = item.time
-        notificationId.text = item.num.toString()
+        if(item.num == 0) {
+            notificationId.visibility = View.INVISIBLE
+        } else {
+            notificationId.text = item.num.toString()
+        }
+
     }
 }

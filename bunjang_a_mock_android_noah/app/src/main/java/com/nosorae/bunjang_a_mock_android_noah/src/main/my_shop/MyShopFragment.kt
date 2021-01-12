@@ -5,8 +5,10 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.nosorae.bunjang_a_mock_android_noah.R
+import com.nosorae.bunjang_a_mock_android_noah.config.ApplicationClass
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseFragment
 import com.nosorae.bunjang_a_mock_android_noah.databinding.FragmentMyShopBinding
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeFragment
@@ -18,6 +20,10 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.model.GetProfile
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.my_shop_dialog.MyShopDialog
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selled_fragment.SelledFragment
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.SellingFragment
+import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.SellingFragmentView
+import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.model.DeleteItemResponse
+import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.model.GetMySellingResponse
+import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.model.GetMySellingResult
 
 class MyShopFragment :
     BaseFragment<FragmentMyShopBinding>(FragmentMyShopBinding::bind, R.layout.fragment_my_shop),
@@ -30,9 +36,10 @@ class MyShopFragment :
         MyShopService(this).tryGetProfile()
 
 
-        activity!!.supportFragmentManager.beginTransaction().replace(R.id.my_selling_fragment, SellingFragment()).commitAllowingStateLoss()
+        activity!!.supportFragmentManager.beginTransaction().replace(R.id.my_selling_fragment, SellingFragment(this)).commitAllowingStateLoss()
+        binding.myShopBottomContainer.visibility = View.INVISIBLE
 
-        binding.imageButtonPreferences.setOnClickListener {
+        binding.imageButtonBell.setOnClickListener {
             startActivity(Intent(context, MyShopConfigurationActivity::class.java))
         }
         binding.textViewLike.setOnClickListener {
@@ -80,7 +87,7 @@ class MyShopFragment :
 
         binding.myShopCustomTabSelling.setOnClickListener {
             activity!!.supportFragmentManager.beginTransaction()
-                .replace(R.id.my_selling_fragment, SellingFragment())
+                .replace(R.id.my_selling_fragment, SellingFragment(this))
                 .commitAllowingStateLoss()
             binding.myShopCustomTabSelling.setTextColor(Color.BLACK)
             binding.myShopCustomTabSelled.setTextColor(Color.LTGRAY)
@@ -106,7 +113,7 @@ class MyShopFragment :
 
             binding.textViewShopName.text = response.result.storeName
             if(response.result.starRatinvAvg != null) {
-                binding.ratingBar.rating = response.result.starRatinvAvg as Float
+                //binding.ratingBar.rating = response.result.starRatinvAvg as Float
             }
             binding.textViewLike.text = response.result.pickCount.toString()
             binding.textViewReview.text = response.result.reviewCount.toString()
@@ -119,5 +126,63 @@ class MyShopFragment :
 
     override fun onGetProfileFailure(messge: String?) {
         dismissLoadingDialog()
+    }
+
+
+    // SellingFragment에서 온 isInList이용해서 삭제
+    override fun onClickCheckLast(isOn: Int, isInList: ArrayList<GetMySellingResult>, forCallBack: MyShopFragmentView) {
+
+        if(isOn == 1) {
+            binding.myShopBottomAd.setTextColor(Color.BLACK)
+            binding.myShopBottomUp.setTextColor(Color.BLACK)
+            binding.myShopBottomChangeStatus.setTextColor(Color.BLACK)
+            binding.myShopBottomDelete.setTextColor(Color.BLACK)
+          //  binding.myShopBottomBar.background = ContextCompat.getDrawable(context!!, R.color.black)
+        } else {
+            binding.myShopBottomAd.setTextColor(Color.LTGRAY)
+            binding.myShopBottomUp.setTextColor(Color.LTGRAY)
+            binding.myShopBottomChangeStatus.setTextColor(Color.LTGRAY)
+            binding.myShopBottomDelete.setTextColor(Color.LTGRAY)
+          //  binding.myShopBottomBar.background = ContextCompat.getDrawable(context!!, R.color.gray_background)
+        }
+        binding.myShopBottomDelete.setOnClickListener {
+            ReallyDeleteSellingItemDialog(context!!, this, forCallBack, isInList).showLogInDialog("없음", "상품을 삭제하시겠습니까?", "취소", "삭제")
+
+
+
+
+
+           // forCallBack.onClickDeleteButton()
+
+        }
+
+
+    }
+
+    override fun onClickUpdateButton(isOn: Int) {
+       if(isOn == 1) {
+           binding.myShopBottomContainer.visibility = View.VISIBLE
+           binding.myShopBottomAd.setTextColor(Color.LTGRAY)
+           binding.myShopBottomUp.setTextColor(Color.LTGRAY)
+           binding.myShopBottomChangeStatus.setTextColor(Color.LTGRAY)
+           binding.myShopBottomDelete.setTextColor(Color.LTGRAY)
+          // binding.myShopBottomBar.background = ContextCompat.getDrawable(context!!, R.color.gray_background)
+       } else {
+           binding.myShopBottomContainer.visibility = View.INVISIBLE
+       }
+    }
+
+    override fun onDeleteItemSeccess(response: DeleteItemResponse) {
+       dismissLoadingDialog()
+       // binding.myShopBottomContainer.visibility = View.INVISIBLE
+
+    }
+
+    override fun onDeleteItemFailure(messge: String?) {
+        dismissLoadingDialog()
+    }
+
+    override fun onClickDeleteButton() {
+
     }
 }

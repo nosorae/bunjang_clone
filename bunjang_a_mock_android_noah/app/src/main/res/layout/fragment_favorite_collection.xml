@@ -11,8 +11,9 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,8 +41,10 @@
 
         <View
             android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_height="26dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
             android:background="@color/gray_background" />
 
         <ImageView

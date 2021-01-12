@@ -20,5 +20,6 @@ data class Info(
     val storeName: String,
     val time: String,
     val viewCount: Int,
-    val isFollow: Int
+    val isFollow: Int,
+    val category: Int
 )

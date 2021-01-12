@@ -58,7 +58,9 @@ class CollectionModifyDlg(context : Context,
         }
 
         deleteButton.setOnClickListener {
-            FavoriteCollectionService(forCallBack).tryDeleteCollection(collectionId)
+            ReallyDeleteDialog(context, forCallBack, collectionId).showLogInDialog("컬렉션 삭제",
+            "컬렉션 내의 상품도 함께 삭제됩니다. 정말\n 삭제하시겠습니까?", "취소", "컬렉션 삭제")
+
             dismiss()
         }
 

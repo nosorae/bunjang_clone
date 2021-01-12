@@ -95,6 +95,21 @@
     <string name="my_shop_favorite_item_recently_view_text">최근 본 상품</string>
 
 
+    <string name="my_shop_item_more_dialog_title">더보기</string>
+    <string name="my_shop_item_more_dialog_up">UP하기</string>
+    <string name="my_shop_item_more_dialog_up_desc">내 상품이 더 잘 보이도록 끌어올려 보세요!</string>
+    <string name="my_shop_item_more_dialog_ad">광고하기</string>
+    <string name="my_shop_item_more_dialog_ad_desc">내 상품을 더 많은 사람에게 보여주세요!</string>
+    <string name="my_shop_item_more_dialog_update">정보수정</string>
+    <string name="my_shop_item_more_dialog_update_desc">상품의 이미지, 가격, 이름을 더 매력적으로 바꿔보세요!</string>
+    <string name="my_shop_item_more_dialog_share">상품 공유하기</string>
+    <string name="my_shop_item_more_dialog_share_desc">상품을 공유하고 판매 확률을 높이세요!</string>
+    <string name="my_shop_item_more_dialog_nego">찜한상점 가격제안</string>
+    <string name="my_shop_item_more_dialog_nego_desc">상품을 찜한 유저에게 더 좋은 가격을 제시해보세요!</string>
+    <string name="my_shop_item_more_dialog_change">상태변경</string>
+    <string name="my_shop_item_more_dialog_delivery">택배신청</string>
+
+
     <!-- AddItem -->
     <string name="add_item_gallery_title">사진추가</string>
     <string name="add_item_gallery_require">사진을 1장 이상 등록해주세요 (최대 12장)</string>

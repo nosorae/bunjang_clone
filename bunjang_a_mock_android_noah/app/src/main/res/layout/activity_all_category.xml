@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/image_view_button_finish"
+            android:id="@+id/all_category_button_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -99,7 +99,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_recommend_service1" />
+                        android:text="@string/item_detail_recommend_service1"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -123,7 +125,9 @@
                         android:layout_margin="@dimen/category_margin_width"
                         android:layout_weight="1"
                         android:gravity="start"
-                        android:text="@string/item_detail_recommend_service2" />
+                        android:text="@string/item_detail_recommend_service2"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -154,7 +158,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_recommend_service3" />
+                        android:text="@string/item_detail_recommend_service3"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -178,7 +184,9 @@
                         android:layout_margin="@dimen/category_margin_width"
                         android:layout_weight="1"
                         android:gravity="start"
-                        android:text="@string/item_detail_recommend_service4" />
+                        android:text="@string/item_detail_recommend_service4"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -208,7 +216,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_recommend_service5" />
+                        android:text="@string/item_detail_recommend_service5"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -232,7 +242,9 @@
                         android:layout_margin="@dimen/category_margin_width"
                         android:layout_weight="1"
                         android:gravity="start"
-                        android:text="@string/item_detail_recommend_service6" />
+                        android:text="@string/item_detail_recommend_service6"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -280,7 +292,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction1" />
+                        android:text="@string/item_detail_second_transaction1"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -304,7 +318,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction2" />
+                        android:text="@string/item_detail_second_transaction2"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -335,7 +351,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction3" />
+                        android:text="@string/item_detail_second_transaction3"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -359,7 +377,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction4" />
+                        android:text="@string/item_detail_second_transaction4"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -390,7 +410,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction5" />
+                        android:text="@string/item_detail_second_transaction5"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -414,7 +436,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction6" />
+                        android:text="@string/item_detail_second_transaction6"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -444,7 +468,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction7" />
+                        android:text="@string/item_detail_second_transaction7"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -467,7 +493,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction8" />
+                        android:text="@string/item_detail_second_transaction8"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -497,7 +525,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction9" />
+                        android:text="@string/item_detail_second_transaction9"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -520,7 +550,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction10" />
+                        android:text="@string/item_detail_second_transaction10"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -550,7 +582,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction11" />
+                        android:text="@string/item_detail_second_transaction11"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -573,7 +607,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction12" />
+                        android:text="@string/item_detail_second_transaction12"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -603,7 +639,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction13" />
+                        android:text="@string/item_detail_second_transaction13"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -626,7 +664,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_second_transaction14" />
+                        android:text="@string/item_detail_second_transaction14"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -673,7 +713,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_casual_transation1" />
+                        android:text="@string/item_detail_casual_transation1"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -696,7 +738,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_casual_transation2" />
+                        android:text="@string/item_detail_casual_transation2"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -726,7 +770,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_casual_transation3" />
+                        android:text="@string/item_detail_casual_transation3"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -749,7 +795,9 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/category_margin_width"
                         android:gravity="start"
-                        android:text="@string/item_detail_casual_transation4" />
+                        android:text="@string/item_detail_casual_transation4"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/all_category_text_size"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -768,20 +816,26 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="100dp"
             android:layout_gravity="bottom"
             android:layout_marginTop="10dp"
             android:background="@color/white"
             android:elevation="1dp"
             android:orientation="vertical">
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="top"
+                android:background="@color/gray_background" />
+
             <TextView
                 android:id="@+id/textView43"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginBottom="4dp"
-                android:layout_weight="1"
                 android:text="@string/item_detail_plus1"
                 android:textColor="#000000"
                 android:textStyle="bold" />
@@ -790,12 +844,12 @@
                 android:id="@+id/textView44"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="26dp"
-                android:layout_weight="1"
                 android:text="@string/item_detail_plus2"
                 android:textColor="#000000"
-                android:textSize="15sp" />
+                android:textSize="17sp" />
         </LinearLayout>
 
         <ImageView

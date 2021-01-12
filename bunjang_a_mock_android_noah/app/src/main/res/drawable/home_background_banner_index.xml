@@ -3,7 +3,7 @@
     <stroke
         android:color="@color/myShopButtonShopQuest"/>
     <solid
-        android:color="#22FFFFFF"/>
+        android:color="@color/gray_background"/>
 
     <corners
         android:radius="20dp" />
