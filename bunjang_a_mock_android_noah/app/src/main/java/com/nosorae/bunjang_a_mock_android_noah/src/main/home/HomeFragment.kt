@@ -1,15 +1,22 @@
 package com.nosorae.bunjang_a_mock_android_noah.src.main.home
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
 import kotlin.concurrent.thread
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.nosorae.bunjang_a_mock_android_noah.R
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseFragment
+import com.nosorae.bunjang_a_mock_android_noah.databinding.DialogLoadingBinding
 import com.nosorae.bunjang_a_mock_android_noah.databinding.FragmentHomeBinding
+import com.nosorae.bunjang_a_mock_android_noah.databinding.GlobalCustomToastBinding
 import com.nosorae.bunjang_a_mock_android_noah.src.log_in.model.KakaoSignUpResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.category_activity.AllCategoryActivity
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.GetCollectionResponse
@@ -33,37 +40,63 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     var check = true
     var isFirst = true
     lateinit var myThread : Thread
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //이건 그냥 로딩다이얼로그 보여주려고 임시
         binding.imageButtonBell.setOnClickListener {
             showLoadingDialog(context!!)
-           // GlobalCheckDialog(context!!).showLogInDialog("타이틀", "이거 맞나?","아니","예")
+            /**
+            val binding = GlobalCustomToastBinding.inflate(layoutInflater)
+            val text = binding.globalCustomToastText
+            text.text ="찜 컬렉션에 추가 완료!" // toast_design.xml 파일에서 직접 텍스트를 지정 가능
+            val toast = Toast(context)
+            toast.setGravity(Gravity.BOTTOM, 0, 0) // CENTER를 기준으로 0, 0 위치에 메시지 출력
+            toast.setDuration(Toast.LENGTH_LONG)
+            toast.setView(binding.globalCustomToastRoot)
+            toast.show()
+            **/
+        }
+
+        val swipeLayout = binding.swipeLayout
+
+        swipeLayout.setColorSchemeResources(android.R.color.holo_red_light)
+        swipeLayout.setOnRefreshListener {
+            showLoadingDialog(context!!)
+            HomeService(this).tryGetUsers()
+
+            swipeLayout.isRefreshing = false
+
         }
 
 
 
-        /**
+
+
         myThread = thread {
             while(check) {
-                sleep(1500)
-                activity!!.runOnUiThread {
-                    var num = binding.homeViewPagerBanner.currentItem
-                    if(num == 5){
-                        num = 0
-                        binding.homeViewPagerBanner.currentItem = num
-                        binding.textView13.text = (num+1).toString()
-                    } else {
-                        binding.homeViewPagerBanner.currentItem = num+1
-                        binding.textView13.text = (num+1).toString()
+                sleep(3000)
+                if(activity != null) {
+                    activity!!.runOnUiThread {
+                        if(check) {
+                            var num = binding.homeViewPagerBanner.currentItem
+                            if(num == 5){
+                                num = 0
+                                binding.homeViewPagerBanner.currentItem = num
+                                binding.textView13.text = (num+1).toString()
+                            } else {
+                                binding.homeViewPagerBanner.currentItem = num+1
+                                binding.textView13.text = (num+2).toString()
+                            }
+                        }
                     }
-
-
                 }
+
             }
 
         }
-        **/
+
 
 
 
@@ -101,11 +134,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
     override fun onGetItemSuccess( response: GetItemResponse) {
 
+        recyclerItemList = ArrayList<GetItemResult>()
+
         Log.d("api", response.message)
        for(item in response.result){
            recyclerItemList.add(item)
        }
-        recyclerAdapter = HomeRecyclerViewAdapter(context, recyclerItemList)
+        recyclerAdapter = HomeRecyclerViewAdapter(context, recyclerItemList, this)
         binding.homeRecyclerView.apply {
             adapter = recyclerAdapter
             layoutManager = GridLayoutManager(context, 2)
@@ -142,12 +177,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
           showLoadingDialog(context!!)
           HomeService(this).tryGetUsers()
       }
+        check = true
 
     }
 
     override fun onPause() {
         super.onPause()
       isFirst = false
+        check= false
     }
 
 

@@ -12,8 +12,15 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.MyShopFragment
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.util.Log
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.iid.FirebaseInstanceIdReceiver
+import com.google.firebase.iid.InstanceIdResult
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.AddItemGalleryActivity
 import java.lang.Thread.sleep
 import kotlin.concurrent.thread
@@ -22,6 +29,19 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     val permissions = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        FirebaseInstanceId.getInstance().instanceId.addOnCompleteListener(object : OnCompleteListener<InstanceIdResult>{
+            override fun onComplete(task: Task<InstanceIdResult>) {
+                if(!task.isSuccessful){
+                    return
+                }
+                val token = task.getResult()!!.token
+                Log.d("FCM Log", "FCM 토큰: "+token)
+                Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
+            }
+        })
+
+
 
         supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment()).commitAllowingStateLoss()
 

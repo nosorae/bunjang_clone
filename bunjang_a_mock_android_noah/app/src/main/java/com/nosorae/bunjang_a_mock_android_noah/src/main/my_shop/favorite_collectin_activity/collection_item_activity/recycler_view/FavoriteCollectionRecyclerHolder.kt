@@ -14,7 +14,7 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_collect
 class FavoriteCollectionRecyclerHolder(context: Context, itemView: View)
     : RecyclerView.ViewHolder(itemView) {
 
-    val nameId = itemView.findViewById<TextView>(R.id.collection_item_seller_name)
+    val productName = itemView.findViewById<TextView>(R.id.collectin_item_product_name)
     val priceId = itemView.findViewById<TextView>(R.id.collection_item_price)
     val sellerImgId = itemView.findViewById<ImageView>(R.id.collection_item_seller_image)
     val itemImgId = itemView.findViewById<ImageView>(R.id.home_item_image_item_image)
@@ -31,10 +31,11 @@ class FavoriteCollectionRecyclerHolder(context: Context, itemView: View)
 
         Glide.with(context).load(item.productImgUrl).into(itemImgId)
 
-        nameId.text = item.productName
+        productName.text = item.productName
         if(item.price != null) {
             priceId.text = parseToMoney(item.price.toString())
         }
+
 
         sellerNameId.text = item.storeName
         dayId.text = item.time

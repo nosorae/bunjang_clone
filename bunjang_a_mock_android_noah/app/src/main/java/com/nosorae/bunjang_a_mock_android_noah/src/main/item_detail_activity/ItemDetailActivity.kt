@@ -23,6 +23,7 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.home.one_category_activi
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.one_category_activity.model.OneCategoryResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.one_category_activity.model.OneCategoryResult
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.CustomCallBack
+import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.follow_dialog.FollowDialog
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.model.GetItemDetailResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.model.PostFollowResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.model.RecentlyViewItem
@@ -209,6 +210,8 @@ class ItemDetailActivity
             if(check) {
                 binding.itemDetailUserFavorite.setImageResource(R.drawable.home_favorite_default)
                 binding.itemDetailUserFavorite2.setImageResource(R.drawable.global_favorite_black)
+                binding.itemDetailNumOfFavorite.text = (binding.itemDetailNumOfFavorite.text.toString().toInt() -1).toString()
+                showLoadingDialog(this)
                 HomeService(this).tryPostFavorite(productId, PostFavoriteRequest(null))
                 check = false
             } else {
@@ -291,6 +294,7 @@ class ItemDetailActivity
         dismissLoadingDialog()
         if(response.code == 1000) {
             binding.itemDetailButtonFollow.setImageResource(R.drawable.button_follow_selected)
+            FollowDialog(this, this).showLogInDialog("", "팔로잉 상점의 상품이 등록되면 알림으로\n 받아보시겠어요?", "닫기", "알림 받기")
         } else {
             binding.itemDetailButtonFollow.setImageResource(R.drawable.button_follow_default)
         }
@@ -298,6 +302,10 @@ class ItemDetailActivity
 
     override fun onPostFollowFailure(message: String) {
         dismissLoadingDialog()
+    }
+
+    override fun onClickAgreePush() {
+       //여기에 푸쉬알람 코드 작성
     }
 
 
@@ -332,19 +340,20 @@ class ItemDetailActivity
     }
 
     override fun onPostFavoriteSuccess(response: PostFavoriteResponse) {
-
+        dismissLoadingDialog()
     }
 
     override fun onPostFavoriteFailure(message: String) {
-
+        dismissLoadingDialog()
     }
 
     // CustomCallback
     override fun onFavoriteSuccess() {
         dismissLoadingDialog()
-
+        //여기서 좋아요 성공 처리
         binding.itemDetailUserFavorite.setImageResource(R.drawable.home_favorite_selected)
         binding.itemDetailUserFavorite2.setImageResource(R.drawable.home_favorite_selected)
+        binding.itemDetailNumOfFavorite.text = (binding.itemDetailNumOfFavorite.text.toString().toInt()+1).toString()
         check = true
 
     }
@@ -353,6 +362,8 @@ class ItemDetailActivity
         dismissLoadingDialog()
 
     }
+
+
 
     //-------------------------------OneCategoryView
     override fun onGetOneCategorySuccess(response: OneCategoryResponse) {

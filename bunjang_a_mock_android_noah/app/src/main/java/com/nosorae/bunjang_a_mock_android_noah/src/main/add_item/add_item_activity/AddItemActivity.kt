@@ -63,6 +63,10 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(ActivityAddItemBind
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding.addItemButtonBack.setOnClickListener {
+            finish()
+        }
+
 
 
         if (intent.getIntExtra("isUpdateFromDialog", 0) == 1) {
@@ -88,7 +92,6 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(ActivityAddItemBind
             recyclerAdapter = CandidateRecyclerAdapter(this, recyclerItemList, 0, this)
             binding.addItemRecyclerView.apply {
                 adapter = recyclerAdapter
-                val mana = LinearLayoutManager(context)
 
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
                 // addItemDecoration(CandidateRecyclerSpacing(12, 12))
@@ -382,7 +385,13 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(ActivityAddItemBind
 
     }
 
+    override fun onClickAgreePush() {
+
+    }
+
     override fun onClickDeleteButton() {
         binding.addItemNumOfPicture.text = recyclerItemList.size.toString()+" / 12"
     }
+
+
 }

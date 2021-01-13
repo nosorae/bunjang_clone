@@ -12,4 +12,6 @@ interface ItemDetailActivityView {
 
     fun onPostFollowSuccess(response: PostFollowResponse)
     fun onPostFollowFailure(message: String)
+    
+    fun onClickAgreePush()
 }

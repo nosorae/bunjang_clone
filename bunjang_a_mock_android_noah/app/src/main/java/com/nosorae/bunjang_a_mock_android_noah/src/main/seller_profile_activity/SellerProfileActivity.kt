@@ -3,6 +3,7 @@ package com.nosorae.bunjang_a_mock_android_noah.src.main.seller_profile_activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
+import com.nosorae.bunjang_a_mock_android_noah.R
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseActivity
 import com.nosorae.bunjang_a_mock_android_noah.databinding.ActivitySellerProfileBinding
 import com.nosorae.bunjang_a_mock_android_noah.src.main.seller_profile_activity.model.GetSellerProfileResponse
@@ -15,6 +16,10 @@ class SellerProfileActivity : BaseActivity<ActivitySellerProfileBinding>(Activit
         val sellerId = intent.getIntExtra("sellerId", 1)
         showLoadingDialog(this)
         SellerProfileService(this).trySellerGetProfile(sellerId)
+
+        binding.sellerProfileButtonBack.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onGetSellerProfileSeccess(response: GetSellerProfileResponse) {
@@ -24,9 +29,14 @@ class SellerProfileActivity : BaseActivity<ActivitySellerProfileBinding>(Activit
         binding.sellerProfileTextReviewNum.text = info.reviewCount.toString()
         binding.sellerProfileTextFollowingNum.text = info.followingCount.toString()
         binding.sellerProfileTextFollowerNum.text = info.followerCount.toString()
-        binding.sellerProfileNumOfOpen.text = info.openDay.toString()
+        binding.sellerProfileNumOfOpen.text = "+"+info.openDay.toString()
         binding.sellerProfileNumOfVisitor.text = info.visitCount.toString()
-        Glide.with(this).load(info.storeImgUrl).into(binding.sellerProfileImage)
+        if(info.storeImgUrl != null) {
+            Glide.with(this).load(info.storeImgUrl).into(binding.sellerProfileImage)
+        } else {
+            binding.sellerProfileImage.setImageResource(R.drawable.no_profile_image)
+        }
+
 
 
 

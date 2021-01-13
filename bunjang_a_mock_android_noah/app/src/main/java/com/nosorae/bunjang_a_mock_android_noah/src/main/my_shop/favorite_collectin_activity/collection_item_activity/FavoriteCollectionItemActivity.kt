@@ -29,6 +29,10 @@ class FavoriteCollectionItemActivity : BaseActivity<ActivityFavoriteCollectionIt
         showLoadingDialog(this)
         FavoriteCollectionItemService(this).tryGetCollectionItem(collectionId ,'Y')
 
+        binding.favoriteCollectionItemButtonBack.setOnClickListener {
+            finish()
+        }
+
         binding.favoriteCollectionItemSelling.setOnClickListener {
             binding.favoriteCollectionItemSelling.setTextColor(Color.BLACK)
             binding.favoriteCollectionItemSelled.setTextColor(Color.LTGRAY)

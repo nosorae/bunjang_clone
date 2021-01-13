@@ -19,6 +19,8 @@ import com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager.LogInViewPa
 import com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager.LogInViewPagerItem
 import com.nosorae.bunjang_a_mock_android_noah.src.main.MainActivity
 import com.nosorae.bunjang_a_mock_android_noah.util.LoadingDialog
+import java.lang.Thread.sleep
+import kotlin.concurrent.thread
 
 class LogInActivity : BaseActivity<ActivityLogInBinding>(ActivityLogInBinding::inflate), LogInActivityView {
     private lateinit var dlg : Dialog //부모 액티비티의 context 가 들어감
@@ -87,6 +89,25 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(ActivityLogInBinding::i
             //LoadingDialog(this).show()
             //startActivity(Intent(this, MainActivity::class.java))
             //finish()
+        }
+
+        thread {
+            while(true) {
+                sleep(3000)
+                runOnUiThread {
+                    var num = binding.viewPagerIntro.currentItem
+                    if(num == pageItemList.size-1){
+                        num = 0
+                        binding.viewPagerIntro.currentItem = num
+
+                    } else {
+                        binding.viewPagerIntro.currentItem = num+1
+                    }
+
+
+                }
+            }
+
         }
 
 

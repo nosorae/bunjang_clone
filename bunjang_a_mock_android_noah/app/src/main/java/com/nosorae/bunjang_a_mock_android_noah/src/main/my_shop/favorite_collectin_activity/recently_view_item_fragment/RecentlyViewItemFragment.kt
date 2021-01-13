@@ -91,6 +91,10 @@ class RecentlyViewItemFragment :
         TODO("Not yet implemented")
     }
 
+    override fun onClickAgreePush() {
+        TODO("Not yet implemented")
+    }
+
     //----------------------------------------------------------------------------------------------
     fun saveArrayList(list: java.util.ArrayList<RecentlyViewItem>?, key: String?) {
         val prefs = context!!.getSharedPreferences("myPreference", Activity.MODE_PRIVATE)

@@ -11,27 +11,25 @@
         android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/add_item_button_back"
+            android:id="@+id/favorite_collection_item_button_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/global_button_back"
-            android:background="?attr/selectableItemBackground"/>
+            app:srcCompat="@drawable/global_button_back" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -63,22 +61,22 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="8dp"
+            android:background="?attr/selectableItemBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/global_pencil"
-            android:background="?attr/selectableItemBackground"/>
+            app:srcCompat="@drawable/global_pencil" />
 
         <ImageView
             android:id="@+id/favorite_collection_ordering"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="11dp"
+            android:background="?attr/selectableItemBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/favorite_collection_add_collection"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/global_tune"
-            android:background="?attr/selectableItemBackground"/>
+            app:srcCompat="@drawable/global_tune" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
