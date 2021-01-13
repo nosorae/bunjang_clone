@@ -27,7 +27,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/global_button_close" />
+            app:srcCompat="@drawable/global_button_close"
+            android:background="?attr/selectableItemBackground"/>
 
         <TextView
             android:id="@+id/textView22"
@@ -276,7 +277,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/category_second_transaction_image_1"
@@ -302,7 +304,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/category_second_transaction_image_2"
@@ -335,7 +338,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/category_second_transaction_image_3"
@@ -361,7 +365,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/category_second_transaction_image_4"
@@ -394,7 +399,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/category_second_transaction_image_5"
@@ -420,7 +426,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="?attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/category_second_transaction_image_6"

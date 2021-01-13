@@ -41,13 +41,16 @@ class MySellingRecyclerAdapter(private val context: Context?, val itemList: Arra
 
     override fun onBindViewHolder(holder: MySellingRecyclerHolder, position: Int) {
         val container = holder.itemView.findViewById<ConstraintLayout>(R.id.recycler_my_selling_conatiner)
+
+        if(isUpdate == 0) {
+            val more = holder.itemView.findViewById<ImageView>(R.id.recycler_my_selling_product_more)
+            more.setOnClickListener {
+                ItemMoreDialog(context!!, this, itemList[position].productId).showLogInDialog()
+            }
+        }
+
         container.setOnClickListener {
             if(isUpdate == 0) {
-                val more = holder.itemView.findViewById<ImageView>(R.id.recycler_my_selling_product_more)
-                more.setOnClickListener {
-                    ItemMoreDialog(context!!, this, itemList[position].productId).showLogInDialog()
-                }
-
                 val intent = Intent(context, ItemDetailActivity::class.java)
                 intent.putExtra("itemId", itemList[position].productId)
                 context!!.startActivity(intent)

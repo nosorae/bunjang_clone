@@ -40,7 +40,7 @@
                     <ImageView
                         android:id="@+id/item_detail_back"
                         android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="top|left"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="16dp"
@@ -50,19 +50,19 @@
                     <ImageView
                         android:id="@+id/imageView37"
                         android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="top|end"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="55dp"
+                        android:layout_marginEnd="53dp"
                         android:src="@drawable/global_search_white" />
 
                     <ImageView
                         android:id="@+id/imageView65"
                         android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="top|end"
                         android:layout_marginTop="16dp"
-                        android:layout_marginRight="12dp"
+                        android:layout_marginEnd="16dp"
                         android:src="@drawable/global_share" />
 
                     <com.google.android.material.tabs.TabLayout
@@ -475,7 +475,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:layout_marginBottom="16dp">
+                    android:layout_marginBottom="16dp"
+                    android:background="?attr/selectableItemBackground">
 
                     <ImageView
                         android:id="@+id/item_detail_seller_image"
@@ -562,7 +563,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.515" />
+                        app:layout_constraintVertical_bias="0.515"
+                        android:background="?attr/selectableItemBackground"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
@@ -628,9 +630,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="14dp"
-                    android:layout_marginEnd="16dp" />
+                    android:layout_marginEnd="10dp" />
 
                 <LinearLayout
                     android:id="@+id/item_detail_review_header"
@@ -1133,19 +1135,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="invisible">
+            android:visibility="visible">
 
             <LinearLayout
+                android:id="@+id/item_detail_top_app_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="invisible">
 
                 <ImageView
                     android:id="@+id/imageView67"
                     android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
                     android:src="@drawable/global_button_back" />
 
@@ -1153,10 +1158,10 @@
                     android:id="@+id/textView83"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="32dp"
+                    android:layout_marginLeft="25dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="상품정보"
+                    android:text="상품 정보"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -1164,21 +1169,152 @@
                 <ImageView
                     android:id="@+id/imageView68"
                     android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="26dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="12dp"
                     android:src="@drawable/global_search" />
 
                 <ImageView
                     android:id="@+id/imageView69"
                     android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="26dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="12dp"
                     android:src="@drawable/global_share_black" />
             </LinearLayout>
+
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/item_detail_app_bar_item_container"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteY="704dp"
+                android:visibility="invisible">
+
+                <ImageView
+                    android:id="@+id/item_detail_app_bar_image"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/item_detail_app_bar_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="1,000,000"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/item_detail_app_bar_image"
+                    app:layout_constraintTop_toTopOf="@+id/item_detail_app_bar_image" />
+
+                <TextView
+                    android:id="@+id/textView46"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:text="원"
+                    android:textColor="@color/blackForText"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/item_detail_app_bar_price"
+                    app:layout_constraintStart_toEndOf="@+id/item_detail_app_bar_price"
+                    app:layout_constraintTop_toTopOf="@+id/item_detail_app_bar_price" />
+
+                <TextView
+                    android:id="@+id/textView107"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="배송비 별도"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView46"
+                    app:layout_constraintStart_toEndOf="@+id/textView46"
+                    app:layout_constraintTop_toTopOf="@+id/textView46" />
+
+                <TextView
+                    android:id="@+id/item_detail_app_bar_product_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="TextView"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/item_detail_app_bar_price"
+                    app:layout_constraintTop_toBottomOf="@+id/item_detail_app_bar_price" />
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/gray_background"
+                    app:layout_constraintBottom_toTopOf="@+id/view5"
+                    app:layout_constraintEnd_toStartOf="@+id/item_detail_app_bar_seller_name"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/item_detail_app_bar_seller_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="28dp"
+                    android:text="TextView"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView107" />
+
+                <TextView
+                    android:id="@+id/textView110"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="★"
+                    android:textColor="#FF2020"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/item_detail_app_bar_seller_name"
+                    app:layout_constraintTop_toBottomOf="@+id/item_detail_app_bar_seller_name" />
+
+                <TextView
+                    android:id="@+id/textView111"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="0.0(0)"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView110"
+                    app:layout_constraintStart_toEndOf="@+id/textView110"
+                    app:layout_constraintTop_toTopOf="@+id/textView110" />
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@color/gray_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_detail_app_bar_image" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
@@ -1198,7 +1334,8 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:padding="15dp"
-            android:src="@drawable/global_favorite" />
+            android:src="@drawable/global_favorite"
+            android:background="?attr/selectableItemBackground"/>
 
         <View
             android:layout_width="1dp"

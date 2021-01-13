@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/recycler_my_selling_conatiner"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground">
 
     <ImageView
         android:id="@+id/recycler_my_selling_product_image"
@@ -95,5 +96,6 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/top_more_button" />
+        app:srcCompat="@drawable/top_more_button"
+        android:background="?attr/selectableItemBackground"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

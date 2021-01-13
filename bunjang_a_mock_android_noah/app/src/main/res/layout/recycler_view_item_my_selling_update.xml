@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/recycler_my_selling_conatiner"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground">
 
     <ImageView
         android:id="@+id/recycler_my_selling_product_image_u"
@@ -72,7 +73,8 @@
         android:padding="1dp"
         app:layout_constraintStart_toStartOf="@+id/recycler_my_selling_product_price_u"
         app:layout_constraintTop_toBottomOf="@+id/recycler_my_selling_product_price_u"
-        app:srcCompat="@drawable/global_check_white" />
+        app:srcCompat="@drawable/global_check_white"
+        />
 
     <ImageView
         android:id="@+id/recycler_my_selling_product_update"

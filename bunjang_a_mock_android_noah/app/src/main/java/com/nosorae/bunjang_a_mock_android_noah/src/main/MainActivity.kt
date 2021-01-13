@@ -100,8 +100,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     fun startProcess() {
 
-        showLoadingDialog(this)
+
         thread {
+            runOnUiThread {
+                showLoadingDialog(this)
+            }
             sleep(3000)
             runOnUiThread {
                 dismissLoadingDialog()

@@ -53,7 +53,8 @@
             android:layout_height="28dp"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="12dp"
-            app:srcCompat="@drawable/global_add" />
+            app:srcCompat="@drawable/global_add"
+            android:background="?attr/selectableItemBackground"/>
     </LinearLayout>
 
     <ScrollView

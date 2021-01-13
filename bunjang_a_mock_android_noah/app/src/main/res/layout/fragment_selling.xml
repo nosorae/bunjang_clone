@@ -75,7 +75,8 @@
                     android:layout_height="24dp"
                     android:layout_marginEnd="4dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/global_pencil" />
+                    android:src="@drawable/global_pencil"
+                    android:background="?attr/selectableItemBackground"/>
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView

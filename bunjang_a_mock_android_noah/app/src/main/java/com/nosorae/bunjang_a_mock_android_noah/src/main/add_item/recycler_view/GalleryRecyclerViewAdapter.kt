@@ -10,9 +10,11 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.nosorae.bunjang_a_mock_android_noah.R
+import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.ForClickPicCallBack
+import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.gallery_warning_dialog.GalleryWarningDialog
 
 class GalleryRecyclerViewAdapter(private val context: Context?, val itemList: ArrayList<GalleryRecyclerViewItem>,
-                                 val isInList: ArrayList<String>)
+                                 val isInList: ArrayList<String>, val forCallBack: ForClickPicCallBack)
     : RecyclerView.Adapter<GalleryRecyclerViewViewHolder>() {
 
     var cnt = 1
@@ -32,21 +34,29 @@ class GalleryRecyclerViewAdapter(private val context: Context?, val itemList: Ar
         val image = holder.itemView.findViewById<ImageView>(R.id.recycler_view_item_gallery_image)
         val num = holder.itemView.findViewById<TextView>(R.id.recycler_view_item_gallery_text_num)
         image.setOnClickListener {
-            if(num.visibility == View.INVISIBLE) {
-                image.foreground = ContextCompat.getDrawable(context!!, R.drawable.add_item_gallery_item_background)
-                num.text = cnt.toString()
-                cnt+=1
-                num.visibility = View.VISIBLE
-                isInList.add(itemList[position].imageUri)
-            }
-            else if(num.visibility == View.VISIBLE) {
-                image.foreground = ContextCompat.getDrawable(context!!, R.drawable.add_item_gallery_item_background_cancel)
-                num.visibility = View.INVISIBLE
-                cnt-=1
-                isInList.remove(itemList[position].imageUri)
-                notifyDataSetChanged()
-                //isInList.remove(itemList[position])
-            }
+
+                if(num.visibility == View.INVISIBLE) {
+                    if(isInList.size >= 12) {
+                        GalleryWarningDialog(context!!).showLogInDialog("선택 가능한 사진 개수를 초과했습니다.", "확인")
+                    }
+                    image.foreground = ContextCompat.getDrawable(context!!, R.drawable.add_item_gallery_item_background)
+                    num.text = cnt.toString()
+                    cnt+=1
+                    num.visibility = View.VISIBLE
+                    isInList.add(itemList[position].imageUri)
+                }
+                else if(num.visibility == View.VISIBLE) {
+                    image.foreground = ContextCompat.getDrawable(context!!, R.drawable.add_item_gallery_item_background_cancel)
+                    num.visibility = View.INVISIBLE
+                    cnt-=1
+                    isInList.remove(itemList[position].imageUri)
+                    notifyDataSetChanged()
+                    //isInList.remove(itemList[position])
+                }
+                forCallBack.onClickPicture()
+
+
+
         }
         if(!isInList.contains(itemList[position].imageUri)){
             image.foreground = ContextCompat.getDrawable(context!!, R.drawable.add_item_gallery_item_background_cancel)

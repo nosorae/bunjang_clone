@@ -1,4 +1,4 @@
-package com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop
+package com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.really_delete_dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -10,12 +10,13 @@ import android.view.Window
 import android.widget.TextView
 import com.nosorae.bunjang_a_mock_android_noah.R
 import com.nosorae.bunjang_a_mock_android_noah.config.ApplicationClass
-import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.SellingFragmentView
+import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.MyShopFragmentView
+import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.MyShopService
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.model.GetMySellingResult
 
 
 class ReallyDeleteSellingItemDialog(context : Context, val forMyShopCallBack: MyShopFragmentView,
-                                   val forSellingItemCallback: MyShopFragmentView, val isInList: ArrayList<GetMySellingResult>) : Dialog(context)  {
+                                    val forSellingItemCallback: MyShopFragmentView, val isInList: ArrayList<GetMySellingResult>) : Dialog(context)  {
 
     fun showLogInDialog(myTitle: String, myContent: String, myNo: String, myYes: String){
 

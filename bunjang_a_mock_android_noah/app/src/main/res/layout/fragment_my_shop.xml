@@ -96,7 +96,7 @@
                         android:layout_height="63dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
-                        android:layout_marginBottom="6dp"
+                        android:layout_marginBottom="8dp"
                         app:cardCornerRadius="30dp"
                         app:cardElevation="0dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -119,7 +119,7 @@
                         android:id="@+id/text_view_shop_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
+                        android:layout_marginStart="8dp"
                         android:layout_marginTop="4dp"
                         android:text="상점이름"
                         android:textColor="#000000"
@@ -131,17 +131,17 @@
 
                     <ImageView
                         android:id="@+id/rating_bar"
-                        android:layout_width="75dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="12dp"
+                        android:layout_width="70dp"
+                        android:layout_height="28dp"
+                        android:layout_marginStart="8dp"
                         android:src="@drawable/rating"
                         app:layout_constraintStart_toEndOf="@+id/image_view_profile_image_container"
                         app:layout_constraintTop_toBottomOf="@+id/text_view_shop_name" />
 
                     <ImageView
                         android:id="@+id/image_view_myself"
-                        android:layout_width="@dimen/top_icon"
-                        android:layout_height="15dp"
+                        android:layout_width="32dp"
+                        android:layout_height="12dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="1dp"
                         android:scaleType="fitStart"
@@ -153,13 +153,13 @@
                     <Button
                         android:id="@+id/button_shop_quest"
                         android:layout_width="45dp"
-                        android:layout_height="17dp"
+                        android:layout_height="18dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="2dp"
                         android:layout_marginBottom="3dp"
                         android:background="@drawable/my_shop_button_shop_quest"
                         android:text="상점문의"
-                        android:textColor="#303030"
+                        android:textColor="@color/real_gray"
                         android:textColorHighlight="#424242"
                         android:textSize="10sp"
                         android:textStyle="bold"
@@ -169,9 +169,9 @@
 
                     <ImageView
                         android:id="@+id/image_view_next"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginEnd="8dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="16dp"
                         android:src="@drawable/my_shop_next"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -474,7 +474,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="29dp"
+                    android:layout_marginTop="34dp"
                     android:layout_marginEnd="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -492,7 +492,7 @@
 
                     <View
                         android:id="@+id/my_shop_custom_tab_selling_bar"
-                        android:layout_width="33dp"
+                        android:layout_width="31dp"
                         android:layout_height="3dp"
                         android:layout_marginTop="4dp"
                         android:background="@color/black"
@@ -513,7 +513,7 @@
 
                     <View
                         android:id="@+id/my_shop_custom_tab_booking_bar"
-                        android:layout_width="33dp"
+                        android:layout_width="31dp"
                         android:layout_height="3dp"
                         android:layout_marginTop="4dp"
                         android:background="@color/black"
@@ -536,7 +536,7 @@
 
                     <View
                         android:id="@+id/my_shop_custom_tab_selled_bar"
-                        android:layout_width="50dp"
+                        android:layout_width="45dp"
                         android:layout_height="3dp"
                         android:layout_marginTop="4dp"
                         android:background="@color/black"
@@ -559,7 +559,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/my_shop_non_container"
                         android:layout_width="match_parent"
-                        android:layout_height="633dp"
+                        android:layout_height="638dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         android:visibility="visible">
@@ -586,10 +586,10 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textView21"
+                            android:id="@+id/my_shop_non_item_ment"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="16dp"
                             android:text="@string/my_shop_selling_no"
                             app:layout_constraintEnd_toEndOf="@+id/imageView8"
                             app:layout_constraintStart_toStartOf="@+id/imageView8"

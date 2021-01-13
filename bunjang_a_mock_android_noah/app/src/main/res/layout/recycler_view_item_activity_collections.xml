@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/favorite_collection_container"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -78,6 +79,7 @@
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/global_more" />
+        app:srcCompat="@drawable/global_more"
+        android:background="?attr/selectableItemBackground"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,13 +20,13 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/textView46"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
+            android:id="@+id/recylcer_item_candidate_button_remove"
+            android:layout_width="24dp"
+            android:layout_height="22dp"
             android:layout_gravity="top|end"
             android:layout_margin="8dp"
             android:background="@drawable/global_remove_button_background"
-            android:gravity="center|top"
+            android:gravity="center"
             android:text="X"
             android:textColor="#FFFFFF"
             android:textSize="14sp" />

@@ -167,4 +167,33 @@
     <string name="item_detail_last">"\"번개장터_컨시어지\" 상점의 판매상품을 제외한 모든 상품들에 대하여, 번개장터㈜는 통신판매중개자로서 중고거래마켓 번개장터의 거래 당사자가 아니며, 입점판매자가 등록한 상품정보 및 거래에 대해 책임을 지지 않습니다."</string>
 
 
+
+    <!--상점정보조회-->
+    <string name="seller_profile_open_day">오픈일</string>
+    <string name="seller_profile_visit">방문수</string>
+    <string name="seller_profile_product">상품</string>
+    <string name="seller_profile_num_review">후기</string>
+    <string name="seller_profile_following">팔로잉</string>
+    <string name="seller_profile_follower">팔로워</string>
+    <string name="seller_profile_badge">상점 배지</string>
+    <string name="seller_profile_certification">본인인증</string>
+    <string name="seller_profile_shot">신고이력</string>
+    <string name="seller_profile_shot_detail">조회하기</string>
+    <string name="seller_profile_sell_list">판매내역</string>
+    <string name="seller_profile_delivery">택배발송</string>
+    <string name="seller_profile_introduce">상점소개</string>
+    <string name="seller_profile_time">연락가능시간:24시간 연락가능</string>
+    <string name="seller_profile_no_introduce">상점소개가 없습니다.</string>
+    <string name="seller_profile_exchange">교환/반품/환불정책</string>
+    <string name="seller_profile_before">구매전 유의사항</string>
+    <string name="seller_profile_review">후기</string>
+    <string name="seller_profile_more_review">0개 더보기</string>
+    <string name="seller_profile_no_review">등록된 후기가 없습니다.</string>
+    <string name="seller_profile_quest">문의</string>
+    <string name="seller_profile_quest_more">0개 더보기</string>
+    <string name="seller_profile_comment">답글쓰기</string>
+    <string name="seller_profile_delete">삭제하기</string>
+    <string name="seller_profile_leave">상점에 문의를 남기세요</string>
+
+
 </resources>

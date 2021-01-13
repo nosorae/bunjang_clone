@@ -11,10 +11,14 @@ import com.nosorae.bunjang_a_mock_android_noah.config.ApplicationClass
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseFragment
 import com.nosorae.bunjang_a_mock_android_noah.databinding.FragmentMyShopBinding
 import com.nosorae.bunjang_a_mock_android_noah.databinding.FragmentSellingBinding
+import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.AddItemActivityView
+import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.model.AddItemResponse
+import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.model.UpdateItemResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.bungae_talk.recycler_view.BungaeTalkRecyclerViewAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.bungae_talk.recycler_view.BungaeTalkRecyclerViewItem
 import com.nosorae.bunjang_a_mock_android_noah.src.main.following.my_feed_fragment.model.GetMyFeedResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.MyShopFragmentView
+import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.MyShopService
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.model.GetProfileResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.model.DeleteItemResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.model.GetMySellingResponse
@@ -24,7 +28,9 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment
 
 class SellingFragment(val forCallback: MyShopFragmentView) :
         BaseFragment<FragmentSellingBinding>(FragmentSellingBinding::bind, R.layout.fragment_selling),
-        SellingFragmentView, MyShopFragmentView {
+        SellingFragmentView, MyShopFragmentView, AddItemActivityView {
+
+    var isFirst = true
 
     var isDefault = true
     private var recyclerItemList = ArrayList<GetMySellingResult>()
@@ -34,8 +40,12 @@ class SellingFragment(val forCallback: MyShopFragmentView) :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showLoadingDialog(context!!)
-        SellingService(this).tryGetSelling('Y')
+
+        if(isFirst) {
+            showLoadingDialog(context!!)
+            SellingService(this).tryGetSelling('Y')
+        }
+
 
 
         binding.myShopSellingButtonUpdate.setOnClickListener {
@@ -143,5 +153,37 @@ class SellingFragment(val forCallback: MyShopFragmentView) :
         isDefault = true
 
     }
+    //-------------------------------AddItemView---------------------------
 
+    override fun onPostAddItemSuccess(response: AddItemResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPostAddItemFailure(message: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPutUpdateItemSuccess(response: UpdateItemResponse) {
+        showLoadingDialog(context!!)
+        SellingService(this).tryGetSelling('Y')
+    }
+
+    override fun onPutUpdateItemFailure(message: String) {
+
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        if(!isFirst) {
+            showLoadingDialog(context!!)
+            SellingService(this).tryGetSelling('Y')
+        }
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        isFirst = false
+    }
 }

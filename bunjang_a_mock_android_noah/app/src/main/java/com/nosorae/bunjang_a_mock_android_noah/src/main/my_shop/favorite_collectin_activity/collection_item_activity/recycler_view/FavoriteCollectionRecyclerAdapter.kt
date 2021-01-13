@@ -25,11 +25,11 @@ class FavoriteCollectionRecyclerAdapter(private val context: Context?, val itemL
     }
 
     override fun onBindViewHolder(holder: FavoriteCollectionRecyclerHolder, position: Int) {
-
         val container = holder.itemView.findViewById<ConstraintLayout>(R.id.recycler_collection_item_container)
         container.setOnClickListener {
             val intent = Intent(context, ItemDetailActivity::class.java)
             intent.putExtra("itemId", itemList[position].productId)
+            intent.putExtra("isCollection", 1)
             context!!.startActivity(intent)
         }
         holder.bindView(itemList[position])

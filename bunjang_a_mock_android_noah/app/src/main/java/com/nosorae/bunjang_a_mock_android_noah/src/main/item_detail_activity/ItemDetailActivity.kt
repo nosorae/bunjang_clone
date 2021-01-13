@@ -2,9 +2,9 @@ package com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Point
 import android.os.Bundle
 import android.view.View
-import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
@@ -14,17 +14,10 @@ import com.google.gson.reflect.TypeToken
 import com.nosorae.bunjang_a_mock_android_noah.R
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseActivity
 import com.nosorae.bunjang_a_mock_android_noah.databinding.ActivityItemDetailBinding
-import com.nosorae.bunjang_a_mock_android_noah.src.log_in.dialog.LogInDialog
-import com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager.LogInViewPagerAdapter
-import com.nosorae.bunjang_a_mock_android_noah.src.log_in.view_pager.LogInViewPagerItem
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeFragmentView
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeService
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.collection_dialog.CollectionDialog
-import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.GetCollectionResponse
-import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.GetItemResponse
-import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.PostFavoriteRequest
-import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.PostFavoriteResponse
-import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.Result
+import com.nosorae.bunjang_a_mock_android_noah.src.main.home.model.*
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.one_category_activity.OneCategoryActivityView
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.one_category_activity.OneCategoryService
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.one_category_activity.model.OneCategoryResponse
@@ -34,7 +27,6 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.mod
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.model.PostFollowResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.model.RecentlyViewItem
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.model.Sale
-import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.recycler_selling_item.SellingRcyclerHolder
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.recycler_selling_item.SellingRecyclerAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.recycler_selling_item.SellingRecyclerSpacing
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.recycler_similar.SimillarRecyclerAdapter
@@ -42,6 +34,7 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.vie
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.view_pager.ItemDetailPagerItem
 import com.nosorae.bunjang_a_mock_android_noah.src.main.seller_profile_activity.SellerProfileActivity
 import java.lang.reflect.Type
+
 
 class ItemDetailActivity
     : BaseActivity<ActivityItemDetailBinding>(ActivityItemDetailBinding::inflate) ,
@@ -65,8 +58,26 @@ class ItemDetailActivity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.activityItemDetailScrollView.setOnScrollChangeListener { view, i, i2, i3, i4 ->
 
+
+        binding.activityItemDetailScrollView.setOnScrollChangeListener { view, i, i2, i3, i4 ->
+            if(i2 > i4) {
+                binding.itemDetailTopAppBar.visibility = View.VISIBLE
+                binding.itemDetailTopAppBar.alpha = (i2.toFloat()/850.0f)
+            }
+            else if(i2 < i4) {
+                binding.itemDetailTopAppBar.alpha = (i2.toFloat()/850.0f)
+                if(i2 == 0) {
+                    binding.itemDetailTopAppBar.visibility = View.INVISIBLE
+                }
+
+            }
+            if(i2 > 1400) {
+                binding.itemDetailAppBarItemContainer.visibility = View.VISIBLE
+            }
+            else {
+                binding.itemDetailAppBarItemContainer.visibility = View.INVISIBLE
+            }
         }
 
 
@@ -106,7 +117,10 @@ class ItemDetailActivity
 
         dismissLoadingDialog()
         showLoadingDialog(this)
+
         OneCategoryService(this).tryGetOneCategory(response.result.info.category)
+
+
 
         //프로필 상세페이지 조회를 위해서
         binding.itemDetailSelllerProfileContainer.setOnClickListener {
@@ -125,7 +139,7 @@ class ItemDetailActivity
                     response.result.productImg[0].imgUrl)
 
                 if(recentlyViewList.size >= 30){
-                    recentlyViewList.removeAt(recentlyViewList.size-1)
+                    recentlyViewList.removeAt(recentlyViewList.size - 1)
                 }
                 recentlyViewList.add(now)
 
@@ -145,8 +159,10 @@ class ItemDetailActivity
         productId = response.result.info.productId
 
         binding.itemDetailName.text = response.result.info.productName
+        binding.itemDetailAppBarProductName.text = response.result.info.productName
         if(response.result.info.price.toString() != null){
             binding.itemDetailPrice.text = parseToMoney(response.result.info.price.toString())
+            binding.itemDetailAppBarPrice.text = parseToMoney(response.result.info.price.toString())
         }
         binding.itemDetailTime.text = response.result.info.time
         binding.itemDetailNumOfWatch.text = response.result.info.viewCount.toString()
@@ -163,6 +179,7 @@ class ItemDetailActivity
         }
 
         binding.itemDetailSellerName.text = response.result.info.storeName
+        binding.itemDetailAppBarSellerName.text = response.result.info.storeName
 
         if(response.result.info.storeImgUrl != null){
             Glide.with(this).load(response.result.info.storeImgUrl).into(binding.itemDetailSellerImage)
@@ -213,6 +230,8 @@ class ItemDetailActivity
         for(obj in response.result.productImg) {
             pageItemList.add(ItemDetailPagerItem(obj.imgUrl))
         }
+        Glide.with(this).load(pageItemList[0].imageUrl).into(binding.itemDetailAppBarImage)
+
         myAdapter = ItemDetailPagerAdapter(this, pageItemList)
         var viewPager = binding.itemDeatilViewPager.apply {
             adapter = myAdapter
@@ -265,10 +284,11 @@ class ItemDetailActivity
     }
 
     override fun onGetItemDetailSignUpFailure(message: String) {
-        TODO("Not yet implemented")
+        dismissLoadingDialog()
     }
 
     override fun onPostFollowSuccess(response: PostFollowResponse) {
+        dismissLoadingDialog()
         if(response.code == 1000) {
             binding.itemDetailButtonFollow.setImageResource(R.drawable.button_follow_selected)
         } else {
@@ -277,7 +297,7 @@ class ItemDetailActivity
     }
 
     override fun onPostFollowFailure(message: String) {
-        TODO("Not yet implemented")
+        dismissLoadingDialog()
     }
 
 
@@ -307,6 +327,7 @@ class ItemDetailActivity
     }
 
     override fun onGetCollectionFailure(message: String) {
+        dismissLoadingDialog()
 
     }
 
@@ -320,6 +341,7 @@ class ItemDetailActivity
 
     // CustomCallback
     override fun onFavoriteSuccess() {
+        dismissLoadingDialog()
 
         binding.itemDetailUserFavorite.setImageResource(R.drawable.home_favorite_selected)
         binding.itemDetailUserFavorite2.setImageResource(R.drawable.home_favorite_selected)
@@ -328,6 +350,7 @@ class ItemDetailActivity
     }
 
     override fun onFavoriteFailure(message: String) {
+        dismissLoadingDialog()
 
     }
 
@@ -351,6 +374,7 @@ class ItemDetailActivity
     }
 
     override fun onGetOneCategoryFailure(message: String) {
+        dismissLoadingDialog()
 
     }
 

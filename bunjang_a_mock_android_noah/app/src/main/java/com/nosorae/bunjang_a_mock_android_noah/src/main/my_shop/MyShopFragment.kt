@@ -5,35 +5,36 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.nosorae.bunjang_a_mock_android_noah.R
-import com.nosorae.bunjang_a_mock_android_noah.config.ApplicationClass
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseFragment
 import com.nosorae.bunjang_a_mock_android_noah.databinding.FragmentMyShopBinding
-import com.nosorae.bunjang_a_mock_android_noah.src.main.home.HomeFragment
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.booking_fragment.BookingFragment
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.configuration_activity.MyShopConfigurationActivity
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.favorite_collectin_activity.FavoriteCollectionActivity
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.follow_activity.MyFollowActivity
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.model.GetProfileResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.my_shop_dialog.MyShopDialog
+import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.really_delete_dialog.ReallyDeleteSellingItemDialog
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selled_fragment.SelledFragment
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.SellingFragment
-import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.SellingFragmentView
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.model.DeleteItemResponse
-import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.model.GetMySellingResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.my_shop.selling_fragment.model.GetMySellingResult
 
 class MyShopFragment :
     BaseFragment<FragmentMyShopBinding>(FragmentMyShopBinding::bind, R.layout.fragment_my_shop),
     MyShopFragmentView {
+    var isFirst = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showLoadingDialog(context!!)
-        MyShopService(this).tryGetProfile()
+        if(isFirst) {
+            showLoadingDialog(context!!)
+            MyShopService(this).tryGetProfile()
+
+        }
+
 
 
         activity!!.supportFragmentManager.beginTransaction().replace(R.id.my_selling_fragment, SellingFragment(this)).commitAllowingStateLoss()
@@ -70,6 +71,7 @@ class MyShopFragment :
             binding.myShopCustomTabSellingBar.visibility = View.INVISIBLE
             binding.myShopCustomTabSelledBar.visibility = View.INVISIBLE
             binding.myShopCustomTabBookingBar.visibility = View.VISIBLE
+            binding.myShopNonItemMent.text = "판매중인 상품이 없습니다."
         }
 
         binding.myShopCustomTabSelled.setOnClickListener {
@@ -83,6 +85,7 @@ class MyShopFragment :
             binding.myShopCustomTabSelledBar.visibility = View.VISIBLE
             binding.myShopCustomTabSellingBar.visibility = View.INVISIBLE
             binding.myShopCustomTabBookingBar.visibility = View.INVISIBLE
+            binding.myShopNonItemMent.text = "예약중인 상품이 없습니다."
         }
 
         binding.myShopCustomTabSelling.setOnClickListener {
@@ -95,6 +98,7 @@ class MyShopFragment :
             binding.myShopCustomTabSellingBar.visibility = View.VISIBLE
             binding.myShopCustomTabSelledBar.visibility = View.INVISIBLE
             binding.myShopCustomTabBookingBar.visibility = View.INVISIBLE
+            binding.myShopNonItemMent.text = "판매완료된 상품이 없습니다."
         }
 
 
@@ -184,5 +188,21 @@ class MyShopFragment :
 
     override fun onClickDeleteButton() {
 
+
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(!isFirst) {
+            showLoadingDialog(context!!)
+            MyShopService(this).tryGetProfile()
+        }
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        isFirst = false
     }
 }

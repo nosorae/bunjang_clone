@@ -74,6 +74,6 @@ class FavoriteCollectionItemActivity : BaseActivity<ActivityFavoriteCollectionIt
     }
 
     override fun onGetCollectionItemFailure(message: String) {
-        TODO("Not yet implemented")
+        dismissLoadingDialog()
     }
 }

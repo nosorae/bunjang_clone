@@ -4,337 +4,362 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/gray_background"
+    android:backgroundTint="@color/gray_background"
     android:orientation="vertical"
     tools:context=".src.main.seller_profile_activity.SellerProfileActivity">
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF">
-
-                <ImageView
-                    android:id="@+id/seller_profile_button_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="12dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/global_button_back" />
-
-                <TextView
-                    android:id="@+id/seller_profile_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="상점 정보"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/gray_background">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:backgroundTint="@color/gray_background"
                 android:orientation="vertical">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginBottom="8dp"
-                        app:cardCornerRadius="80dp"
-                        app:cardElevation="0dp">
-
-                        <ImageView
-                            android:id="@+id/seller_profile_image"
-                            android:layout_width="90dp"
-                            android:layout_height="90dp"
-                            android:layout_gravity="center"
-
-                            android:scaleType="centerCrop"
-                            tools:srcCompat="@tools:sample/avatars" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/textView96"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|center_horizontal"
-                        android:background="@drawable/home_background_banner_index"
-                        android:gravity="center"
-                        android:text="TextView" />
-                </FrameLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#FFFFFF"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView97"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:gravity="center"
-                    android:text="상점 이름"
-                    android:textColor="#000000" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp">
+                    android:background="#FFFFFF">
 
                     <ImageView
-                        android:id="@+id/imageView60"
-                        android:layout_width="100dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/rating"
+                        android:id="@+id/seller_profile_button_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/global_button_back" />
+
+                    <TextView
+                        android:id="@+id/seller_profile_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="상점 정보"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView98"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="(숫자)"
-                        android:textSize="11sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView60"
-                        app:layout_constraintStart_toEndOf="@+id/imageView60"
-                        app:layout_constraintTop_toTopOf="@+id/imageView60" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView99"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="end"
-                        android:text="팔로워"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/seller_profile_num_of_follower"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:text="+1,005"
-                        android:textColor="#000000"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView100"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:text="방문수"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/seller_profile_num_of_visitor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:layout_weight="1"
-                        android:text="610"
-                        android:textColor="#000000"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginTop="32dp"
-                    android:background="@color/gray_background" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:background="#FFFFFF"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/seller_profile_button_product"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginBottom="32dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/seller_profile_text_product_num"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="42"
-                            android:textColor="#000000"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/textView1041"
-                            android:layout_width="match_parent"
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="2dp"
-                            android:gravity="center"
-                            android:text="상품"
-                            android:textColor="#000000" />
-                    </LinearLayout>
+                            android:layout_marginTop="26dp"
+                            android:layout_marginBottom="8dp"
+                            app:cardCornerRadius="80dp"
+                            app:cardElevation="0dp">
 
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:background="@color/gray_background" />
+                            <ImageView
+                                android:id="@+id/seller_profile_image"
+                                android:layout_width="90dp"
+                                android:layout_height="90dp"
+                                android:layout_gravity="center"
 
-                    <LinearLayout
-                        android:id="@+id/seller_profile_button_review"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginBottom="32dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                                android:scaleType="centerCrop"
+                                tools:srcCompat="@tools:sample/avatars" />
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
-                            android:id="@+id/seller_profile_text_review_num"
-                            android:layout_width="match_parent"
+                            android:id="@+id/textView96"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:background="@drawable/seller_profile_chip_background"
                             android:gravity="center"
-                            android:text="42"
-                            android:textColor="#000000"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/textView1042"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:gravity="center"
-                            android:text="후기"
-                            android:textColor="#000000" />
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:background="@color/gray_background" />
-
-
-                    <LinearLayout
-                        android:id="@+id/seller_profile_button_following"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginBottom="32dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/seller_profile_text_following_num"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="42"
-                            android:textColor="#000000"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/textView1043"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:gravity="center"
-                            android:text="팔로잉"
-                            android:textColor="#000000" />
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:background="@color/gray_background" />
-
-
-                    <LinearLayout
-                        android:id="@+id/seller_profile_button_follower"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginBottom="32dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/seller_profile_text_follower_num"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="42"
-                            android:textColor="#000000"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/textView1044"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:gravity="center"
-                            android:text="팔로워"
-                            android:textColor="#000000" />
-                    </LinearLayout>
-
-
+                            android:paddingStart="5dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="5dp"
+                            android:paddingBottom="4dp"
+                            android:text="1시간전 접속"
+                            android:textColor="@color/blackForText"
+                            android:textSize="7sp" />
+                    </FrameLayout>
                 </LinearLayout>
 
-                <View
+                <LinearLayout
+                    android:id="@+id/awdfasdsdfa"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray_background" />
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView97"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="상점 이름"
+                        android:textColor="#000000" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp">
+
+                        <ImageView
+                            android:id="@+id/imageView60"
+                            android:layout_width="90dp"
+                            android:layout_height="28dp"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/rating"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textView98"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="2dp"
+                            android:text="(0)"
+                            android:textSize="10sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView60"
+                            app:layout_constraintStart_toEndOf="@+id/imageView60"
+                            app:layout_constraintTop_toTopOf="@+id/imageView60" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView99"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="@string/seller_profile_open_day"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/seller_profile_num_of_open"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:text="+1,005"
+                            android:textColor="#000000"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView100"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:text="@string/seller_profile_visit"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/seller_profile_num_of_visitor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:layout_weight="1"
+                            android:text="610"
+                            android:textColor="#000000"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="24dp"
+                        android:background="@color/gray_background" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/seller_profile_button_product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18dp"
+                            android:layout_marginBottom="18dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/seller_profile_text_product_num"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="42"
+                                android:textColor="#000000"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/textView1041"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="2dp"
+                                android:gravity="center"
+                                android:text="@string/seller_profile_product"
+                                android:textColor="@color/blackForText"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:background="@color/gray_background" />
+
+                        <LinearLayout
+                            android:id="@+id/seller_profile_button_review"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18dp"
+                            android:layout_marginBottom="18dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/seller_profile_text_review_num"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="42"
+                                android:textColor="#000000"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/textView1042"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:gravity="center"
+                                android:text="@string/seller_profile_review"
+                                android:textColor="#000000"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:background="@color/gray_background" />
+
+
+                        <LinearLayout
+                            android:id="@+id/seller_profile_button_following"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18dp"
+                            android:layout_marginBottom="18dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/seller_profile_text_following_num"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="42"
+                                android:textColor="#000000"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/textView1043"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:gravity="center"
+                                android:text="@string/seller_profile_following"
+                                android:textColor="#000000"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:background="@color/gray_background" />
+
+
+                        <LinearLayout
+                            android:id="@+id/seller_profile_button_follower"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18sp"
+                            android:layout_marginBottom="18sp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/seller_profile_text_follower_num"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="42"
+                                android:textColor="#000000"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/textView1044"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:gravity="center"
+                                android:text="@string/seller_profile_follower"
+                                android:textColor="#000000"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_background" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/white"
                     android:orientation="horizontal">
 
                     <TextView
@@ -343,7 +368,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:text="상점 배지"
+                        android:text="@string/seller_profile_badge"
                         android:textColor="#000000"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -352,6 +377,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/white"
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
@@ -359,7 +385,8 @@
                         android:layout_height="90dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:background="@color/gray_background"
+                        android:background="@color/bottomNavUnselected"
+                        app:cardBackgroundColor="@color/gray_background"
                         app:cardElevation="0dp">
 
                         <ImageView
@@ -376,7 +403,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="35dp"
                         android:layout_marginTop="4dp"
-                        android:text="본인인증" />
+                        android:text="@string/seller_profile_certification" />
 
                     <TextView
                         android:id="@+id/textView102"
@@ -384,13 +411,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="47dp"
                         android:layout_marginTop="2dp"
+                        android:layout_marginBottom="16dp"
                         android:text="*소*" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:background="#FFFFFF"
                     android:orientation="horizontal">
 
@@ -403,7 +431,7 @@
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="12dp"
                         android:layout_weight="1"
-                        android:text="신고이력"
+                        android:text="@string/seller_profile_shot"
                         android:textColor="@color/blackForText"
                         android:textSize="15sp" />
 
@@ -413,7 +441,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="4dp"
-                        android:text="조회하기" />
+                        android:text="@string/seller_profile_shot_detail" />
 
                     <ImageView
                         android:id="@+id/imageView32"
@@ -427,7 +455,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/gray_background"/>
+                    android:background="@color/gray_background" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -443,7 +471,7 @@
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="12dp"
                         android:layout_weight="1"
-                        android:text="판매내역"
+                        android:text="@string/seller_profile_sell_list"
                         android:textColor="@color/blackForText"
                         android:textSize="15sp" />
 
@@ -467,7 +495,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/gray_background"/>
+                    android:background="@color/gray_background" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -483,7 +511,7 @@
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="12dp"
                         android:layout_weight="1"
-                        android:text="택배발송"
+                        android:text="@string/seller_profile_delivery"
                         android:textColor="@color/blackForText"
                         android:textSize="15sp" />
 
@@ -506,8 +534,9 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="67dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
                     android:background="#FFFFFF"
                     android:orientation="horizontal">
 
@@ -517,7 +546,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:padding="10dp"
+                        android:padding="13dp"
                         app:srcCompat="@drawable/seller_profile_kakao" />
 
                     <ImageView
@@ -525,7 +554,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:padding="10dp"
+                        android:padding="13dp"
                         app:srcCompat="@drawable/seller_profile_twitter" />
 
                     <ImageView
@@ -533,7 +562,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:padding="10dp"
+                        android:padding="13dp"
                         app:srcCompat="@drawable/seller_profile_naver" />
 
                     <ImageView
@@ -541,7 +570,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:padding="10dp"
+                        android:padding="13dp"
                         app:srcCompat="@drawable/seller_profile_link" />
 
                     <ImageView
@@ -549,106 +578,65 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:padding="10dp"
+                        android:padding="13dp"
                         app:srcCompat="@drawable/seller_profile_mail" />
                 </LinearLayout>
 
 
             </LinearLayout>
+        </ScrollView>
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="상점소개"
-                    android:textColor="@color/blackForText"
-                    android:layout_margin="16dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="상점신고/차단"
-                    android:layout_gravity="center"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/gray_background">
+
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/global_next"
-                    android:layout_marginEnd="16dp"/>
+                    android:id="@+id/imageView84"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView105"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/seller_profile" />
 
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/gray_background"/>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
                 <TextView
+                    android:id="@+id/textView105"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="연락가능한시간: 오전12시~오후10시"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
+                    android:text="팔로우"
+                    android:textSize="17sp"
                     android:textStyle="bold"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginStart="16dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="교환 환불 절대 불가"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="16dp"/>
-            </LinearLayout>
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView84"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView84"
+                    app:layout_constraintTop_toTopOf="@+id/imageView84" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <View
+            <TextView
+                android:id="@+id/textView106"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/gray_background"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="15sp"
-                        android:text="상품"
-                        android:layout_weight="1"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginStart="16dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10개 더보기"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginEnd="16dp"/>
-                </LinearLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-
-            </LinearLayout>
-
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FF2020"
+                android:gravity="center"
+                android:text="번개톡"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
-    </ScrollView>
-
-
+    </FrameLayout>
 
 </LinearLayout>

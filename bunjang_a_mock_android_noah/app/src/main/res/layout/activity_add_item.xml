@@ -76,6 +76,7 @@
 
 
                     <FrameLayout
+                        android:id="@+id/add_item_add_picture"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         android:layout_gravity="center"
@@ -92,7 +93,7 @@
                             android:src="@drawable/global_camera" />
 
                         <TextView
-                            android:id="@+id/textView41"
+                            android:id="@+id/add_item_num_of_picture"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom|start"
@@ -713,8 +714,8 @@
     <Button
         android:id="@+id/add_item_complete"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#FF2020"
+        android:layout_height="62dp"
+        android:background="#FF5057"
         android:text="등록완료"
         android:textColor="#FFFFFF"
         android:textSize="16sp"

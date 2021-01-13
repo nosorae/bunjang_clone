@@ -31,6 +31,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     private lateinit var pageAdapter : HomeViewPagerAdapter
     private lateinit var recyclerAdapter : HomeRecyclerViewAdapter
     var check = true
+    var isFirst = true
     lateinit var myThread : Thread
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -81,11 +82,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         }
 
         //아이템 목록 가져오기
-        showLoadingDialog(context!!)
-        HomeService(this).tryGetUsers()
+        if(isFirst) {
+            showLoadingDialog(context!!)
+            HomeService(this).tryGetUsers()
+        }
+
 
         //전체 카테고리 리스너
-        binding.homeImageViewCategoryAll.setOnClickListener {
+        binding.homeImageViewCategoryAllContainer.setOnClickListener {
             startActivity(Intent(context, AllCategoryActivity::class.java))
         }
 
@@ -134,12 +138,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
     override fun onStart() {
         super.onStart()
-       // myThread.start()
+      if(!isFirst){
+          showLoadingDialog(context!!)
+          HomeService(this).tryGetUsers()
+      }
 
     }
 
     override fun onPause() {
         super.onPause()
-      // myThread.stop()
+      isFirst = false
     }
+
+
 }

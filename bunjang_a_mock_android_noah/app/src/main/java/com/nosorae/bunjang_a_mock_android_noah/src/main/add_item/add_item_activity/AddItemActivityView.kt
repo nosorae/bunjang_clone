@@ -10,4 +10,6 @@ interface AddItemActivityView {
 
     fun onPutUpdateItemSuccess(response: UpdateItemResponse)
     fun onPutUpdateItemFailure(message: String)
+
+    fun onClickDeleteButton()
 }

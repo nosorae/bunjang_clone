@@ -2,6 +2,7 @@ package com.nosorae.bunjang_a_mock_android_noah.src.main.add_item
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -14,10 +15,12 @@ import com.nosorae.bunjang_a_mock_android_noah.databinding.ActivityAddItemGaller
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.AddItemActivity
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.recycler_view.GalleryRecyclerViewAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.recycler_view.GalleryRecyclerViewItem
+import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.recycler_view.GalleryRecyclerViewSpacing
 import java.lang.reflect.Type
 
 
-class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(ActivityAddItemGalleryBinding::inflate) {
+class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(ActivityAddItemGalleryBinding::inflate),
+        ForClickPicCallBack{
 
     private var recyclerItemList = ArrayList<GalleryRecyclerViewItem>()
     private lateinit var recyclerAdapter : GalleryRecyclerViewAdapter
@@ -88,11 +91,11 @@ class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(Activ
                 }
 
                 recyclerItemList.reverse()
-                recyclerAdapter = GalleryRecyclerViewAdapter(this, recyclerItemList, isInList)
+                recyclerAdapter = GalleryRecyclerViewAdapter(this, recyclerItemList, isInList, this)
                 binding.galleryRecyclerView.apply {
                     adapter = recyclerAdapter
                     layoutManager = GridLayoutManager(context, 3)
-                    //addItemDecoration(GalleryRecyclerViewSpacing(4, 4))
+                    addItemDecoration(GalleryRecyclerViewSpacing(2, 2))
                 }
 
             }
@@ -120,13 +123,13 @@ class AddItemGalleryActivity : BaseActivity<ActivityAddItemGalleryBinding>(Activ
     }
 
 
+    override fun onClickPicture() {
 
-
-
-
-
-
-
-
-
+        binding.addItemGalleryTextViewNum.text = isInList.size.toString()
+        if(isInList.size > 0){
+            binding.addItemGalleryTextViewNum.setTextColor(Color.RED)
+        } else {
+            binding.addItemGalleryTextViewNum.setTextColor(Color.LTGRAY)
+        }
+    }
 }
