@@ -167,7 +167,6 @@
     <string name="item_detail_last">"\"번개장터_컨시어지\" 상점의 판매상품을 제외한 모든 상품들에 대하여, 번개장터㈜는 통신판매중개자로서 중고거래마켓 번개장터의 거래 당사자가 아니며, 입점판매자가 등록한 상품정보 및 거래에 대해 책임을 지지 않습니다."</string>
 
 
-
     <!--상점정보조회-->
     <string name="seller_profile_open_day">오픈일</string>
     <string name="seller_profile_visit">방문수</string>
@@ -194,6 +193,36 @@
     <string name="seller_profile_comment">답글쓰기</string>
     <string name="seller_profile_delete">삭제하기</string>
     <string name="seller_profile_leave">상점에 문의를 남기세요</string>
+
+    <string name="my_feed_title">팔로잉상점 소식</string>
+
+
+    <!--select category-->
+    <string name="select_category_title">카테고리</string>
+    <string name="select_category_recommend_title">추천 카테고리</string>
+    <string name="select_category_recommend1">디지털/가전>모바일>스마트폰</string>
+    <string name="select_category_recommend2">기타</string>
+    <string name="select_category_recommend3">스타굿즈>보이그룹>기타(보이그룹)</string>
+    <string name="select_category_recommend4">패션잡화>운동화/캐주얼화>캐주얼화</string>
+    <string name="select_category_all_title">전체 카테고리</string>
+    <string name="select_category_all_1">여성의류</string>
+    <string name="select_category_all_2">패션잡화</string>
+    <string name="select_category_all_3">남성의류</string>
+    <string name="select_category_all_4">디지털/가전</string>
+    <string name="select_category_all_5">도서/티켓/취미/애완</string>
+    <string name="select_category_all_6">생활/문구/가구/식품</string>
+    <string name="select_category_all_7">ㅅ타굿즈</string>
+    <string name="select_category_all_8">스포츠/레저</string>
+    <string name="select_category_all_9">뷰티/미용</string>
+    <string name="select_category_all_10">유아동/출산</string>
+    <string name="select_category_all_11">기타</string>
+    <string name="select_category_all_12">차량/오토바이</string>
+    <string name="select_category_all_13">구인구직</string>
+    <string name="select_category_all_14">재능</string>
+    <string name="select_category_all_15">지역 서비스</string>
+    <string name="select_category_all_16">번개나눔</string>
+    <string name="select_category_all_17">원룸/함께살아요</string>
+    <string name="select_category_all_18">커뮤니티</string>
 
 
 </resources>

@@ -13,6 +13,7 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.nosorae.bunjang_a_mock_android_noah.R
 import com.nosorae.bunjang_a_mock_android_noah.src.main.MainActivity
+import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.ItemDetailActivity
 
 class MyFireBaseMessagingService: FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
@@ -21,7 +22,25 @@ class MyFireBaseMessagingService: FirebaseMessagingService() {
 
             val messageBody = remoteMessage.notification!!.body
             val messageTitle = remoteMessage.notification!!.title
-            val intent = Intent(this, MainActivity::class.java)
+
+
+            val whichActivity = remoteMessage.data.get("whichActivity")
+
+                var intent = Intent(this, MainActivity::class.java)
+
+            if(whichActivity.equals("2")) {
+                intent = Intent(this, ItemDetailActivity::class.java)
+                val productId = remoteMessage.data.get("productId")
+                if(productId != null){
+                    intent.putExtra("itemId", productId.toInt())
+                }
+
+            }
+
+
+
+
+
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
             val defaultsoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
@@ -43,11 +62,6 @@ class MyFireBaseMessagingService: FirebaseMessagingService() {
             }
 
             notificationManager.notify(0, notificationBuilder.build())
-
-
-
-
-
         }
 
 

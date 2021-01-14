@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Point
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -95,7 +96,14 @@ class ItemDetailActivity
 
 
 
-        val itemId = intent.getIntExtra("itemId", 1)
+        var itemId = intent.getIntExtra("itemId", 1)
+        if(itemId == 1) {
+            itemId = intent.getStringExtra("itemId")!!.toInt()
+        }
+
+
+        Log.d("itemIdPushed", "아이템 id : "+ itemId.toString() )
+
 
 
         showLoadingDialog(this)
@@ -117,166 +125,162 @@ class ItemDetailActivity
 
 
         dismissLoadingDialog()
-        showLoadingDialog(this)
 
-        OneCategoryService(this).tryGetOneCategory(response.result.info.category)
-
+        if(response.code == 1000) {
 
 
-        //프로필 상세페이지 조회를 위해서
-        binding.itemDetailSelllerProfileContainer.setOnClickListener {
-            val intent = Intent(this, SellerProfileActivity::class.java)
-            intent.putExtra("sellerId", response.result.info.storeId)
-            startActivity(intent)
-        }
+            showLoadingDialog(this)
+            OneCategoryService(this).tryGetOneCategory(response.result.info.category)
 
-        //최근 본 아이템리스트를 위해서
-        var recentlyViewList = getArrayList("recently")
-        if(recentlyViewList != null) {
 
-            val now = RecentlyViewItem(response.result.info.productId,
-                    response.result.info.productName,
-                    response.result.info.price,
-                    response.result.productImg[0].imgUrl)
+            //프로필 상세페이지 조회를 위해서
+            binding.itemDetailSelllerProfileContainer.setOnClickListener {
+                val intent = Intent(this, SellerProfileActivity::class.java)
+                intent.putExtra("sellerId", response.result.info.storeId)
+                startActivity(intent)
+            }
 
-                if(recentlyViewList.size >= 30){
+            //최근 본 아이템리스트를 위해서
+            var recentlyViewList = getArrayList("recently")
+            if (recentlyViewList != null) {
+
+                val now = RecentlyViewItem(response.result.info.productId,
+                        response.result.info.productName,
+                        response.result.info.price,
+                        response.result.productImg[0].imgUrl)
+
+                if (recentlyViewList.size >= 30) {
                     recentlyViewList.removeAt(recentlyViewList.size - 1)
                 }
                 recentlyViewList.add(now)
 
-            saveArrayList(recentlyViewList, "recently")
-        } else {
-            recentlyViewList = ArrayList<RecentlyViewItem>()
-            recentlyViewList.add(RecentlyViewItem(response.result.info.productId,
-                    response.result.info.productName,
-                    response.result.info.price,
-                    response.result.productImg[0].imgUrl))
-            saveArrayList(recentlyViewList, "recently")
-        }
+                saveArrayList(recentlyViewList, "recently")
+            } else {
+                recentlyViewList = ArrayList<RecentlyViewItem>()
+                recentlyViewList.add(RecentlyViewItem(response.result.info.productId,
+                        response.result.info.productName,
+                        response.result.info.price,
+                        response.result.productImg[0].imgUrl))
+                saveArrayList(recentlyViewList, "recently")
+            }
 
 
+            //여기서부터 입력
+            productId = response.result.info.productId
 
-        //여기서부터 입력
-        productId = response.result.info.productId
+            binding.itemDetailName.text = response.result.info.productName
+            binding.itemDetailAppBarProductName.text = response.result.info.productName
+            if (response.result.info.price.toString() != null) {
+                binding.itemDetailPrice.text = parseToMoney(response.result.info.price.toString())
+                binding.itemDetailAppBarPrice.text = parseToMoney(response.result.info.price.toString())
+            }
+            binding.itemDetailTime.text = response.result.info.time
+            binding.itemDetailNumOfWatch.text = response.result.info.viewCount.toString()
+            binding.itemDetailNumOfFavorite.text = response.result.info.pickCount.toString()
 
-        binding.itemDetailName.text = response.result.info.productName
-        binding.itemDetailAppBarProductName.text = response.result.info.productName
-        if(response.result.info.price.toString() != null){
-            binding.itemDetailPrice.text = parseToMoney(response.result.info.price.toString())
-            binding.itemDetailAppBarPrice.text = parseToMoney(response.result.info.price.toString())
-        }
-        binding.itemDetailTime.text = response.result.info.time
-        binding.itemDetailNumOfWatch.text = response.result.info.viewCount.toString()
-        binding.itemDetailNumOfFavorite.text = response.result.info.pickCount.toString()
+            if (response.result.info.area != null) {
+                binding.itemDetailLocation.text = response.result.info.area.toString()
+            }
 
-        if(response.result.info.area != null) {
-            binding.itemDetailLocation.text = response.result.info.area.toString()
-        }
+            binding.itemDetailTotalNumOfItem.text = "중고 · 배송비별도 · 총" + response.result.info.amount.toString() + "개"
 
-        binding.itemDetailTotalNumOfItem.text = "중고 · 배송비별도 · 총"+response.result.info.amount.toString()+"개"
+            if (response.result.info.explanation != null) {
+                binding.itemDetailDescription.text = response.result.info.explanation
+            }
 
-        if(response.result.info.explanation != null) {
-            binding.itemDetailDescription.text = response.result.info.explanation
-        }
+            binding.itemDetailSellerName.text = response.result.info.storeName
+            binding.itemDetailAppBarSellerName.text = response.result.info.storeName
 
-        binding.itemDetailSellerName.text = response.result.info.storeName
-        binding.itemDetailAppBarSellerName.text = response.result.info.storeName
+            if (response.result.info.storeImgUrl != null) {
+                Glide.with(this).load(response.result.info.storeImgUrl).into(binding.itemDetailSellerImage)
+            } else {
+                binding.itemDetailSellerImage.setImageResource(R.drawable.no_profile_image)
+            }
 
-        if(response.result.info.storeImgUrl != null){
-            Glide.with(this).load(response.result.info.storeImgUrl).into(binding.itemDetailSellerImage)
-        } else {
-            binding.itemDetailSellerImage.setImageResource(R.drawable.no_profile_image)
-        }
+            binding.itemDetailNumOfFollower.text = response.result.info.followerCount.toString()
 
-        binding.itemDetailNumOfFollower.text = response.result.info.followerCount.toString()
+            if (response.result.info.starRatingAvg != null) {
+                binding.itemDetailRatingBar.rating = response.result.info.starRatingAvg.toFloat()
+                binding.itemDetailRatingBar2.rating = response.result.info.starRatingAvg.toFloat()
+            }
 
-        if(response.result.info.starRatingAvg != null){
-            binding.itemDetailRatingBar.rating = response.result.info.starRatingAvg.toFloat()
-            binding.itemDetailRatingBar2.rating = response.result.info.starRatingAvg.toFloat()
-        }
+            //---------------------------------------좋아요---------------------------------------------
 
-        //---------------------------------------좋아요---------------------------------------------
-
-        if(response.result.info.isPick == 1) {
-            binding.itemDetailUserFavorite.setImageResource(R.drawable.home_favorite_selected)
-            binding.itemDetailUserFavorite2.setImageResource(R.drawable.home_favorite_selected)
-            check = true
-        } else {
-            binding.itemDetailUserFavorite.setImageResource(R.drawable.home_favorite_default)
-            binding.itemDetailUserFavorite2.setImageResource(R.drawable.global_favorite_black)
-            check = false
-        }
-        binding.itemDetailUserFavorite.setOnClickListener {
-            if(check) {
+            if (response.result.info.isPick == 1) {
+                binding.itemDetailUserFavorite.setImageResource(R.drawable.home_favorite_selected)
+                binding.itemDetailUserFavorite2.setImageResource(R.drawable.home_favorite_selected)
+                check = true
+            } else {
                 binding.itemDetailUserFavorite.setImageResource(R.drawable.home_favorite_default)
                 binding.itemDetailUserFavorite2.setImageResource(R.drawable.global_favorite_black)
-                binding.itemDetailNumOfFavorite.text = (binding.itemDetailNumOfFavorite.text.toString().toInt() -1).toString()
-                showLoadingDialog(this)
-                HomeService(this).tryPostFavorite(productId, PostFavoriteRequest(null))
                 check = false
-            } else {
-                showLoadingDialog(this)
-                HomeService(this).tryGetCollection()
             }
+            binding.itemDetailUserFavorite.setOnClickListener {
+                if (check) {
+                    binding.itemDetailUserFavorite.setImageResource(R.drawable.home_favorite_default)
+                    binding.itemDetailUserFavorite2.setImageResource(R.drawable.global_favorite_black)
+                    binding.itemDetailNumOfFavorite.text = (binding.itemDetailNumOfFavorite.text.toString().toInt() - 1).toString()
+                    showLoadingDialog(this)
+                    HomeService(this).tryPostFavorite(productId, PostFavoriteRequest(null))
+                    check = false
+                } else {
+                    showLoadingDialog(this)
+                    HomeService(this).tryGetCollection()
+                }
+            }
+
+            //------------------------------------------------------------------------------------------
+
+            binding.itemDetailTotalNumOfSellingItem.text = response.result.info.productCount.toString()
+            binding.itemDetailTotalNumOfReview.text = response.result.info.reviewCount.toString()
+            if (response.result.info.reviewCount == 0) {
+                binding.itemDetailReviewHeader.visibility = View.GONE
+
+            }
+
+            pageItemList = ArrayList<ItemDetailPagerItem>()
+            for (obj in response.result.productImg) {
+                pageItemList.add(ItemDetailPagerItem(obj.imgUrl))
+            }
+            Glide.with(this).load(pageItemList[0].imageUrl).into(binding.itemDetailAppBarImage)
+
+            myAdapter = ItemDetailPagerAdapter(this, pageItemList)
+            var viewPager = binding.itemDeatilViewPager.apply {
+                adapter = myAdapter
+                orientation = ViewPager2.ORIENTATION_HORIZONTAL
+            }
+
+
+            var tabLayout = binding.itemDetailTabLayout
+
+            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            }.attach()
+
+
+            //-------------------------------------------------------------------------------------------------
+            if (response.result.info.isFollow == 1) {
+                binding.itemDetailButtonFollow.setImageResource(R.drawable.button_follow_selected)
+            } else {
+                binding.itemDetailButtonFollow.setImageResource(R.drawable.button_follow_default)
+            }
+
+            binding.itemDetailButtonFollow.setOnClickListener {
+                ItemDetailService(this).tryPostFollow(response.result.info.storeId)
+            }
+
+            //------------------------------------------------------------------------------------------
+
+            recyclerSellingList = ArrayList<Sale>()
+            recyclerSellingList = response.result.saleList as ArrayList<Sale>
+            recyclerSellingAdapter = SellingRecyclerAdapter(this, recyclerSellingList)
+            binding.itemDetailRecyclerAllItem.apply {
+                adapter = recyclerSellingAdapter
+                layoutManager = GridLayoutManager(context, 3)
+                addItemDecoration(SellingRecyclerSpacing(4, 4))
+            }
+
+
         }
-
-        //------------------------------------------------------------------------------------------
-
-        binding.itemDetailTotalNumOfSellingItem.text = response.result.info.productCount.toString()
-        binding.itemDetailTotalNumOfReview.text = response.result.info.reviewCount.toString()
-        if(response.result.info.reviewCount == 0) {
-            binding.itemDetailReviewHeader.visibility = View.GONE
-
-        }
-
-        pageItemList = ArrayList<ItemDetailPagerItem>()
-        for(obj in response.result.productImg) {
-            pageItemList.add(ItemDetailPagerItem(obj.imgUrl))
-        }
-        Glide.with(this).load(pageItemList[0].imageUrl).into(binding.itemDetailAppBarImage)
-
-        myAdapter = ItemDetailPagerAdapter(this, pageItemList)
-        var viewPager = binding.itemDeatilViewPager.apply {
-            adapter = myAdapter
-            orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        }
-
-
-        var tabLayout = binding.itemDetailTabLayout
-
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-        }.attach()
-
-
-
-
-        //-------------------------------------------------------------------------------------------------
-        if(response.result.info.isFollow == 1) {
-            binding.itemDetailButtonFollow.setImageResource(R.drawable.button_follow_selected)
-        } else {
-            binding.itemDetailButtonFollow.setImageResource(R.drawable.button_follow_default)
-        }
-
-        binding.itemDetailButtonFollow.setOnClickListener {
-            ItemDetailService(this).tryPostFollow(response.result.info.storeId)
-        }
-
-        //------------------------------------------------------------------------------------------
-
-        recyclerSellingList = ArrayList<Sale>()
-        recyclerSellingList = response.result.saleList as ArrayList<Sale>
-        recyclerSellingAdapter = SellingRecyclerAdapter(this, recyclerSellingList)
-        binding.itemDetailRecyclerAllItem.apply {
-            adapter = recyclerSellingAdapter
-            layoutManager = GridLayoutManager(context, 3)
-            addItemDecoration(SellingRecyclerSpacing(4, 4))
-        }
-
-
-
-
-
-
 
 
 
@@ -373,7 +377,7 @@ class ItemDetailActivity
         recyclerSimillarItemList = ArrayList<OneCategoryResult>()
         val temp = response.result as ArrayList<OneCategoryResult>
         var i = 1
-        while(i <= 6){
+        while(i <= temp.size-1){
             recyclerSimillarItemList.add(temp[i])
         i+=1
          }

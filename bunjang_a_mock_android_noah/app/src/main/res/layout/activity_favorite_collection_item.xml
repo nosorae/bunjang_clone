@@ -34,11 +34,12 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginStart="32dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/favorite_collection_add_collection"
-            app:layout_constraintStart_toEndOf="@+id/add_item_button_back"
+            app:layout_constraintEnd_toStartOf="@+id/favorite_collection_ordering"
+            app:layout_constraintStart_toEndOf="@+id/favorite_collection_item_button_back"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView

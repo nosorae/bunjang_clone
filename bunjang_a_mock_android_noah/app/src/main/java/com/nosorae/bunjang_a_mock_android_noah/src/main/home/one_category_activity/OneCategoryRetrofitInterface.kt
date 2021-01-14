@@ -8,6 +8,6 @@ import retrofit2.http.Query
 
 interface OneCategoryRetrofitInterface {
 
-    @GET("products")
-    fun getItem(@Query("page") page : Int, @Query("size") size : Int, @Query("category") category: Int) : Call<OneCategoryResponse>
+    @GET("products/categories")
+    fun getItem(@Query("category") category: Int) : Call<OneCategoryResponse>
 }

@@ -12,7 +12,7 @@
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="63dp"
         android:background="@drawable/global_custom_toast_background"
         android:gravity="start|center_vertical"
         android:paddingStart="16dp"

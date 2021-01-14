@@ -6,43 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".src.main.following.my_feed_fragment.MyFeedFragment" >
 
-    <TextView
-        android:id="@+id/textView82"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:text="팔로잉상점 소식"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:layout_width="1dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/gray_background"
-        app:layout_constraintTop_toTopOf="@+id/imageView57"
-        app:layout_constraintEnd_toStartOf="@+id/imageView57"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView57"/>
-
-    <ImageView
-        android:id="@+id/imageView57"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/following_following_grid_3x3"
-        app:layout_constraintBottom_toTopOf="@+id/my_feed_recycler_view"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/my_feed_recycler_view"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView82" />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/my_feed_top_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView82"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/my_feed_title"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/gray_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView57"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView57"
+                    app:layout_constraintTop_toTopOf="@+id/imageView57" />
+
+                <ImageView
+                    android:id="@+id/imageView57"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/following_following_grid_3x3"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView82"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView82" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_feed_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

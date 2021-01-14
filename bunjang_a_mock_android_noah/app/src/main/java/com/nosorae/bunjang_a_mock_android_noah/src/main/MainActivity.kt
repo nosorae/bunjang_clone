@@ -16,6 +16,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.iid.FirebaseInstanceId
@@ -42,8 +43,26 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         })
 
 
+        val whichAction = intent.getStringExtra("whichAction")
 
-        supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment()).commitAllowingStateLoss()
+       if(whichAction != null && whichAction.equals("1")){
+            val myBundle = Bundle()
+            val itemIdStr = intent.getStringExtra("itemId")
+            var itemId = 1
+           if(itemIdStr != null) {
+               itemId = itemIdStr.toInt()
+           }
+            myBundle.putInt("itemId", itemId)
+            val myFragment = HomeFragment()
+            myFragment.arguments = myBundle
+           supportFragmentManager.beginTransaction().replace(R.id.main_frm, myFragment).commitAllowingStateLoss()
+
+       } else {
+           supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment()).commitAllowingStateLoss()
+       }
+
+
+
 
 
 

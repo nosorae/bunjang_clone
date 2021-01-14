@@ -28,6 +28,7 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeR
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewSpacing
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager.HomeViewPagerAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.view_pager.HomeViewPagerItem
+import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.ItemDetailActivity
 import com.nosorae.bunjang_a_mock_android_noah.util.GlobalCheckDialog
 import java.lang.Thread.sleep
 
@@ -58,6 +59,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             toast.show()
             **/
         }
+        if(arguments != null) {
+            val arg = arguments!!.getInt("itemId")
+            val intent = Intent(context, ItemDetailActivity::class.java)
+            intent.putExtra("itemId", arg)
+            startActivity(intent)
+            Log.d("isArgumentNull", "아규먼트가 받아서 디테일로 보냄")
+
+        } else {
+            Log.d("isArgumentNull", "아규먼트가 눌이다 이색갸")
+        }
+
+
 
         val swipeLayout = binding.swipeLayout
 
@@ -141,10 +154,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
            recyclerItemList.add(item)
        }
         recyclerAdapter = HomeRecyclerViewAdapter(context, recyclerItemList, this)
-        binding.homeRecyclerView.apply {
-            adapter = recyclerAdapter
-            layoutManager = GridLayoutManager(context, 2)
-            //addItemDecoration(HomeRecyclerViewSpacing(16, 16))
+        if(binding.homeRecyclerView != null) {
+            binding.homeRecyclerView.apply {
+                adapter = recyclerAdapter
+                layoutManager = GridLayoutManager(context, 2)
+                //addItemDecoration(HomeRecyclerViewSpacing(16, 16))
+            }
         }
         dismissLoadingDialog()
         //recyclerAdapter.notifyDataSetChanged()

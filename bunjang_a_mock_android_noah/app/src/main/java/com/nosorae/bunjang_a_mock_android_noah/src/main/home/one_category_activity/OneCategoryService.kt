@@ -14,7 +14,7 @@ class OneCategoryService(val view: OneCategoryActivityView) {
 
     fun tryGetOneCategory(category: Int){
         val homeRetrofitInterface = ApplicationClass.sRetrofit.create(OneCategoryRetrofitInterface::class.java)
-        homeRetrofitInterface.getItem(1, 100, category).enqueue(object : Callback<OneCategoryResponse> {
+        homeRetrofitInterface.getItem(category).enqueue(object : Callback<OneCategoryResponse> {
             override fun onResponse(call: Call<OneCategoryResponse>, response: Response<OneCategoryResponse>) {
                 Log.d("api", "onResponse 도착 ${response.isSuccessful}")
                 if(response.body() != null){
