@@ -1146,7 +1146,7 @@
                 android:visibility="invisible">
 
                 <ImageView
-                    android:id="@+id/imageView67"
+                    android:id="@+id/item_detail_button_back2"
                     android:layout_width="28dp"
                     android:layout_height="26dp"
                     android:layout_marginStart="12dp"

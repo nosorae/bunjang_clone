@@ -43,9 +43,9 @@
     <dimen name="global_grid_two_item">190dp</dimen>
 
     <dimen name="select_category_list_text">14sp</dimen>
-    <dimen name="select_category_list_margin_vertical">8dp</dimen>
-    <dimen name="select_category_list_margin_horizontal">12dp</dimen>
-    <dimen name="select_category_icon_size">18dp</dimen>
-    <dimen name="select_category_next_size">15dp</dimen>
+    <dimen name="select_category_list_margin_vertical">16dp</dimen>
+    <dimen name="select_category_list_margin_horizontal">14dp</dimen>
+    <dimen name="select_category_icon_size">21dp</dimen>
+    <dimen name="select_category_next_size">10dp</dimen>
 
 </resources>

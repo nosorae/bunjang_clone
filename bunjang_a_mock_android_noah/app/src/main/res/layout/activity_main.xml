@@ -32,13 +32,25 @@
             app:itemIconSize="30dp"
             app:itemIconTint="@drawable/main_btm_nav_item_color"
             app:itemRippleColor="@color/redForText"
-            app:itemTextColor="@drawable/main_btm_nav_item_color"
-            app:labelVisibilityMode="labeled"
             app:itemTextAppearance="@style/TextAppearance.AppCompat.Caption"
             app:itemTextAppearanceActive="@style/TextAppearance.AppCompat.Caption"
             app:itemTextAppearanceInactive="@style/TextAppearance.AppCompat.Caption"
+            app:itemTextColor="@drawable/main_btm_nav_item_color"
+            app:labelVisibilityMode="labeled"
             app:menu="@menu/menu_main_bottom_nav" />
 
+        <TextView
+            android:id="@+id/recycler_bungae_notification"
+            android:layout_width="13dp"
+            android:layout_height="14dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="105dp"
+            android:layout_marginBottom="34dp"
+            android:background="@drawable/add_item_gallery_item_num_background"
+            android:text="3"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp" />
 
 
     </FrameLayout>

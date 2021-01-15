@@ -38,7 +38,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 }
                 val token = task.getResult()!!.token
                 Log.d("FCM Log", "FCM 토큰: "+token)
-                Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
+               // Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
             }
         })
 

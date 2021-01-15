@@ -17,8 +17,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".src.main.add_item.add_item_activity.description_activity.InputDescriptionActivity"></activity>
-        <activity android:name=".src.main.add_item.add_item_activity.category_activity.SelectCategoryActivity" />
+        <activity android:name=".src.main.add_item.add_item_activity.tag_activity.TagActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".src.main.add_item.add_item_activity.description_activity.InputDescriptionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".src.main.add_item.add_item_activity.category_activity.SelectCategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <service
             android:name=".config.MyFireBaseMessagingService"

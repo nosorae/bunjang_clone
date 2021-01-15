@@ -24,17 +24,18 @@ class MyFireBaseMessagingService: FirebaseMessagingService() {
             val messageTitle = remoteMessage.notification!!.title
 
 
-            val whichActivity = remoteMessage.data.get("whichActivity")
+            val whichActivity = remoteMessage.data.get("whichAction")
 
-                var intent = Intent(this, MainActivity::class.java)
+            var intent = Intent(this, MainActivity::class.java)
 
-            if(whichActivity.equals("2")) {
+            if(whichActivity.equals("1")) {
                 intent = Intent(this, ItemDetailActivity::class.java)
-                val productId = remoteMessage.data.get("productId")
-                if(productId != null){
+                val productId = remoteMessage.data.get("itemId")
+                Log.d("itemIdPushed", "${productId}")
+                if(productId != null) {
                     intent.putExtra("itemId", productId.toInt())
+                    Log.d("itemIdPushed", "도달2")
                 }
-
             }
 
 
@@ -46,7 +47,7 @@ class MyFireBaseMessagingService: FirebaseMessagingService() {
             val defaultsoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
             val channelId = "Channel ID"
             val notificationBuilder = NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(R.drawable.splash_bunjang_logo)
+                .setSmallIcon(R.drawable.push_logo)
                 .setContentTitle(messageTitle)
                 .setContentText(messageBody)
                 .setAutoCancel(true)

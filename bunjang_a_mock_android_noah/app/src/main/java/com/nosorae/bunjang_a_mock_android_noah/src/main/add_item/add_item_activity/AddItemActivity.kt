@@ -2,6 +2,7 @@ package com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activ
 
 
 import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
@@ -16,8 +17,11 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.nosorae.bunjang_a_mock_android_noah.R
 import com.nosorae.bunjang_a_mock_android_noah.config.BaseActivity
 import com.nosorae.bunjang_a_mock_android_noah.databinding.ActivityAddItemBinding
+import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.category_activity.SelectCategoryActivity
+import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.description_activity.InputDescriptionActivity
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.model.AddItemRequest
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.model.AddItemResponse
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.model.UpdateItemRequest
@@ -25,6 +29,7 @@ import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activi
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.recycler_view.CandidateRecyclerItem
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.recycler_view.CandidateRecyclerAdapter
 import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.recycler_view.CandidateRecyclerSpacing
+import com.nosorae.bunjang_a_mock_android_noah.src.main.add_item.add_item_activity.tag_activity.TagActivity
 import com.nosorae.bunjang_a_mock_android_noah.src.main.home.recycler_view.HomeRecyclerViewSpacing
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.ItemDetailActivityView
 import com.nosorae.bunjang_a_mock_android_noah.src.main.item_detail_activity.ItemDetailService
@@ -60,6 +65,19 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(ActivityAddItemBind
 
 
     var productIdFromDialog = -1
+
+    val REQUEST_CODE1 = 1
+    val REQUEST_CODE2 = 2
+    val REQUEST_CODE3 = 3
+
+
+    var isIncludeDeliveryFee = false
+    var isPossibleNego = false
+
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -67,8 +85,55 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(ActivityAddItemBind
             finish()
         }
 
+        binding.addItemCategory.setOnClickListener {
+            startActivityForResult(Intent(this, SelectCategoryActivity::class.java), REQUEST_CODE1)
+        }
+        binding.addItemTag.setOnClickListener {
+            startActivityForResult(Intent(this, TagActivity::class.java), REQUEST_CODE2)
+        }
+        binding.addItemEditTextDescriptionContainer.setOnClickListener {
+            startActivityForResult(Intent(this, InputDescriptionActivity::class.java), REQUEST_CODE3)
+        }
+
+        binding.addItemIncludeDeliveryFee.setOnClickListener {
+            if(!isIncludeDeliveryFee) {
+                binding.addItemTextViewIncludeDeliveryPay.setTextColor(Color.BLACK)
+                binding.addItemTextViewIncludeDeliveryPayImage.setImageResource(R.drawable.add_item_global_check_red)
+                isIncludeDeliveryFee = true
+            }
+            else {
+                binding.addItemTextViewIncludeDeliveryPay.setTextColor(Color.GRAY)
+                binding.addItemTextViewIncludeDeliveryPayImage.setImageResource(R.drawable.add_item_global_check)
+                isIncludeDeliveryFee = false
+            }
+        }
+        binding.addItemNego.setOnClickListener {
+            if(!isPossibleNego) {
+                binding.addItemTextViewNegotiationPossible.setTextColor(Color.BLACK)
+                binding.addItemTextViewNegotiationPossibleImage.setImageResource(R.drawable.add_item_global_check_red)
+               binding.addItemEditTextPriceCall.visibility= View.VISIBLE
+                binding.addItemEditTextPriceStar.visibility = View.INVISIBLE
+                binding.addItemEditTextPrice.visibility=View.GONE
+                binding.addItemEditTextPrice.setHint("")
+                isPossibleNego = true
+            }
+            else {
+                binding.addItemTextViewNegotiationPossible.setTextColor(Color.GRAY)
+                binding.addItemTextViewNegotiationPossibleImage.setImageResource(R.drawable.add_item_global_check)
+                binding.addItemEditTextPriceCall.visibility= View.GONE
+                binding.addItemEditTextPriceStar.visibility = View.VISIBLE
+                binding.addItemEditTextPrice.visibility=View.VISIBLE
+                binding.addItemEditTextPrice.setHint("0")
+                isPossibleNego = false
+            }
 
 
+        }
+
+
+
+
+        //상품업데이트도 여기서 처리하기 때문에 등록과 구분하기 위해서 사용
         if (intent.getIntExtra("isUpdateFromDialog", 0) == 1) {
             productIdFromDialog = intent.getIntExtra("updateProductId", 1)
             if (productIdFromDialog != -1) {
@@ -110,8 +175,32 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(ActivityAddItemBind
             finish()
         }
 
+
+        val name = binding.addItemEditTextName
         val desc =  binding.addItemEditTextDescription
         val price = binding.addItemEditTextPrice
+
+        name.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(p0 != null){
+                    if(p0.length > 1){
+                        binding.addItemEditTextNameStar.visibility = View.INVISIBLE
+                    } else {
+                        binding.addItemEditTextNameStar.visibility = View.VISIBLE
+                    }
+                } else {
+                    binding.addItemEditTextNameStar.visibility = View.VISIBLE
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+        })
 
         desc.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -139,12 +228,25 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(ActivityAddItemBind
                 if(!desc.text.toString().equals("") && !price.text.toString().equals("")){
                     binding.addItemComplete.setBackgroundColor(Color.RED)
                 }
+                if(p0 != null){
+                    if(p0.length > 0){
+                        binding.addItemEditTextPriceStar.visibility = View.INVISIBLE
+                    } else {
+                        binding.addItemEditTextPriceStar.visibility=View.VISIBLE
+
+                    }
+                } else {
+                    binding.addItemEditTextPriceStar.visibility=View.VISIBLE
+                }
+
+
+
+
 
 
             }
 
             override fun afterTextChanged(p0: Editable?) {
-
             }
         })
 
@@ -195,8 +297,16 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(ActivityAddItemBind
                 if (!priceStr.equals("")) {
                     price = priceStr.toInt()
                 }
+                val tagArr = binding.addItemEditTextTag.text.toString().split("#")
+
+
 
                 val area = binding.addItemEditTextLocation.text.toString()
+                var tagArray = Array<String>(tagArr.size, { "" })
+                var i = 0
+                for(s in tagArr){
+                    tagArray[i] = "#"+s
+                }
                 val item = AddItemRequest(
                         name,
                         category,
@@ -209,7 +319,7 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(ActivityAddItemBind
                         productState,
                         isExchangeable,
                         imgList,
-                        arrayOf("#최상급", "#최저가")
+                        arrayOf("#상태좋음")
                 )
                 showLoadingDialog(this)
                 AddItemService(this).tryPostAddItem(item)
@@ -221,10 +331,47 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(ActivityAddItemBind
     }
 
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Log.d("onActivityResult", "도착 ${category}")
+        if(requestCode == REQUEST_CODE1) {
+            if(resultCode != Activity.RESULT_OK) {
+                return
+            }
+            binding.addItemTextCategory.text = data!!.getStringExtra("category")
+            binding.addItemTextCategory.setTextColor(Color.BLACK)
+            binding.addItemTextCategoryStar.visibility = View.GONE
+            binding.addItemEditTextTag.text = "#연관태그입력"
+            binding.addItemEditTextTagExtra.visibility=View.VISIBLE
+            category = data!!.getIntExtra("categoryNum", 1)
+            Log.d("onActivityResult", "도착 ${category}")
+        }
 
+        if(requestCode == REQUEST_CODE2) {
+            if(resultCode != Activity.RESULT_OK) {
+                return
+            }
 
-
-
+           val strArrayList = getArrayList("tags")
+            var sb= StringBuilder()
+            if(strArrayList!=null)
+            for(s in strArrayList){
+                sb.append("#")
+                sb.append(s)
+                sb.append(" ")
+            }
+            binding.addItemEditTextTagStar.visibility  = View.INVISIBLE
+            binding.addItemEditTextTagExtra.visibility = View.INVISIBLE
+            binding.addItemEditTextTag.setTextColor(Color.BLACK)
+            binding.addItemEditTextTag.text =sb.toString()
+        }
+        if(requestCode == REQUEST_CODE3){
+            if(resultCode != Activity.RESULT_OK){
+                return
+            }
+            binding.addItemEditTextDescription.setText(data!!.getStringExtra("description"))
+        }
+    }
 
     override fun onPostAddItemSuccess(response: AddItemResponse) {
 
@@ -392,6 +539,7 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(ActivityAddItemBind
     override fun onClickDeleteButton() {
         binding.addItemNumOfPicture.text = recyclerItemList.size.toString()+" / 12"
     }
+
 
 
 }

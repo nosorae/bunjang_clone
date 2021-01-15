@@ -38,12 +38,14 @@ class GalleryRecyclerViewAdapter(private val context: Context?, val itemList: Ar
                 if(num.visibility == View.INVISIBLE) {
                     if(isInList.size >= 12) {
                         GalleryWarningDialog(context!!).showLogInDialog("선택 가능한 사진 개수를 초과했습니다.", "확인")
+                    } else {
+                        image.foreground = ContextCompat.getDrawable(context!!, R.drawable.add_item_gallery_item_background)
+                        num.text = cnt.toString()
+                        cnt+=1
+                        num.visibility = View.VISIBLE
+                        isInList.add(itemList[position].imageUri)
                     }
-                    image.foreground = ContextCompat.getDrawable(context!!, R.drawable.add_item_gallery_item_background)
-                    num.text = cnt.toString()
-                    cnt+=1
-                    num.visibility = View.VISIBLE
-                    isInList.add(itemList[position].imageUri)
+
                 }
                 else if(num.visibility == View.VISIBLE) {
                     image.foreground = ContextCompat.getDrawable(context!!, R.drawable.add_item_gallery_item_background_cancel)

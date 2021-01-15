@@ -86,6 +86,9 @@ class ItemDetailActivity
         binding.itemDetailBack.setOnClickListener {
             finish()
         }
+        binding.itemDetailButtonBack2.setOnClickListener {
+            finish()
+        }
 
 
 
@@ -97,12 +100,9 @@ class ItemDetailActivity
 
 
         var itemId = intent.getIntExtra("itemId", 1)
-        if(itemId == 1) {
-            itemId = intent.getStringExtra("itemId")!!.toInt()
-        }
 
 
-        Log.d("itemIdPushed", "아이템 id : "+ itemId.toString() )
+        Log.d("itemIdPushed", "아이템 id : "+ itemId.toString())
 
 
 
@@ -185,7 +185,13 @@ class ItemDetailActivity
             binding.itemDetailTotalNumOfItem.text = "중고 · 배송비별도 · 총" + response.result.info.amount.toString() + "개"
 
             if (response.result.info.explanation != null) {
-                binding.itemDetailDescription.text = response.result.info.explanation
+
+                var str =  response.result.info.explanation +"\n"+"\n"+"\n"
+                for(s in response.result.productTag){
+                    str+= s.tag+" "
+                }
+
+                binding.itemDetailDescription.text =str
             }
 
             binding.itemDetailSellerName.text = response.result.info.storeName
@@ -266,6 +272,7 @@ class ItemDetailActivity
 
             binding.itemDetailButtonFollow.setOnClickListener {
                 ItemDetailService(this).tryPostFollow(response.result.info.storeId)
+
             }
 
             //------------------------------------------------------------------------------------------
@@ -298,9 +305,11 @@ class ItemDetailActivity
         dismissLoadingDialog()
         if(response.code == 1000) {
             binding.itemDetailButtonFollow.setImageResource(R.drawable.button_follow_selected)
+            binding.itemDetailNumOfFollower.text = (binding.itemDetailNumOfFollower.text.toString().toInt()+1).toString()
             FollowDialog(this, this).showLogInDialog("", "팔로잉 상점의 상품이 등록되면 알림으로\n 받아보시겠어요?", "닫기", "알림 받기")
         } else {
             binding.itemDetailButtonFollow.setImageResource(R.drawable.button_follow_default)
+            binding.itemDetailNumOfFollower.text = (binding.itemDetailNumOfFollower.text.toString().toInt()-1).toString()
         }
     }
 

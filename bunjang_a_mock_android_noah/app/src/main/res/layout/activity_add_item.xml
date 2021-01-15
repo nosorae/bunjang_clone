@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".src.main.add_item.add_item_activity.AddItemActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -65,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:scrollIndicators="none">
+                android:scrollbars="none" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -115,27 +116,23 @@
             </HorizontalScrollView>
 
 
-
-
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/add_item_list_margin"
-                android:layout_marginRight="@dimen/add_item_list_margin"
                 android:layout_marginTop="@dimen/add_item_list_height_margin_top"
+                android:layout_marginRight="@dimen/add_item_list_margin"
                 android:layout_marginBottom="@dimen/add_item_list_height_margin"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView23"
+                    android:id="@+id/add_item_edit_text_name_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:text="*"
-                    android:gravity="center"
                     android:layout_marginBottom="2dp"
+                    android:gravity="center"
+                    android:text="*"
                     android:textColor="#FF2020"
                     android:textSize="@dimen/add_item_asterick"
                     android:textStyle="bold" />
@@ -171,41 +168,42 @@
 
 
             <LinearLayout
+                android:id="@+id/add_item_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/add_item_list_margin"
-                android:layout_marginRight="@dimen/add_item_list_margin"
                 android:layout_marginTop="@dimen/add_item_list_height_margin_top"
+                android:layout_marginRight="@dimen/add_item_list_margin"
                 android:layout_marginBottom="@dimen/add_item_list_height_margin"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView28"
+                    android:id="@+id/add_item_text_category_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:text="*"
-                    android:gravity="center"
                     android:layout_marginBottom="2dp"
+                    android:gravity="center"
+                    android:text="*"
                     android:textColor="#FF2020"
                     android:textSize="@dimen/add_item_asterick"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/add_item_edit_text_category"
+                <TextView
+                    android:id="@+id/add_item_text_category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="4dp"
                     android:layout_weight="1"
                     android:background="@color/transparent"
-                    android:hint="@string/add_item_category"
-                    android:textColor="#000000"
-                    android:textColorHint="@android:color/darker_gray"
+                    android:text="@string/add_item_category"
+                    android:textColor="#AEAEAE"
+
                     android:textSize="@dimen/add_item_text" />
 
                 <ImageView
-                    android:id="@+id/imageView28"
+                    android:id="@+id/aaaaaaaaaaaaaaaaaaaa"
                     android:layout_width="20dp"
                     android:layout_height="10dp"
                     android:layout_gravity="center"
@@ -221,16 +219,18 @@
                 android:background="@color/gray_background" />
 
             <LinearLayout
+                android:id="@+id/add_item_tag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusable="false"
                 android:layout_marginLeft="@dimen/add_item_list_margin"
-                android:layout_marginRight="@dimen/add_item_list_margin"
                 android:layout_marginTop="@dimen/add_item_list_height_margin_top"
+                android:layout_marginRight="@dimen/add_item_list_margin"
                 android:layout_marginBottom="@dimen/add_item_list_height_margin"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView29"
+                    android:id="@+id/add_item_edit_text_tag_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -239,18 +239,28 @@
                     android:textSize="@dimen/add_item_asterick"
                     android:textStyle="bold" />
 
-                <EditText
+                <TextView
                     android:id="@+id/add_item_edit_text_tag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="4dp"
+                    android:background="@color/transparent"
+                    android:text="@string/add_item_tag"
+                    android:textColor="#AEAEAE"
+                    android:textSize="@dimen/add_item_text" />
+
+                <TextView
+                    android:id="@+id/add_item_edit_text_tag_extra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:background="@color/transparent"
-                    android:hint="@string/add_item_tag"
-                    android:textColor="#000000"
-                    android:textColorHint="@android:color/darker_gray"
-                    android:textSize="@dimen/add_item_text" />
+                    android:text="#사이즈 #브랜드"
+                    android:textColor="#FF2020"
+                    android:textSize="@dimen/add_item_text"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:id="@+id/imageView29"
@@ -269,12 +279,14 @@
                 android:background="@color/gray_background" />
 
             <LinearLayout
+                android:id="@+id/add_item_edit_text_description_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/add_item_list_margin"
-                android:layout_marginRight="@dimen/add_item_list_margin"
                 android:layout_marginTop="@dimen/add_item_list_height_margin_top"
+                android:layout_marginRight="@dimen/add_item_list_margin"
                 android:layout_marginBottom="@dimen/add_item_list_height_margin"
+                android:background="?attr/selectableItemBackground"
                 android:orientation="horizontal">
 
                 <TextView
@@ -294,16 +306,18 @@
                     android:layout_gravity="center"
                     android:layout_margin="4dp"
                     android:layout_weight="1"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:focusable="false"
                     android:background="@color/transparent"
-                    android:hint="@string/add_item_item_description"
                     android:textColor="#000000"
-                    android:textColorHint="@android:color/darker_gray"
+                    android:hint="@string/add_item_item_description"
                     android:textSize="@dimen/add_item_text" />
 
                 <ImageView
                     android:id="@+id/imageView30"
-                    android:layout_width="30dp"
-                    android:layout_height="20dp"
+                    android:layout_width="20dp"
+                    android:layout_height="10dp"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/my_shop_next" />
 
@@ -326,7 +340,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView31"
+                    android:id="@+id/add_item_edit_text_price_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -349,22 +363,41 @@
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/add_item_edit_text_price"
+                <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginRight="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/transparent"
-                    android:hint="0"
-                    android:inputType="phone"
-                    android:textColor="#000000"
-                    android:textColorHint="@android:color/darker_gray"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/add_item_edit_text_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginRight="4dp"
+                        android:background="@color/transparent"
+                        android:gravity="start"
+                        android:hint="0"
+                        android:inputType="phone"
+                        android:textColor="#000000"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/add_item_edit_text_price_call"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:text="연락요망"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+
 
                 <LinearLayout
                     android:id="@+id/add_item_include_delivery_fee"
@@ -437,9 +470,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/add_item_list_margin"
+                android:layout_marginTop="@dimen/add_item_list_height_margin_top"
                 android:layout_marginRight="@dimen/add_item_list_margin"
                 android:layout_marginBottom="@dimen/add_item_list_margin"
-                android:layout_marginTop="@dimen/add_item_list_height_margin_top"
                 android:orientation="horizontal">
 
                 <ImageView

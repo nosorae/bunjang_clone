@@ -86,7 +86,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
 
 
-
+        check = true
         myThread = thread {
             while(check) {
                 sleep(3000)
