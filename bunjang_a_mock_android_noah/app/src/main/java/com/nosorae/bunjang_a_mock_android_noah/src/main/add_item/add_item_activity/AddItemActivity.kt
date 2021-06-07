@@ -86,6 +86,7 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(ActivityAddItemBind
         }
 
         binding.addItemCategory.setOnClickListener {
+
             startActivityForResult(Intent(this, SelectCategoryActivity::class.java), REQUEST_CODE1)
         }
         binding.addItemTag.setOnClickListener {
